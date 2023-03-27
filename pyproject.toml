@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "pydantic-br"
+version = "0.1.0"
+description = ""
+authors = ["Jorge Silva <jorgesilva.ti@hotmail.com>"]
+readme = "README.md"
+packages = [{include = "pydantic_br"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[tool.poetry.group.dev.dependencies]
+ignr = "^2.2"
+black = "^23.1.0"
+flake8 = "^6.0.0"
+isort = "^5.12.0"
+mypy = "^1.1.1"
+pytest = "^7.2.2"
+pydantic = "^1.10.7"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
