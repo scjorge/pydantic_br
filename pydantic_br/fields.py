@@ -1,7 +1,9 @@
 from typing import Any, Callable, Dict, Generator
 
-from .utils import get_representation
 from .errors import CPFTypeError, CPFValueError
+from .utils import get_representation
+
+__all__ = ["CPF"]
 
 AnyCallable = Callable[..., Any]
 CallableGenerator = Generator[AnyCallable, None, None]
@@ -11,7 +13,7 @@ Representation = get_representation()
 class CPF(Representation):
     __slots__ = ("mask",)
 
-    def __init__(self, mask) -> None:
+    def __init__(self, mask: bool = False) -> None:
         self.mask = mask
 
     @classmethod

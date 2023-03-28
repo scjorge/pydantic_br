@@ -1,20 +1,13 @@
-from pydantic import BaseModel, validator
+from pydantic import BaseModel
 
-from pydantic_br.fields import CPF
+from pydantic_br import CPF
 
 
 class Pessoa(BaseModel):
-    nome: str
-    cpf: CPF(mask="mask1")
+    cpf: CPF()
 
 
-    # @validator("cpf", always=True)
-    # def not_valid_ip(cls, v):
-    #     raise ValueError(f'Invalid CPF:: {v}')
-
-p1 = Pessoa(cpf=True, nome='kk')
-print(p1)
-
-
-def test_cpf_criate():
-    assert 1 == 1
+def test_cpf_must_be_string():
+    cpf = '000.000.000-00'
+    p1 = Pessoa(cpf=cpf)
+    assert p1.cpf == cpf
