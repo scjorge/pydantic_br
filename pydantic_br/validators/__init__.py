@@ -1,1 +1,1 @@
-from cpf import *
+from .cpf import *

@@ -1,15 +1,21 @@
 import re
 
-__all__ = ["validate_cpf"]
+__all__ = [
+    "validate_cpf",
+    "validate_cpf_mask",
+]
 
-def _get_cpf_numbers(cpf):
+
+def validate_cpf_mask(cpf: str) -> bool:
+    if len(cpf) == 14:
+        if cpf[3:4] == "." and cpf[7:8] == "." and cpf[11:12] == "-":
+            return True
+    return False
+
+
+def validate_cpf(cpf: str) -> bool:
+
     cpf = re.sub("[^0-9]", "", str(cpf))
-
-def validate_cpf_data(cpf): ...
-
-def validate_cpf(cpf):
-
-    cpf = _get_cpf_numbers()
 
     invalid_list = [
         "00000000000",

@@ -1,17 +1,32 @@
 from ..utils import get_pydantic_type_error, get_pydantic_value_error
 
-__all__ = ["CPFValueError", "CPFTypeError"]
+__all__ = [
+    "CPFError",
+    "CPFTypeError",
+    "CPFMaskError",
+    "CPFDigitError",
+]
 
 
 PydanticValueError = get_pydantic_value_error()
 PydanticTypeError = get_pydantic_type_error()
 
 
-class CPFValueError(PydanticValueError):
+class CPFError(PydanticValueError):
     # code = "none.not_allowed"
-    msg_template = "invalid CPF format"
+    msg_template = "invalid CPF"
 
 
 class CPFTypeError(PydanticTypeError):
     # code = "none.not_allowed"
-    msg_template = "the cpf field only accepts string"
+    msg_template = "the CPF field only accepts string"
+
+
+class CPFMaskError(PydanticValueError):
+    # code = "none.not_allowed"
+    msg_template = "invalid Mask CPF format"
+
+
+class CPFDigitError(PydanticValueError):
+    # code = "none.not_allowed"
+    msg_template = "CPF filds only accept digits"
