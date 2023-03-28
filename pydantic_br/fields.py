@@ -21,10 +21,14 @@ class CPF(Representation):
         field_schema.update(type="string", format="cpf")
 
     def __get_validators__(self) -> CallableGenerator:
-        yield self.validate
+        yield self.validate_type
 
-    def validate(self, value: str) -> str:
+    def validate_type(self, value: str) -> str:
         if not isinstance(value, str):
             raise CPFTypeError()
         return value
-        raise CPFValueError()
+
+    def validate_(self, value: str) -> str:
+        if not isinstance(value, str):
+            raise CPFTypeError()
+        return value

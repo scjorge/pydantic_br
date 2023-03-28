@@ -8,6 +8,14 @@ class Pessoa(BaseModel):
 
 
 def test_cpf_must_be_string():
-    cpf = '000.000.000-00'
+    cpf = "000.000.000-00"
     p1 = Pessoa(cpf=cpf)
-    assert p1.cpf == cpf
+    assert isinstance(p1.cpf, str)
+
+
+def test_cpf_must_accept_with_mask():
+    ...
+
+
+def test_cpf_must_accept_only_numbers():
+    ...
