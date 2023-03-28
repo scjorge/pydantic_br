@@ -33,9 +33,9 @@ def test_cpf_must_accept_only_numbers():
 
 def test_must_fail_with_force_numbers_and_force_mask_togheter():
     with pytest.raises(FieldMaskNumberError) as exc_info:
+
         class Pessoa(BaseModel):
             cpf: FieldBR(CPF, force_numbers=True, force_mask=True)
 
     exception_raised = str(exc_info.value)
-    exception_msg = "you can not set force_mask and force_numbers as True togheter"
-    assert exception_raised == exception_msg
+    assert exception_raised == FieldMaskNumberError.msg_template
