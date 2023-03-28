@@ -1,10 +1,19 @@
 from typing import Any, Callable, Dict, Generator
 
-from .errors import CPFDigitError, CPFError, CPFMaskError, CPFTypeError, FieldMaskNumberError
+from .errors import (
+    CPFDigitError,
+    CPFError,
+    CPFMaskError,
+    CPFTypeError,
+    FieldMaskNumberError,
+)
 from .utils import get_representation, get_pydantic_value_error
 from .validators import validate_cpf, validate_cpf_mask
 
-__all__ = ["CPF", "FieldBR"]
+__all__ = [
+    "CPF",
+    "FieldBR",
+]
 
 AnyCallable = Callable[..., Any]
 CallableGenerator = Generator[AnyCallable, None, None]
