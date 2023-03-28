@@ -20,6 +20,12 @@ pytest = "^7.2.2"
 pydantic = "^1.10.7"
 pre-commit = "^3.2.1"
 
+[tool.isort]
+profile = "black"
+
+[tool.flake8]
+profile = "black"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
