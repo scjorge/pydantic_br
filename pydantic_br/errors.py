@@ -9,6 +9,6 @@ class CPFValueError(PydanticValueError):
     msg_template = "invalid CPF format"
 
 
-class CPFTypeError(PydanticValueError):
+class CPFTypeError(PydanticTypeError):
     # code = "none.not_allowed"
     msg_template = "the cpf field only accepts string"

@@ -1,7 +1,7 @@
 from typing import Any, Callable, Dict, Generator
 
-from .errors import CPFTypeError, CPFValueError
 from .utils import get_representation
+from .errors import CPFTypeError, CPFValueError
 
 AnyCallable = Callable[..., Any]
 CallableGenerator = Generator[AnyCallable, None, None]
