@@ -1,15 +1,19 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, validator
 
 from pydantic_br.fields import CPF
 
 
 class Pessoa(BaseModel):
+    nome: str
     cpf: CPF(mask="mask1")
-    cpf1: CPF(mask="mask2")
 
 
-p1 = Pessoa(cpf=[44], cpf1="jorge")
-print(p1.dict())
+    # @validator("cpf", always=True)
+    # def not_valid_ip(cls, v):
+    #     raise ValueError(f'Invalid CPF:: {v}')
+
+p1 = Pessoa(cpf=True, nome='kk')
+print(p1)
 
 
 def test_cpf_criate():

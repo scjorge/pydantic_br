@@ -1,5 +1,6 @@
 from typing import Any, Callable, Dict, Generator
 
+from .errors import CPFTypeError, CPFValueError
 from .utils import get_representation
 
 AnyCallable = Callable[..., Any]
@@ -7,7 +8,7 @@ CallableGenerator = Generator[AnyCallable, None, None]
 Representation = get_representation()
 
 
-class CPF:
+class CPF(Representation):
     __slots__ = ("mask",)
 
     def __init__(self, mask) -> None:
@@ -21,4 +22,7 @@ class CPF:
         yield self.validate
 
     def validate(self, value: str) -> str:
+        if not isinstance(value, str):
+            raise CPFTypeError()
         return value
+        raise CPFValueError()
