@@ -1,0 +1,25 @@
+site_name: Pydantic BR
+repo_url: https://github.com/scjorge/pydantic_br
+repo_name: scjorge/pydantic_br
+edit_uri: tree/main/docs
+
+
+theme:
+  name: material
+  language: pt-BR
+  logo: assets/logo.png
+  favicon: assets/logo.png
+
+
+markdown_extensions:
+  - attr_list
+
+
+plugins:
+- mkdocstrings:
+    handlers:
+      python:
+        paths: [pydantic_br]
+        options:
+          show_source: False
+          show_bases: False

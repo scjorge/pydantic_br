@@ -45,7 +45,7 @@ def FieldBR(
     return default
 
 
-class CPF(Representation):
+class CPF(str):
     force_mask = False
     force_numbers = False
 
