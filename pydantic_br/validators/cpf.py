@@ -14,7 +14,6 @@ def validate_cpf_mask(cpf: str) -> bool:
 
 
 def validate_cpf(cpf: str) -> bool:
-
     cpf = re.sub("[^0-9]", "", str(cpf))
 
     invalid_list = [

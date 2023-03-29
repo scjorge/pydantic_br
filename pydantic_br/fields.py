@@ -1,4 +1,4 @@
-from typing import Any, Callable, Dict, Generator
+from typing import TYPE_CHECKING, Any, Callable, Dict, Generator
 
 from .errors import (
     CPFDigitError,
@@ -7,7 +7,7 @@ from .errors import (
     CPFTypeError,
     FieldMaskNumberError,
 )
-from .utils import get_representation, get_pydantic_value_error
+from .utils import get_pydantic_value_error, get_representation
 from .validators import validate_cpf, validate_cpf_mask
 
 __all__ = [
@@ -17,14 +17,20 @@ __all__ = [
 
 AnyCallable = Callable[..., Any]
 CallableGenerator = Generator[AnyCallable, None, None]
-Representation = get_representation()
-PydanticValueError = get_pydantic_value_error()
+
+if TYPE_CHECKING:
+
+    class Representation:
+        pass
+
+else:
+    Representation = get_representation()
+    PydanticValueError = get_pydantic_value_error()
 
 
 def FieldBR(
     default: Any, *, force_mask: bool = False, force_numbers: bool = False
 ) -> Any:
-
     if force_mask and force_numbers:
         raise FieldMaskNumberError()
 

@@ -1,3 +1,5 @@
+from typing import TYPE_CHECKING
+
 from ..utils import get_pydantic_type_error, get_pydantic_value_error
 
 __all__ = [
@@ -7,9 +9,17 @@ __all__ = [
     "CPFDigitError",
 ]
 
+if TYPE_CHECKING:
 
-PydanticValueError = get_pydantic_value_error()
-PydanticTypeError = get_pydantic_type_error()
+    class PydanticValueError(ValueError):
+        ...
+
+    class PydanticTypeError(TypeError):
+        ...
+
+else:
+    PydanticValueError = get_pydantic_value_error()
+    PydanticTypeError = get_pydantic_type_error()
 
 
 class CPFError(PydanticValueError):

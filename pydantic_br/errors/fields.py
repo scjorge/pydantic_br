@@ -1,10 +1,18 @@
+from typing import TYPE_CHECKING
+
 from ..utils import get_pydantic_type_error
 
 __all__ = [
     "FieldMaskNumberError",
 ]
 
-PydanticTypeError = get_pydantic_type_error()
+if TYPE_CHECKING:
+
+    class PydanticTypeError(TypeError):
+        ...
+
+else:
+    PydanticTypeError = get_pydantic_type_error()
 
 
 class FieldMaskNumberError(PydanticTypeError):
