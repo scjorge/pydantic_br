@@ -6,7 +6,7 @@ from pydantic_br import CPF, FieldBR, FieldMaskNumberError
 
 def test_cpf_must_be_string():
     class Pessoa(BaseModel):
-        cpf: FieldBR(CPF)
+        cpf: FieldBR(CPF).f()
 
     cpf = "14463381851"
     p1 = Pessoa(cpf=cpf)
@@ -15,7 +15,7 @@ def test_cpf_must_be_string():
 
 def test_cpf_must_accept_with_mask():
     class Pessoa(BaseModel):
-        cpf: FieldBR(CPF, force_mask=True)
+        cpf: FieldBR(CPF, force_mask=True).f()
 
     cpf = "144.633.818-51"
     p1 = Pessoa(cpf=cpf)
@@ -24,7 +24,7 @@ def test_cpf_must_accept_with_mask():
 
 def test_cpf_must_accept_only_numbers():
     class Pessoa(BaseModel):
-        cpf: FieldBR(CPF, force_numbers=True)
+        cpf: FieldBR(CPF, force_numbers=True).f()
 
     cpf = "14463381851"
     p1 = Pessoa(cpf=cpf)
@@ -35,7 +35,7 @@ def test_must_fail_with_force_numbers_and_force_mask_togheter():
     with pytest.raises(FieldMaskNumberError) as exc_info:
 
         class Pessoa(BaseModel):
-            cpf: FieldBR(CPF, force_numbers=True, force_mask=True)
+            cpf: FieldBR(CPF, force_numbers=True, force_mask=True).f()
 
     exception_raised = str(exc_info.value)
     assert exception_raised == FieldMaskNumberError.msg_template

@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Callable, Dict, Generator
+from typing import Any, Callable, Dict, Generator
 
 from .errors import (
     CPFDigitError,
@@ -7,48 +7,42 @@ from .errors import (
     CPFTypeError,
     FieldMaskNumberError,
 )
-from .utils import get_pydantic_value_error, get_representation
 from .validators import validate_cpf, validate_cpf_mask
 
 __all__ = [
     "CPF",
+    "CPFMask",
+    "CPFDigits",
     "FieldBR",
 ]
 
 AnyCallable = Callable[..., Any]
 CallableGenerator = Generator[AnyCallable, None, None]
 
-if TYPE_CHECKING:
 
-    class Representation:
-        pass
+class FieldBR:
+    def __init__(
+        self, default: Any, *, force_mask: bool = False, force_numbers: bool = False
+    ) -> Any:
+        self.default = default
+        if force_mask and force_numbers:
+            raise FieldMaskNumberError()
 
-else:
-    Representation = get_representation()
-    PydanticValueError = get_pydantic_value_error()
+        settings = [
+            ("force_mask", force_mask),
+            ("force_numbers", force_numbers),
+        ]
 
+        for setting in settings:
+            if setting[0] in dir(default):
+                setattr(default, setting[0], setting[1])
+        # return default
 
-def FieldBR(
-    default: Any, *, force_mask: bool = False, force_numbers: bool = False
-) -> Any:
-    if force_mask and force_numbers:
-        raise FieldMaskNumberError()
-
-    settings = [
-        ("force_mask", force_mask),
-        ("force_numbers", force_numbers),
-    ]
-
-    for setting in settings:
-        if setting[0] in dir(default):
-            setattr(default, setting[0], setting[1])
-    return default
+    def f(self: Any) -> Any:
+        return self.default
 
 
-class CPF(str):
-    force_mask = False
-    force_numbers = False
-
+class CPFBase(str):
     __slots__ = ["number"]
 
     def __init__(self, number: str) -> None:
@@ -59,13 +53,6 @@ class CPF(str):
         field_schema.update(type="string", format="cpf")
 
     @classmethod
-    def __get_validators__(cls) -> CallableGenerator:
-        yield cls.validate_type
-        yield cls.validate_mask
-        yield cls.validate_numbers
-        yield cls.validate
-
-    @classmethod
     def validate_type(cls, value: str) -> str:
         if not isinstance(value, str):
             raise CPFTypeError()
@@ -73,16 +60,14 @@ class CPF(str):
 
     @classmethod
     def validate_mask(cls, value: str) -> str:
-        if cls.force_mask:
-            if not validate_cpf_mask(value):
-                raise CPFMaskError()
+        if not validate_cpf_mask(value):
+            raise CPFMaskError()
         return value
 
     @classmethod
     def validate_numbers(cls, value: str) -> str:
-        if cls.force_numbers:
-            if not value.isdigit():
-                raise CPFDigitError()
+        if not value.isdigit():
+            raise CPFDigitError()
         return value
 
     @classmethod
@@ -90,3 +75,26 @@ class CPF(str):
         if not validate_cpf(value):
             raise CPFError()
         return value
+
+
+class CPF(CPFBase):
+    @classmethod
+    def __get_validators__(cls) -> CallableGenerator:
+        yield cls.validate_type
+        yield cls.validate
+
+
+class CPFMask(CPFBase):
+    @classmethod
+    def __get_validators__(cls) -> CallableGenerator:
+        yield cls.validate_type
+        yield cls.validate_mask
+        yield cls.validate
+
+
+class CPFDigits(CPFBase):
+    @classmethod
+    def __get_validators__(cls) -> CallableGenerator:
+        yield cls.validate_type
+        yield cls.validate_numbers
+        yield cls.validate
