@@ -1,2 +1,3 @@
 from .errors import *
-from .fields import *
+from .fields.cnpj import *
+from .fields.cpf import *

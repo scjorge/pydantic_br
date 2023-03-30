@@ -20,11 +20,7 @@ class PydanticTypeError(PydanticErrorMixin, TypeError):
     ...
 
 
-class FieldMaskNumberError(PydanticTypeError):
-    msg_template = "you can not set force_mask and force_numbers as True togheter"
-
-
-class CPFError(PydanticValueError):
+class CPFInvalidError(PydanticValueError):
     msg_template = "invalid CPF"
 
 
@@ -38,3 +34,19 @@ class CPFMaskError(PydanticValueError):
 
 class CPFDigitError(PydanticValueError):
     msg_template = "CPF filds only accept digits"
+
+
+class CNPJInvalidError(PydanticValueError):
+    msg_template = "invalid CNPJ"
+
+
+class CNPJTypeError(PydanticTypeError):
+    msg_template = "the CNPJ field only accepts string"
+
+
+class CNPJMaskError(PydanticValueError):
+    msg_template = "invalid Mask CNPJ format"
+
+
+class CNPJDigitError(PydanticValueError):
+    msg_template = "CNPJ filds only accept digits"

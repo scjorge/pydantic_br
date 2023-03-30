@@ -1,7 +1,7 @@
 [flake8]
 #max-line-length = 120
 exclude = .venv, docs, .vscode, pychache, .git, __pycache__, __init__.py, .mypy_cache, .pytest_cache
-ignore = E501
+ignore = E501, W503
 # E501: Line too long
 # W503: Line break occurred before binary operator
 # E226: Missing white space around arithmetic operator

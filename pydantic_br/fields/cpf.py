@@ -1,45 +1,16 @@
 from typing import Any, Callable, Dict, Generator
 
-from .errors import (
-    CPFDigitError,
-    CPFError,
-    CPFMaskError,
-    CPFTypeError,
-    FieldMaskNumberError,
-)
-from .validators import validate_cpf, validate_cpf_mask
+from ..errors import CPFDigitError, CPFInvalidError, CPFMaskError, CPFTypeError
+from ..validators import validate_cpf, validate_cpf_mask
 
 __all__ = [
     "CPF",
     "CPFMask",
     "CPFDigits",
-    "FieldBR",
 ]
 
 AnyCallable = Callable[..., Any]
 CallableGenerator = Generator[AnyCallable, None, None]
-
-
-class FieldBR:
-    def __init__(
-        self, default: Any, *, force_mask: bool = False, force_numbers: bool = False
-    ) -> Any:
-        self.default = default
-        if force_mask and force_numbers:
-            raise FieldMaskNumberError()
-
-        settings = [
-            ("force_mask", force_mask),
-            ("force_numbers", force_numbers),
-        ]
-
-        for setting in settings:
-            if setting[0] in dir(default):
-                setattr(default, setting[0], setting[1])
-        # return default
-
-    def f(self: Any) -> Any:
-        return self.default
 
 
 class CPFBase(str):
@@ -59,21 +30,9 @@ class CPFBase(str):
         return value
 
     @classmethod
-    def validate_mask(cls, value: str) -> str:
-        if not validate_cpf_mask(value):
-            raise CPFMaskError()
-        return value
-
-    @classmethod
-    def validate_numbers(cls, value: str) -> str:
-        if not value.isdigit():
-            raise CPFDigitError()
-        return value
-
-    @classmethod
     def validate(cls, value: str) -> str:
         if not validate_cpf(value):
-            raise CPFError()
+            raise CPFInvalidError()
         return value
 
 
@@ -91,6 +50,12 @@ class CPFMask(CPFBase):
         yield cls.validate_mask
         yield cls.validate
 
+    @classmethod
+    def validate_mask(cls, value: str) -> str:
+        if not validate_cpf_mask(value):
+            raise CPFMaskError()
+        return value
+
 
 class CPFDigits(CPFBase):
     @classmethod
@@ -98,3 +63,9 @@ class CPFDigits(CPFBase):
         yield cls.validate_type
         yield cls.validate_numbers
         yield cls.validate
+
+    @classmethod
+    def validate_numbers(cls, value: str) -> str:
+        if not value.isdigit():
+            raise CPFDigitError()
+        return value
