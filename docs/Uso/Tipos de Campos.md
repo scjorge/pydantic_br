@@ -1,13 +1,15 @@
-Os tipos de campos disponíveis são extensões da biblioteca [Pydantic](https://docs.pydantic.dev/).
+Os tipos de campos disponíveis são extensões para a biblioteca [Pydantic](https://docs.pydantic.dev/).
+
 
 ## Descrições
-*pydantic_br* possui campos brasileiros de validação. Todos os campos serão tratados como `string`, mas recebem as validações de cálculos e máscaras.
+Todos os campos serão tratados como `string`, mas recebem as validações de cálculos e máscaras.
 
 Os exemplos de dados exemplificados foram tirados dos seguintes sites:
 
 
 - [geradordecpf](https://www.geradordecpf.org/). 
 - [4devs](https://www.4devs.com.br/gerador_de_cnpj)
+
 
 
 [`CPF`](#cpf):
@@ -23,6 +25,9 @@ Aceita apenas uma `string` CPF com máscara. Ex: 605.566.581-67
 [`CPFDigits`](#cpfdigits):
 
 Aceita apenas uma `string` CPF com digitos. Ex: 61650624409
+
+
+---
 
 
 [`CNPJ`](#cnpj):
