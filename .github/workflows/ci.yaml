@@ -42,10 +42,6 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./pydantic_br
-        
     steps:
       - name: Action Checkout
         uses: actions/checkout@v3
@@ -62,5 +58,4 @@ jobs:
         run: poetry install --only test
       
       - name: pytest
-        #run: poetry run pytest
-        run: ls
+        run: poetry run pytest
