@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - '**'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./pydantic_br
+        
+    steps:
+      - name: Action Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install Poetry
+        uses: Gr1N/setup-poetry@v8
+
+      - name: Install dependencies
+        run: poetry install --only lint
+          
+      - name: black
+        run: poetry run black --check library
+
+      - name: isort
+        run: poetry run isort --check library
+
+      - name: flake8
+        run: poetry run flake8 library
+
+
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./pydantic_br
+        
+    steps:
+      - name: Action Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install Poetry
+        uses: Gr1N/setup-poetry@v8
+      
+      - name: Install dependencies
+        run: poetry install --only test
+      
+      - name: pytest
+        run: poetry run pytest
