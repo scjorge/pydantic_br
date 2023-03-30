@@ -33,6 +33,7 @@ mypy = "^1.1.1"
 pytest = "^7.2.2"
 pytest-cov = "^4.0.0"
 faker = "^18.3.1"
+pydantic = "^1.10.7"
 
 [tool.isort]
 profile = "black"
