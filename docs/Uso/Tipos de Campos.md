@@ -11,7 +11,6 @@ Os exemplos de dados exemplificados foram tirados dos seguintes sites:
 - [4devs](https://www.4devs.com.br/gerador_de_cnpj)
 
 
-
 [`CPF`](#cpf):
 
 Aceita uma `string` CPF com ou sem máscara. Ex: 61650624409, 605.566.581-67
@@ -46,6 +45,7 @@ Aceita apenas uma `string` CNPJ com digitos. Ex: 42809023000191
 
 
 
+# Campos
 ## CPF
 
 O campo CPF aceita a string com ou sem máscara. 
