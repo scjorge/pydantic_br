@@ -1,11 +1,6 @@
 from typing import Any, Callable, Dict, Generator
 
-from ..errors.cpf_erros import (
-    CNPJDigitError,
-    CNPJInvalidError,
-    CNPJMaskError,
-    CNPJTypeError,
-)
+from ..field_erros import CNPJDigitError, CNPJInvalidError, CNPJMaskError, CNPJTypeError
 from ..validators.cnpj_validator import validate_cnpj, validate_cnpj_mask
 
 __all__ = [

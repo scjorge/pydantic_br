@@ -1,11 +1,6 @@
 from typing import Any, Callable, Dict, Generator
 
-from ..errors.cpf_erros import (
-    CPFDigitError,
-    CPFInvalidError,
-    CPFMaskError,
-    CPFTypeError,
-)
+from ..field_erros import CPFDigitError, CPFInvalidError, CPFMaskError, CPFTypeError
 from ..validators.cpf_validator import validate_cpf, validate_cpf_mask
 
 __all__ = [

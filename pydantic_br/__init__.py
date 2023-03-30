@@ -1,6 +1,6 @@
 from typing import TYPE_CHECKING
 
-from .errors.cpf_erros import *
+from .field_erros import *
 
 if TYPE_CHECKING:
     CPF = str
