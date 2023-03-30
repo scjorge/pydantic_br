@@ -37,8 +37,8 @@ jobs:
         run: poetry run isort --check .
 
       - name: flake8
-        run: poetry run flake8 pydantic_br
-
+        run: poetry run flake8 .
+        
 
   test:
     needs: [lint]
