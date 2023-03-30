@@ -8,26 +8,32 @@ repos:
         language: system
         types: [python]
 
--   repo: local
-    hooks:
+
     -   id: isort
         name: isort
         entry: poetry -C pydantic_br run isort --check pydantic_br
         language: system
         types: [python]
 
-# -   repo: local
-#     hooks:
+
 #     -   id: mypy
 #         name: mypy
 #         entry: poetry -C pydantic_br run mypy
 #         language: system
 #         types: [python]
 
--   repo: local
-    hooks:
+
     -   id: flake8
         name: flake8
         entry: poetry -C pydantic_br run flake8
         language: system
         types: [python]
+    
+    
+    # -   id: pytest
+    #     name: pytest
+    #     entry: poetry -C pydantic_br run pytest tests --cov=tests -vvvvv
+    #     language: system
+    #     types: [python]
+    #     pass_filenames: false
+    #     always_run: true
