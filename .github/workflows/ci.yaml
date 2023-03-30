@@ -31,16 +31,17 @@ jobs:
         run: poetry install --only lint
           
       - name: black
-        run: poetry run black --check library
+        run: poetry run black --check pydantic_br
 
       - name: isort
-        run: poetry run isort --check library
+        run: poetry run isort --check pydantic_br
 
       - name: flake8
-        run: poetry run flake8 library
+        run: poetry run flake8 pydantic_br
 
 
   test:
+    needs: [lint]
     runs-on: ubuntu-latest
     defaults:
       run:
