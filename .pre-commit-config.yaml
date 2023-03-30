@@ -25,16 +25,15 @@ repos:
 
     -   id: mypy
         name: mypy
-        #entry: poetry -C pydantic_br run mypy
-        entry: ls
+        entry: poetry -C pydantic_br run mypy
         language: system
         types: [python]
 
 
--   repo: local
-    hooks:
-    -   id: requirements
-        name: requirements
-        entry: poetry -C pydantic_br export --only lint > requirements/lint.txt
-        language: system
-        types: [python]
+# -   repo: local
+#     hooks:
+#     -   id: requirements
+#         name: requirements
+#         entry: poetry -C pydantic_br export --only lint --output requirements/lint.txt
+#         language: system
+#         types: [python]

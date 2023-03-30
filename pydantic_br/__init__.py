@@ -1,3 +1,14 @@
-from .errors import *
-from .fields.cnpj import *
-from .fields.cpf import *
+from typing import TYPE_CHECKING
+
+from .errors.cpf_erros import *
+
+if TYPE_CHECKING:
+    CPF = str
+    CPFMask = str
+    CPFDigits = str
+    CNPJ = str
+    CNPJDigits = str
+    CNPJMask = str
+else:
+    from .fields.cnpj_field import *
+    from .fields.cpf_field import *

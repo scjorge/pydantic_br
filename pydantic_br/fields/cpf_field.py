@@ -1,20 +1,24 @@
 from typing import Any, Callable, Dict, Generator
 
-from ..errors import CNPJDigitError, CNPJInvalidError, CNPJMaskError, CNPJTypeError
-from ..validators import validate_cnpj, validate_cnpj_mask
+from ..errors.cpf_erros import (
+    CPFDigitError,
+    CPFInvalidError,
+    CPFMaskError,
+    CPFTypeError,
+)
+from ..validators.cpf_validator import validate_cpf, validate_cpf_mask
 
 __all__ = [
-    "CNPJ",
-    "CNPJMask",
-    "CNPJDigits",
+    "CPF",
+    "CPFMask",
+    "CPFDigits",
 ]
-
 
 AnyCallable = Callable[..., Any]
 CallableGenerator = Generator[AnyCallable, None, None]
 
 
-class CNPJBase(str):
+class CPFBase(str):
     __slots__ = ["number"]
 
     def __init__(self, number: str) -> None:
@@ -27,24 +31,24 @@ class CNPJBase(str):
     @classmethod
     def validate_type(cls, value: str) -> str:
         if not isinstance(value, str):
-            raise CNPJTypeError()
+            raise CPFTypeError()
         return value
 
     @classmethod
     def validate(cls, value: str) -> str:
-        if not validate_cnpj(value):
-            raise CNPJInvalidError()
+        if not validate_cpf(value):
+            raise CPFInvalidError()
         return value
 
 
-class CNPJ(CNPJBase):
+class CPF(CPFBase):
     @classmethod
     def __get_validators__(cls) -> CallableGenerator:
         yield cls.validate_type
         yield cls.validate
 
 
-class CNPJMask(CNPJBase):
+class CPFMask(CPFBase):
     @classmethod
     def __get_validators__(cls) -> CallableGenerator:
         yield cls.validate_type
@@ -53,12 +57,12 @@ class CNPJMask(CNPJBase):
 
     @classmethod
     def validate_mask(cls, value: str) -> str:
-        if not validate_cnpj_mask(value):
-            raise CNPJMaskError()
+        if not validate_cpf_mask(value):
+            raise CPFMaskError()
         return value
 
 
-class CNPJDigits(CNPJBase):
+class CPFDigits(CPFBase):
     @classmethod
     def __get_validators__(cls) -> CallableGenerator:
         yield cls.validate_type
@@ -68,5 +72,5 @@ class CNPJDigits(CNPJBase):
     @classmethod
     def validate_numbers(cls, value: str) -> str:
         if not value.isdigit():
-            raise CNPJDigitError()
+            raise CPFDigitError()
         return value
