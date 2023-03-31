@@ -5,10 +5,11 @@ from pydantic_br import CNPJDigits
 
 class Empresa(BaseModel):
     cnpj: CNPJDigits
+    cdnpj: CNPJDigits
     nome: str
 
 
-e1 = Empresa(nome="Empresa 2", cnpj="42809023000191")
+e1 = Empresa(nome="Empresa 2", cnpj="4280902300019-1", cdnpj="jj")
 
 
 print(e1)

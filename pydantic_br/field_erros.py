@@ -1,4 +1,4 @@
-from typing import Any
+from pydantic import PydanticTypeError, PydanticValueError
 
 __all__ = [
     "FieldTypeError",
@@ -6,25 +6,6 @@ __all__ = [
     "FieldDigitError",
     "FieldInvalidError",
 ]
-
-
-class PydanticErrorMixin:
-    code: str
-    msg_template: str
-
-    def __init__(self, **ctx: Any) -> None:
-        self.__dict__ = ctx
-
-    def __str__(self) -> str:
-        return self.msg_template.format(**self.__dict__)
-
-
-class PydanticValueError(PydanticErrorMixin, ValueError):
-    ...
-
-
-class PydanticTypeError(PydanticErrorMixin, TypeError):
-    ...
 
 
 class FieldTypeError(PydanticTypeError):
