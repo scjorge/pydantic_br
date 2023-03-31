@@ -21,6 +21,7 @@ mkdocstrings = "^0.20.0"
 mkdocstrings-python = "^0.8.3"
 mkdocs-material = "^9.1.4"
 pymdown-extensions = "^9.10"
+mkdocs = "^1.4.2"
 
 
 [tool.poetry.group.lint.dependencies]
