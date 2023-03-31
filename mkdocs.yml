@@ -25,6 +25,8 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Modo claro
+  features:
+    - content.code.copy
       
   language: pt-BR
   logo: assets/logo.png
