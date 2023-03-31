@@ -4,7 +4,9 @@ Esses repositorio tem como objetivo disponibilizar validações Brasileiras para
 
 ## Disponibilidades
 
-*pydantic_br* possui os seguintes campos brasileiros de validação. 
+*pydantic_br* possui os seguintes campos brasileiros de validação.
+
+Descrições detalhadas [aqui](usage/descriptions.md).
 
 | Campo | Grupo de Documentos | Nome do Documento | Método de validação
 |---|---|---|---|

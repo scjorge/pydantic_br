@@ -1,8 +1,6 @@
 Os tipos de campos disponíveis são extensões para a biblioteca [Pydantic](https://docs.pydantic.dev/).
 
 
-Descrições
----
 Todos os campos serão tratados como `string`, mas recebem as validações de cálculos e máscaras.
 
 Os exemplos de dados exemplificados foram tirados dos seguintes sites:
@@ -14,6 +12,8 @@ Os exemplos de dados exemplificados foram tirados dos seguintes sites:
 
 ---
 Pessoa física
+
+Para validação do CPF é utilizado o cálculo de digito verificador conforme a [Receita Fereral](https://www.gov.br/receitafederal/pt-br)
 
 [`CPF`](../field_types/#cpf):
 
@@ -32,6 +32,8 @@ Aceita apenas uma `string` CPF com digitos. Ex: 61650624409
 
 ---
 Pessoa Jurídica
+
+Para validação do CNPJ é utilizado o cálculo de digito verificador conforme o [Gov](https://www.gov.br/receitafederal/pt-br/servicos/cadastro/cnpj)
 
 [`CNPJ`](../field_types/#cnpj):
 

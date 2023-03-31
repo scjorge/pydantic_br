@@ -1,7 +1,7 @@
 site_name: Pydantic BR
 repo_url: https://github.com/scjorge/pydantic_br
 repo_name: scjorge/pydantic_br
-edit_uri: tree/main/docs
+edit_uri: tree/master/docs
 
 nav:
   - Início: index.md
@@ -43,6 +43,7 @@ markdown_extensions:
 
 
 plugins:
+#- git-revision-date
 - mkdocstrings:
     handlers:
       python:
