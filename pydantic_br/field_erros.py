@@ -33,7 +33,7 @@ class FieldTypeError(PydanticTypeError):
 
 
 class FieldMaskError(PydanticValueError):
-    msg_template = "invalid Mask format"
+    msg_template = "invalid mask format"
 
 
 class FieldDigitError(PydanticValueError):
