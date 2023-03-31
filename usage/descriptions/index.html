@@ -72,6 +72,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#pessoa-fisica" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -264,9 +269,45 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Descrições
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Descrições
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pessoa-fisica" class="md-nav__link">
+    Pessoa Física
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pessoa-juridica" class="md-nav__link">
+    Pessoa Jurídica
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -315,21 +356,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../maintainer/" class="md-nav__link">
-        Mantenedor
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../changelog/" class="md-nav__link">
         Notas de versão
       </a>
@@ -355,6 +381,28 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pessoa-fisica" class="md-nav__link">
+    Pessoa Física
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pessoa-juridica" class="md-nav__link">
+    Pessoa Jurídica
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -377,11 +425,12 @@
 <p>Todos os campos serão tratados como <code>string</code>, mas recebem as validações de cálculos e máscaras.</p>
 <p>Os exemplos de dados exemplificados foram tirados dos seguintes sites:</p>
 <ul>
-<li><a href="https://www.geradordecpf.org/">geradordecpf</a>. </li>
+<li><a href="https://www.geradordecpf.org/">geradordecpf</a></li>
 <li><a href="https://www.4devs.com.br/gerador_de_cnpj">4devs</a></li>
 </ul>
 <hr />
-<p>Pessoa física</p>
+<h2 id="pessoa-fisica">Pessoa Física</h2>
+<p>Para validação do CPF é utilizado o cálculo de digito verificador conforme a <a href="https://www.gov.br/receitafederal/pt-br">Receita Fereral</a></p>
 <p><a href="../field_types/#cpf"><code>CPF</code></a>:</p>
 <p>Aceita uma <code>string</code> CPF com ou sem máscara. Ex: 61650624409, 605.566.581-67</p>
 <p><a href="../field_types/#cpfmask"><code>CPFMask</code></a>:</p>
@@ -389,7 +438,8 @@
 <p><a href="../field_types/#cpfdigits"><code>CPFDigits</code></a>:</p>
 <p>Aceita apenas uma <code>string</code> CPF com digitos. Ex: 61650624409</p>
 <hr />
-<p>Pessoa Jurídica</p>
+<h2 id="pessoa-juridica">Pessoa Jurídica</h2>
+<p>Para validação do CNPJ é utilizado o cálculo de digito verificador conforme o <a href="https://www.gov.br/receitafederal/pt-br/servicos/cadastro/cnpj">Gov</a></p>
 <p><a href="../field_types/#cnpj"><code>CNPJ</code></a>:</p>
 <p>Aceita uma <code>string</code> CNPJ com ou sem máscara. Ex: 42809023000191, 42.809.023/0001-91</p>
 <p><a href="../field_types/#cnpjmask"><code>CNPJMask</code></a>:</p>
