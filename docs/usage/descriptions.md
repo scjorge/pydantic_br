@@ -6,12 +6,12 @@ Todos os campos serão tratados como `string`, mas recebem as validações de c�
 Os exemplos de dados exemplificados foram tirados dos seguintes sites:
 
 
-- [geradordecpf](https://www.geradordecpf.org/). 
+- [geradordecpf](https://www.geradordecpf.org/)
 - [4devs](https://www.4devs.com.br/gerador_de_cnpj)
 
 
 ---
-Pessoa física
+## Pessoa Física
 
 Para validação do CPF é utilizado o cálculo de digito verificador conforme a [Receita Fereral](https://www.gov.br/receitafederal/pt-br)
 
@@ -31,7 +31,8 @@ Aceita apenas uma `string` CPF com digitos. Ex: 61650624409
 
 
 ---
-Pessoa Jurídica
+
+## Pessoa Jurídica
 
 Para validação do CNPJ é utilizado o cálculo de digito verificador conforme o [Gov](https://www.gov.br/receitafederal/pt-br/servicos/cadastro/cnpj)
 

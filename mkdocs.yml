@@ -43,7 +43,6 @@ markdown_extensions:
 
 
 plugins:
-#- git-revision-date
 - mkdocstrings:
     handlers:
       python:
