@@ -56,6 +56,9 @@ jobs:
       
       - name: Install Poetry
         uses: Gr1N/setup-poetry@v8
+        
+      - name: Deactivate virtal env Poetry
+        run: poetry config virtualenvs.create false
       
       - name: Install dependencies
         run: poetry install --only test
