@@ -1,8 +1,8 @@
 from typing import Any, Callable, Dict, Generator
 
 from ..field_erros import (
-    CNPJInvalidError,
     FieldDigitError,
+    FieldInvalidError,
     FieldMaskError,
     FieldTypeError,
 )
@@ -38,7 +38,7 @@ class CNPJBase(str):
     @classmethod
     def validate(cls, value: str) -> str:
         if not validate_cnpj(value):
-            raise CNPJInvalidError()
+            raise FieldInvalidError()
         return value
 
 

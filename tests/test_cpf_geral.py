@@ -7,9 +7,9 @@ from pydantic import BaseModel, ValidationError
 from pydantic_br import (
     CPF,
     CPFDigits,
-    CPFInvalidError,
     CPFMask,
     FieldDigitError,
+    FieldInvalidError,
     FieldMaskError,
     FieldTypeError,
 )
@@ -113,4 +113,4 @@ def test_must_fail_when_use_another_type(person_digits, cpf):
 def test_must_fail_when_use_invalid_cpfs(person, cpf):
     with pytest.raises(ValidationError) as e:
         person(cpf=cpf[-1])
-    assert CPFInvalidError.msg_template in str(e.value)
+    assert FieldInvalidError.msg_template in str(e.value)

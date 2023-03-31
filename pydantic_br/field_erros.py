@@ -4,8 +4,7 @@ __all__ = [
     "FieldTypeError",
     "FieldMaskError",
     "FieldDigitError",
-    "CPFInvalidError",
-    "CNPJInvalidError",
+    "FieldInvalidError",
 ]
 
 
@@ -40,9 +39,5 @@ class FieldDigitError(PydanticValueError):
     msg_template = "field only accept digits as string"
 
 
-class CPFInvalidError(PydanticValueError):
-    msg_template = "invalid CPF"
-
-
-class CNPJInvalidError(PydanticValueError):
-    msg_template = "invalid CNPJ"
+class FieldInvalidError(PydanticValueError):
+    msg_template = "invalid data"

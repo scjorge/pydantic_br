@@ -1,8 +1,8 @@
 from typing import Any, Callable, Dict, Generator
 
 from ..field_erros import (
-    CPFInvalidError,
     FieldDigitError,
+    FieldInvalidError,
     FieldMaskError,
     FieldTypeError,
 )
@@ -37,7 +37,7 @@ class CPFBase(str):
     @classmethod
     def validate(cls, value: str) -> str:
         if not validate_cpf(value):
-            raise CPFInvalidError()
+            raise FieldInvalidError()
         return value
 
 
