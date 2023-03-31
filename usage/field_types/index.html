@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../../install/">
+        <link rel="prev" href="../descriptions/">
       
       
-        <link rel="next" href="../../maintainer/">
+        <link rel="next" href="../exceptions/">
       
       <link rel="icon" href="../../assets/logo.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.4">
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#descricoes" class="md-skip">
+        <a href="#cpf" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -260,6 +260,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../descriptions/" class="md-nav__link">
+        Descrições
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -292,29 +306,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#descricoes" class="md-nav__link">
-    Descrições
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#campos" class="md-nav__link">
-    Campos
-  </a>
-  
-    <nav class="md-nav" aria-label="Campos">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#cpf" class="md-nav__link">
     CPF
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#cpfmask" class="md-nav__link">
+    CPFMask
+  </a>
   
 </li>
       
@@ -322,6 +323,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exceptions/" class="md-nav__link">
+        Exceções
+      </a>
     </li>
   
 
@@ -388,29 +403,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#descricoes" class="md-nav__link">
-    Descrições
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#campos" class="md-nav__link">
-    Campos
-  </a>
-  
-    <nav class="md-nav" aria-label="Campos">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#cpf" class="md-nav__link">
     CPF
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#cpfmask" class="md-nav__link">
+    CPFMask
+  </a>
   
 </li>
       
@@ -432,30 +434,10 @@
   
 
 
-<p>Os tipos de campos disponíveis são extensões para a biblioteca <a href="https://docs.pydantic.dev/">Pydantic</a>.</p>
-<h2 id="descricoes">Descrições</h2>
-<p>Todos os campos serão tratados como <code>string</code>, mas recebem as validações de cálculos e máscaras.</p>
-<p>Os exemplos de dados exemplificados foram tirados dos seguintes sites:</p>
-<ul>
-<li><a href="https://www.geradordecpf.org/">geradordecpf</a>. </li>
-<li><a href="https://www.4devs.com.br/gerador_de_cnpj">4devs</a></li>
-</ul>
-<p><a href="#cpf"><code>CPF</code></a>:</p>
-<p>Aceita uma <code>string</code> CPF com ou sem máscara. Ex: 61650624409, 605.566.581-67</p>
-<p><a href="#cpfmask"><code>CPFMask</code></a>:</p>
-<p>Aceita apenas uma <code>string</code> CPF com máscara. Ex: 605.566.581-67</p>
-<p><a href="#cpfdigits"><code>CPFDigits</code></a>:</p>
-<p>Aceita apenas uma <code>string</code> CPF com digitos. Ex: 61650624409</p>
-<hr />
-<p><a href="#cnpj"><code>CNPJ</code></a>:</p>
-<p>Aceita uma <code>string</code> CNPJ com ou sem máscara. Ex: 42809023000191, 42.809.023/0001-91</p>
-<p><a href="#cnpjmask"><code>CNPJMask</code></a>:</p>
-<p>Aceita apenas uma <code>string</code> CNPJ com máscara. Ex: 42.809.023/0001-91</p>
-<p><a href="#cnpjdigits"><code>CNPJDigits</code></a>:</p>
-<p>Aceita apenas uma <code>string</code> CNPJ com digitos. Ex: 42809023000191</p>
-<h1 id="campos">Campos</h1>
+  <h1>Campos</h1>
+
 <h2 id="cpf">CPF</h2>
-<p>O campo CPF aceita a string com ou sem máscara. </p>
+<p>Exemplo de utilização:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -514,6 +496,48 @@
 <span class="c1"># &gt; {&#39;cpf&#39;: &#39;53221394780&#39;, &#39;nome&#39;: &#39;Maria&#39;}</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">p2</span><span class="o">.</span><span class="n">schema</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;title&#39;: &#39;Pessoa&#39;, &#39;type&#39;: &#39;object&#39;, &#39;properties&#39;: {&#39;cpf&#39;: {&#39;title&#39;: &#39;Cpf&#39;, &#39;type&#39;: &#39;string&#39;, &#39;format&#39;: &#39;cpf&#39;}, &#39;nome&#39;: {&#39;title&#39;: &#39;Nome&#39;, &#39;type&#39;: &#39;string&#39;}}, &#39;required&#39;: [&#39;cpf&#39;, &#39;nome&#39;]}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="cpfmask">CPFMask</h2>
+<p>Exemplo de utilização:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="kn">from</span> <span class="nn">pydantic_br</span> <span class="kn">import</span> <span class="n">CPFMask</span>
+
+
+<span class="k">class</span> <span class="nc">Pessoa</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">cpf</span><span class="p">:</span> <span class="n">CPFMask</span>
+    <span class="n">nome</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Pessoa</span><span class="p">(</span><span class="n">nome</span><span class="o">=</span><span class="s2">&quot;João&quot;</span><span class="p">,</span> <span class="n">cpf</span><span class="o">=</span><span class="s2">&quot;532.213.947-80&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+<span class="c1"># &gt; cpf=&#39;532.213.947-80&#39; nome=&#39;João&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;cpf&#39;: &#39;532.213.947-80&#39;, &#39;nome&#39;: &#39;João&#39;}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">schema</span><span class="p">())</span>
 <span class="c1"># &gt; {&#39;title&#39;: &#39;Pessoa&#39;, &#39;type&#39;: &#39;object&#39;, &#39;properties&#39;: {&#39;cpf&#39;: {&#39;title&#39;: &#39;Cpf&#39;, &#39;type&#39;: &#39;string&#39;, &#39;format&#39;: &#39;cpf&#39;}, &#39;nome&#39;: {&#39;title&#39;: &#39;Nome&#39;, &#39;type&#39;: &#39;string&#39;}}, &#39;required&#39;: [&#39;cpf&#39;, &#39;nome&#39;]}</span>
 </code></pre></div></td></tr></table></div>
 
