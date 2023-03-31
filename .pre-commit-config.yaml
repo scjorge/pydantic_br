@@ -25,6 +25,7 @@ repos:
 
     -   id: mypy
         name: mypy
+        exclude: "docs*"
         entry: poetry -C pydantic_br run mypy
         language: system
         types: [python]

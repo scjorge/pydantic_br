@@ -6,8 +6,10 @@ edit_uri: tree/main/docs
 nav:
   - Início: index.md
   - Instalação: install.md
-  - Utilização: 
+  - Utilização:
+    - Descrições: usage/descriptions.md
     - Campos: usage/field_types.md
+    - Exceções: usage/exceptions.md
   - Mantenedor: maintainer.md
   - Notas de versão: changelog.md
 
