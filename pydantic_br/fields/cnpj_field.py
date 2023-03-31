@@ -1,6 +1,11 @@
 from typing import Any, Callable, Dict, Generator
 
-from ..field_erros import CNPJDigitError, CNPJInvalidError, CNPJMaskError, CNPJTypeError
+from ..field_erros import (
+    CNPJInvalidError,
+    FieldDigitError,
+    FieldMaskError,
+    FieldTypeError,
+)
 from ..validators.cnpj_validator import validate_cnpj, validate_cnpj_mask
 
 __all__ = [
@@ -27,7 +32,7 @@ class CNPJBase(str):
     @classmethod
     def validate_type(cls, value: str) -> str:
         if not isinstance(value, str):
-            raise CNPJTypeError()
+            raise FieldTypeError()
         return value
 
     @classmethod
@@ -68,7 +73,7 @@ class CNPJMask(CNPJBase):
     @classmethod
     def validate_mask(cls, value: str) -> str:
         if not validate_cnpj_mask(value):
-            raise CNPJMaskError()
+            raise FieldMaskError()
         return value
 
 
@@ -89,5 +94,5 @@ class CNPJDigits(CNPJBase):
     @classmethod
     def validate_numbers(cls, value: str) -> str:
         if not value.isdigit():
-            raise CNPJDigitError()
+            raise FieldDigitError()
         return value

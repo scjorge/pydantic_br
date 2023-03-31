@@ -1,6 +1,11 @@
 from typing import Any, Callable, Dict, Generator
 
-from ..field_erros import CPFDigitError, CPFInvalidError, CPFMaskError, CPFTypeError
+from ..field_erros import (
+    CPFInvalidError,
+    FieldDigitError,
+    FieldMaskError,
+    FieldTypeError,
+)
 from ..validators.cpf_validator import validate_cpf, validate_cpf_mask
 
 __all__ = [
@@ -26,7 +31,7 @@ class CPFBase(str):
     @classmethod
     def validate_type(cls, value: str) -> str:
         if not isinstance(value, str):
-            raise CPFTypeError()
+            raise FieldTypeError()
         return value
 
     @classmethod
@@ -67,7 +72,7 @@ class CPFMask(CPFBase):
     @classmethod
     def validate_mask(cls, value: str) -> str:
         if not validate_cpf_mask(value):
-            raise CPFMaskError()
+            raise FieldMaskError()
         return value
 
 
@@ -93,5 +98,5 @@ class CPFDigits(CPFBase):
     @classmethod
     def validate_numbers(cls, value: str) -> str:
         if not value.isdigit():
-            raise CPFDigitError()
+            raise FieldDigitError()
         return value

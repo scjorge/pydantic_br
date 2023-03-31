@@ -1,5 +1,13 @@
 from typing import Any
 
+__all__ = [
+    "FieldTypeError",
+    "FieldMaskError",
+    "FieldDigitError",
+    "CPFInvalidError",
+    "CNPJInvalidError",
+]
+
 
 class PydanticErrorMixin:
     code: str
@@ -20,33 +28,21 @@ class PydanticTypeError(PydanticErrorMixin, TypeError):
     ...
 
 
+class FieldTypeError(PydanticTypeError):
+    msg_template = "str type expected"
+
+
+class FieldMaskError(PydanticValueError):
+    msg_template = "invalid Mask format"
+
+
+class FieldDigitError(PydanticValueError):
+    msg_template = "field only accept digits as string"
+
+
 class CPFInvalidError(PydanticValueError):
     msg_template = "invalid CPF"
 
 
-class CPFTypeError(PydanticTypeError):
-    msg_template = "the CPF field only accepts string"
-
-
-class CPFMaskError(PydanticValueError):
-    msg_template = "invalid Mask CPF format"
-
-
-class CPFDigitError(PydanticValueError):
-    msg_template = "CPF filds only accept digits"
-
-
 class CNPJInvalidError(PydanticValueError):
     msg_template = "invalid CNPJ"
-
-
-class CNPJTypeError(PydanticTypeError):
-    msg_template = "the CNPJ field only accepts string"
-
-
-class CNPJMaskError(PydanticValueError):
-    msg_template = "invalid Mask CNPJ format"
-
-
-class CNPJDigitError(PydanticValueError):
-    msg_template = "CNPJ filds only accept digits"

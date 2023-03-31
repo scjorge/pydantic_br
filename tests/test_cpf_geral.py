@@ -6,12 +6,12 @@ from pydantic import BaseModel, ValidationError
 
 from pydantic_br import (
     CPF,
-    CPFDigitError,
     CPFDigits,
     CPFInvalidError,
     CPFMask,
-    CPFMaskError,
-    CPFTypeError,
+    FieldDigitError,
+    FieldMaskError,
+    FieldTypeError,
 )
 
 TOTAL_CPF = 10
@@ -92,21 +92,21 @@ def test_must_accept_only_numbers(person_digits, cpf):
 def test_must_fail_when_use_mask_in_digits_class(person_masks, cpf):
     with pytest.raises(ValidationError) as e:
         person_masks(cpf=cpf)
-    assert CPFMaskError.msg_template in str(e.value)
+    assert FieldMaskError.msg_template in str(e.value)
 
 
 @pytest.mark.parametrize("cpf", cpf_mask())
 def test_must_fail_when_use_digits_in_mask_class(person_digits, cpf):
     with pytest.raises(ValidationError) as e:
         person_digits(cpf=cpf)
-    assert CPFDigitError.msg_template in str(e.value)
+    assert FieldDigitError.msg_template in str(e.value)
 
 
 @pytest.mark.parametrize("cpf", cpf_digits())
 def test_must_fail_when_use_another_type(person_digits, cpf):
     with pytest.raises(ValidationError) as e:
         person_digits(cpf=int(cpf))
-    assert CPFTypeError.msg_template in str(e.value)
+    assert FieldTypeError.msg_template in str(e.value)
 
 
 @pytest.mark.parametrize("cpf", cpf_digits())
