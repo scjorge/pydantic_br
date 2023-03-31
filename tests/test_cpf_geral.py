@@ -14,7 +14,7 @@ from pydantic_br import (
     CPFTypeError,
 )
 
-TOTAL_CPF = 4
+TOTAL_CPF = 10
 fake = Faker("pt-BR")
 
 

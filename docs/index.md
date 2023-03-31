@@ -1,5 +1,5 @@
 
-Esse repositorio tem como objetivo disponibilizar validações Brasileiras para a biblioteca pydantic.
+Esses repositorio tem como objetivo disponibilizar validações Brasileiras para a biblioteca pydantic.
 
 
 ## Disponibilidades
@@ -10,3 +10,5 @@ Esse repositorio tem como objetivo disponibilizar validações Brasileiras para 
 |---|---|---|---|
 | CPF | Pessoa física | Cadastro de Pessoa Física | Digito Verificador
 | CNPJ | Pessoa Jurídica | Carteira Nacional de Pessoas Jurídicas | Digito Verificador
+
+

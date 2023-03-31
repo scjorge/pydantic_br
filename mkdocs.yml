@@ -3,9 +3,29 @@ repo_url: https://github.com/scjorge/pydantic_br
 repo_name: scjorge/pydantic_br
 edit_uri: tree/main/docs
 
+nav:
+  - Início: index.md
+  - Instalação: install.md
+  - Utilização: 
+    - Campos: usage/field_types.md
+  - Mantenedor: maintainer.md
+  - Notas de versão: changelog.md
+
 
 theme:
   name: material
+  palette:
+    - scheme: default
+      primary: blue grey
+      toggle:
+        icon: material/weather-night
+        name: Modo noturno
+    - scheme: slate
+      primary: blue grey
+      toggle:
+        icon: material/weather-sunny
+        name: Modo claro
+      
   language: pt-BR
   logo: assets/logo.png
   favicon: assets/logo.png
@@ -13,6 +33,9 @@ theme:
 
 markdown_extensions:
   - attr_list
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.tilde
 
 
 plugins:

@@ -37,6 +37,13 @@ class CPFBase(str):
 
 
 class CPF(CPFBase):
+    """
+    Accepts string of CPF with or without mask.
+
+    Attributes:
+        number (str): CPF number.
+    """
+
     @classmethod
     def __get_validators__(cls) -> CallableGenerator:
         yield cls.validate_type
@@ -44,6 +51,13 @@ class CPF(CPFBase):
 
 
 class CPFMask(CPFBase):
+    """
+    Only Accepts string of CPF with mask.
+
+    Attributes:
+        number (str): CPF number.
+    """
+
     @classmethod
     def __get_validators__(cls) -> CallableGenerator:
         yield cls.validate_type
@@ -58,6 +72,18 @@ class CPFMask(CPFBase):
 
 
 class CPFDigits(CPFBase):
+    """
+    Summary line.
+
+    Extended description of function.
+
+    Parameters:
+        arg1 (int): Description of arg1
+
+    Returns:
+        int: Description of return value
+    """
+
     @classmethod
     def __get_validators__(cls) -> CallableGenerator:
         yield cls.validate_type

@@ -50,7 +50,7 @@ Aceita apenas uma `string` CNPJ com digitos. Ex: 42809023000191
 
 O campo CPF aceita a string com ou sem máscara. 
 
-```python
+```{.py3 linenums=1}
 from pydantic import BaseModel
 
 from pydantic_br import CPF

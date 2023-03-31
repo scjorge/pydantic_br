@@ -38,6 +38,13 @@ class CNPJBase(str):
 
 
 class CNPJ(CNPJBase):
+    """
+    Accepts string of CNPJ with or without mask.
+
+    Attributes:
+        number (str): CNPJ number.
+    """
+
     @classmethod
     def __get_validators__(cls) -> CallableGenerator:
         yield cls.validate_type
@@ -45,6 +52,13 @@ class CNPJ(CNPJBase):
 
 
 class CNPJMask(CNPJBase):
+    """
+    Only Accepts string of CNPJ with mask.
+
+    Attributes:
+        number (str): CNPJ number.
+    """
+
     @classmethod
     def __get_validators__(cls) -> CallableGenerator:
         yield cls.validate_type
@@ -59,6 +73,13 @@ class CNPJMask(CNPJBase):
 
 
 class CNPJDigits(CNPJBase):
+    """
+    Only Accepts string of CNPJ with digits.
+
+    Attributes:
+        number (str): CNPJ number.
+    """
+
     @classmethod
     def __get_validators__(cls) -> CallableGenerator:
         yield cls.validate_type
