@@ -403,10 +403,21 @@
 
   <h1>Início</h1>
 
-<p>Esses repositorio tem como objetivo disponibilizar validações Brasileiras para a biblioteca pydantic.</p>
+<p align="center">
+    <img src="https://raw.githubusercontent.com/scjorge/pydantic_br/master/docs/assets/logo.png" width='200'/>
+</p>
+
+<p><center></p>
+<p><a href="https://github.com/scjorge/pydantic_br/actions"><img alt="CI" src="https://github.com/scjorge/pydantic_br/workflows/CI/badge.svg?event=push" /></a>
+<a href="https://app.codecov.io/gh/scjorge/pydantic_br"><img alt="Coverage" src="https://img.shields.io/badge/covarage-%20see-green" /></a>
+<a href="https://pypi.python.org/pypi/pydantic"><img alt="pypi" src="https://img.shields.io/pypi/v/pydantic.svg" /></a>
+<a href="https://github.com/scjorge/pydantic_br/blob/master/LICENSE"><img alt="license" src="https://img.shields.io/github/license/pydantic/pydantic.svg" /></a></p>
+<p></center></p>
+<hr />
+<p>Essa é uma biblioteca tem como objetivo disponibilizar campos com validações brasileiras para a biblioteca pydantic.</p>
 <h2 id="disponibilidades">Disponibilidades</h2>
-<p><em>pydantic_br</em> possui os seguintes campos brasileiros de validação.</p>
-<p>Descrições detalhadas dos campos <a href="usage/descriptions/">aqui</a>.</p>
+<p><strong>pydantic_br</strong> possui os seguintes campos brasileiros de validação.</p>
+<p>Descrições detalhadas <a href="usage/descriptions/">aqui</a>.</p>
 <table>
 <thead>
 <tr>
@@ -414,20 +425,79 @@
 <th>Grupo de Documentos</th>
 <th>Nome do Documento</th>
 <th>Método de validação</th>
+<th>Situação</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>CPF</td>
-<td>Pessoa física</td>
-<td>Cadastro de Pessoa Física</td>
-<td>Digito Verificador</td>
-</tr>
 <tr>
 <td>CNPJ</td>
 <td>Pessoa Jurídica</td>
 <td>Carteira Nacional de Pessoas Jurídicas</td>
 <td>Digito Verificador</td>
+<td>Concluído</td>
+</tr>
+<tr>
+<td>CPF</td>
+<td>Pessoa física</td>
+<td>Cadastro de Pessoa Física</td>
+<td>Digito Verificador</td>
+<td>Concluído</td>
+</tr>
+<tr>
+<td>CNH</td>
+<td>Pessoa física</td>
+<td>Carteira Nacional de Habilitação</td>
+<td>Digito Verificador</td>
+<td>Em desenvolvimento</td>
+</tr>
+<tr>
+<td>TE</td>
+<td>Pessoa física</td>
+<td>Título de Eleitor</td>
+<td>Digito Verificador</td>
+<td>Em desenvolvimento</td>
+</tr>
+<tr>
+<td>PIS</td>
+<td>Pessoa física</td>
+<td>Programa de Integração Social</td>
+<td>Digito Verificador</td>
+<td>Em desenvolvimento</td>
+</tr>
+<tr>
+<td>CERT</td>
+<td>Pessoa física</td>
+<td>Certidão (Nascimento/Casamento/Óbito)</td>
+<td>Digito Verificador</td>
+<td>Em desenvolvimento</td>
+</tr>
+<tr>
+<td>CNS</td>
+<td>Pessoa física</td>
+<td>Cartão Nacional de Saúde</td>
+<td>Digito Verificador</td>
+<td>Em desenvolvimento</td>
+</tr>
+<tr>
+<td>RNVAM</td>
+<td>Veículos</td>
+<td>Registro Nacional de Veículos Automotores</td>
+<td>RegExr</td>
+<td>Em desenvolvimento</td>
+</tr>
+<tr>
+<td>PLACA</td>
+<td>Veículos</td>
+<td>Placa do Veículo</td>
+<td>RegExr</td>
+<td>Em desenvolvimento</td>
+</tr>
+<tr>
+<td>ISBN</td>
+<td>Livros</td>
+<td>Padrão Internacional de Numeração de Livro</td>
+<td>Digito Verificador</td>
+<td>Em desenvolvimento</td>
 </tr>
 </tbody>
 </table>
