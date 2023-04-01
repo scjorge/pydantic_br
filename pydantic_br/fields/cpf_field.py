@@ -78,15 +78,10 @@ class CPFMask(CPFBase):
 
 class CPFDigits(CPFBase):
     """
-    Summary line.
+    Only Accepts string of CPF with digits.
 
-    Extended description of function.
-
-    Parameters:
-        arg1 (int): Description of arg1
-
-    Returns:
-        int: Description of return value
+    Attributes:
+        number (str): CPF number.
     """
 
     @classmethod
