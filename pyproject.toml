@@ -2,8 +2,13 @@
 name = "pydantic-br"
 version = "0.1.0"
 description = "Pydantic library extension with Brazilian fields"
+license = "MIT"
 authors = ["Jorge Silva <jorgesilva.ti@hotmail.com>"]
+maintainers = ["Jorge Silva <jorgesilva.ti@hotmail.com>"]
 readme = "README.md"
+repository = "https://github.com/scjorge/pydantic_br"
+documentation = "https://scjorge.github.io/pydantic_br"
+keywords = ["pydantic", "json", "json-schema", "hints", "parsin", "brasil", "documentos", "br", "fastapi"]
 packages = [{include = "pydantic_br"}]
 
 [tool.poetry.dependencies]
