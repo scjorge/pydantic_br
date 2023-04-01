@@ -1,3 +1,4 @@
+# Pydantic BR
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/scjorge/pydantic_br/master/docs/assets/logo.png" width='200'/>
@@ -19,8 +20,6 @@ Essa é uma biblioteca tem como objetivo disponibilizar campos com validações 
 
 
 ## Disponibilidades
-
-**pydantic_br** possui os seguintes campos brasileiros de validação.
 
 Descrições detalhadas [aqui](usage/descriptions.md).
 
