@@ -1,20 +1,16 @@
 
 # Pydantic BR
 
-<p align="center">
-    <img src="https://raw.githubusercontent.com/scjorge/pydantic_br/master/docs/assets/logo.png" width='200'/>
-</p>
-
-<center>
 
 [![CI](https://github.com/scjorge/pydantic_br/workflows/CI/badge.svg?event=push)](https://github.com/scjorge/pydantic_br/actions)
 [![codecov](https://codecov.io/gh/scjorge/pydantic_br/branch/master/graph/badge.svg?token=1XVEXSBU69)](https://codecov.io/gh/scjorge/pydantic_br)
-[![pypi](https://img.shields.io/pypi/v/pydantic.svg)](https://pypi.python.org/pypi/pydantic)
-[![license](https://img.shields.io/github/license/pydantic/pydantic.svg)](https://github.com/scjorge/pydantic_br/blob/master/LICENSE)
+[![pypi](https://img.shields.io/pypi/v/pydantic-br)](https://pypi.org/project/pydantic-br/)
+[![license](https://img.shields.io/pypi/l/pydantic-br)](https://github.com/scjorge/pydantic_br/blob/master/LICENSE)
 
-</center>
 
----
+<p align="center">
+    <img src="https://raw.githubusercontent.com/scjorge/pydantic_br/master/docs/assets/logo.png" width='200'/>
+</p>
 
 
 Essa é uma biblioteca tem como objetivo disponibilizar campos com validações brasileiras para a biblioteca pydantic.
