@@ -1,11 +1,15 @@
 A instalação é simples:
 
-## Com pip
+## Utilizando pip
+
 ```
 pip install pydantic_br
 ```
 
-## Poetry
+## Utilizando Poetry
+
 ```
 poetry add pydantic_br
 ```
+
+Para saber mais sobre o Poetry clique [aqui](https://python-poetry.org/)
