@@ -7,8 +7,8 @@ authors = ["Jorge Silva <jorgesilva.ti@hotmail.com>"]
 maintainers = ["Jorge Silva <jorgesilva.ti@hotmail.com>"]
 readme = "README.md"
 repository = "https://github.com/scjorge/pydantic_br"
-documentation = "https://scjorge.github.io/pydantic_br"
-keywords = ["pydantic", "json", "json-schema", "hints", "parsin", "brasil", "documentos", "br", "fastapi"]
+documentation = "https://pydantic-br.readthedocs.io"
+keywords = ["pydantic", "json", "json-schema", "hints", "parsin", "brasil", "documentos", "br", "fastapi", "doc", "documento"]
 packages = [{include = "pydantic_br"}]
 
 [tool.poetry.dependencies]
