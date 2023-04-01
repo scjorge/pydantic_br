@@ -65,3 +65,38 @@ jobs:
       
       - name: pytest
         run: poetry run pytest
+
+  test1:
+    name: test ${{ matrix.os }} / ${{ matrix.python-version }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu]
+        python-version: ['3.7', '3.8', '3.9', '3.10', '3.11', 'pypy3.7', 'pypy3.8', 'pypy3.9']
+
+    env:
+      PYTHON: ${{ matrix.python-version }}
+      OS: ${{ matrix.os }}
+      DEPS: yes
+
+    runs-on: ${{ matrix.os }}-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: set up python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install Poetry
+      uses: Gr1N/setup-poetry@v8
+
+    - name: Deactivate virtal env Poetry
+      run: poetry config virtualenvs.create false
+    
+    - name: Install dependencies
+      run: poetry install --only test
+    
+    - name: pytest
+      run: poetry run pytest
