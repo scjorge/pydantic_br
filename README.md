@@ -24,7 +24,7 @@ Essa é uma biblioteca tem como objetivo disponibilizar campos com validações 
 
 Código fonte: https://github.com/scjorge/pydantic_br
 
-Documentação: 
+Documentação: https://pydantic-br.readthedocs.io
 
 ---
 
@@ -44,5 +44,89 @@ Documentação:
 | ISBN | Livros | Padrão Internacional de Numeração de Livro | Digito Verificador | Em desenvolvimento
 
 
+
+
+## Instalação
+
+pip install pydantic_br
+
+## Exemplos
+
+Os exemplos de dados exemplificados foram tirados dos seguintes sites:
+
+
+- [geradordecpf](https://www.geradordecpf.org/)
+- [4devs](https://www.4devs.com.br/gerador_de_cnpj)
+
+#### CPF válido 
+```python
+from pprint import pprint
+
+from pydantic import BaseModel
+
+from pydantic_br import CPF, CPFDigits, CPFMask
+
+
+class Pessoa(BaseModel):
+    nome: str
+    cpf: CPF  # aceita CPF válidos com ou sem máscara
+    cpf_mask: CPFMask  # aceita CPF válido apenas com máscara
+    cpf_digits: CPFDigits  # aceita CPF válido apnas com dígitos
+
+
+p1 = Pessoa(
+    nome="João", cpf="53221394780", cpf_mask="532.213.947-80", cpf_digits="53221394780"
+)
+
+
+pprint(p1.dict())
+```
+
+Saída
+
+```
+{'cpf': '53221394780',
+ 'cpf_digits': '53221394780',
+ 'cpf_mask': '532.213.947-80',
+ 'nome': 'João'}
+```
+### CPF inválido 
+
+```python
+from pprint import pprint
+
+from pydantic import BaseModel
+
+from pydantic_br import CPF, CPFDigits, CPFMask
+
+
+class Pessoa(BaseModel):
+    nome: str
+    cpf: CPF  # aceita CPF válidos com ou sem máscara
+    cpf_mask: CPFMask  # aceita CPF válido apenas com máscara
+    cpf_digits: CPFDigits  # aceita CPF válido apnas com dígitos
+
+
+p1 = Pessoa(
+    nome="João", cpf="00000000000", cpf_mask="53221394780", cpf_digits="532.213.947-80"
+)
+
+pprint(p1.dict())
+```
+
+Saída
+
+```
+Traceback (most recent call last):
+    p1 = Pessoa(
+  File "pydantic\main.py", line 341, in pydantic.main.BaseModel.__init__
+pydantic.error_wrappers.ValidationError: 3 validation errors for Pessoa
+cpf
+  invalid data (type=value_error.invalid_data)
+cpf_mask
+  invalid mask format (type=value_error.invalid_mask)
+cpf_digits
+  field only accept digits as string (type=value_error.not_digits)
+```
 
 
