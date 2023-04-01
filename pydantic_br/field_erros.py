@@ -1,4 +1,7 @@
-from pydantic import PydanticTypeError, PydanticValueError
+try:
+    from pydantic import PydanticTypeError, PydanticValueError
+except ModuleNotFoundError:
+    raise ModuleNotFoundError("Are you sure you installed pydantic")
 
 __all__ = [
     "FieldTypeError",
