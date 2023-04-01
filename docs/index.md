@@ -6,7 +6,7 @@
 <center>
 
 [![CI](https://github.com/scjorge/pydantic_br/workflows/CI/badge.svg?event=push)](https://github.com/scjorge/pydantic_br/actions)
-[![Coverage](https://img.shields.io/badge/covarage-%20see-green)](https://app.codecov.io/gh/scjorge/pydantic_br)
+[![codecov](https://codecov.io/gh/scjorge/pydantic_br/branch/master/graph/badge.svg?token=1XVEXSBU69)](https://codecov.io/gh/scjorge/pydantic_br)
 [![pypi](https://img.shields.io/pypi/v/pydantic.svg)](https://pypi.python.org/pypi/pydantic)
 [![license](https://img.shields.io/github/license/pydantic/pydantic.svg)](https://github.com/scjorge/pydantic_br/blob/master/LICENSE)
 

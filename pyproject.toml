@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "pydantic-br"
 version = "0.1.0"
-description = ""
+description = "Pydantic library extension with Brazilian fields"
 authors = ["Jorge Silva <jorgesilva.ti@hotmail.com>"]
 readme = "README.md"
 packages = [{include = "pydantic_br"}]
