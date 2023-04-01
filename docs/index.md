@@ -6,25 +6,35 @@
 <center>
 
 [![CI](https://github.com/scjorge/pydantic_br/workflows/CI/badge.svg?event=push)](https://github.com/scjorge/pydantic_br/actions)
-[![Coverage](https://coverage-badge.samuelcolvin.workers.dev/pydantic/pydantic.svg)](https://github.com/pydantic/pydantic/actions?query=event%3Apush+branch%3Amain+workflow%3ACI)
+[![Coverage](https://img.shields.io/badge/covarage-%20see-green)](https://app.codecov.io/gh/scjorge/pydantic_br)
 [![pypi](https://img.shields.io/pypi/v/pydantic.svg)](https://pypi.python.org/pypi/pydantic)
 [![license](https://img.shields.io/github/license/pydantic/pydantic.svg)](https://github.com/scjorge/pydantic_br/blob/master/LICENSE)
 
 </center>
 
+---
 
-Esses repositorio tem como objetivo disponibilizar campos com validações Brasileiras para a biblioteca pydantic.
+
+Essa é uma biblioteca tem como objetivo disponibilizar campos com validações brasileiras para a biblioteca pydantic.
 
 
 ## Disponibilidades
 
-*pydantic_br* possui os seguintes campos brasileiros de validação.
+**pydantic_br** possui os seguintes campos brasileiros de validação.
 
 Descrições detalhadas [aqui](usage/descriptions.md).
 
-| Campo | Grupo de Documentos | Nome do Documento | Método de validação
-|---|---|---|---|
-| CPF | Pessoa física | Cadastro de Pessoa Física | Digito Verificador
-| CNPJ | Pessoa Jurídica | Carteira Nacional de Pessoas Jurídicas | Digito Verificador
+| Campo | Grupo de Documentos | Nome do Documento | Método de validação | Situação
+|---|---|---|---|---|
+| CNPJ | Pessoa Jurídica | Carteira Nacional de Pessoas Jurídicas | Digito Verificador | Concluído
+| CPF | Pessoa física | Cadastro de Pessoa Física | Digito Verificador | Concluído
+| CNH | Pessoa física | Carteira Nacional de Habilitação | Digito Verificador | Em desenvolvimento
+| TE | Pessoa física  | Título de Eleitor | Digito Verificador | Em desenvolvimento
+| PIS | Pessoa física  | Programa de Integração Social | Digito Verificador | Em desenvolvimento
+| CERT | Pessoa física  | Certidão (Nascimento/Casamento/Óbito) | Digito Verificador | Em desenvolvimento
+| CNS | Pessoa física  | Cartão Nacional de Saúde | Digito Verificador | Em desenvolvimento
+| RNVAM | Veículos | Registro Nacional de Veículos Automotores | RegExr | Em desenvolvimento
+| PLACA | Veículos | Placa do Veículo | RegExr | Em desenvolvimento
+| ISBN | Livros | Padrão Internacional de Numeração de Livro | Digito Verificador | Em desenvolvimento
 
 
