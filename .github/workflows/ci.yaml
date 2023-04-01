@@ -41,32 +41,8 @@ jobs:
 
       - name: flake8
         run: poetry run flake8 .
-
-
+     
   test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Action Checkout
-        uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-      
-      - name: Install Poetry
-        uses: Gr1N/setup-poetry@v8
-        
-      - name: Deactivate virtal env Poetry
-        run: poetry config virtualenvs.create false
-      
-      - name: Install dependencies
-        run: poetry install --only test
-      
-      - name: pytest
-        run: poetry run pytest
-
-  test1:
     name: test ${{ matrix.os }} / ${{ matrix.python-version }}
     strategy:
       fail-fast: false
@@ -99,4 +75,9 @@ jobs:
       run: poetry install --only test
     
     - name: pytest
-      run: poetry run pytest
+      run: poetry run pytest --cov-report=xml
+
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
