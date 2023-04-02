@@ -114,3 +114,17 @@ def test_must_fail_when_use_invalid_cpfs(person, cpf):
     with pytest.raises(ValidationError) as e:
         person(cpf=cpf[-1])
     assert FieldInvalidError.msg_template in str(e.value)
+
+
+@pytest.mark.parametrize("cpf", cpf_mixed())
+def test_must_fail_when_use_digits_count_above_cpfs(person, cpf):
+    with pytest.raises(ValidationError) as e:
+        person(cpf=cpf * 2)
+    assert FieldInvalidError.msg_template in str(e.value)
+
+
+@pytest.mark.parametrize("cpf", cpf_mixed())
+def test_must_fail_when_use_digits_count_below_cpfs(person, cpf):
+    with pytest.raises(ValidationError) as e:
+        person(cpf=cpf[:5])
+    assert FieldInvalidError.msg_template in str(e.value)
