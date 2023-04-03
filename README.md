@@ -44,7 +44,7 @@ Documentação: https://pydantic-br.readthedocs.io
 
 ## Instalação
 
-pip install pydantic_br
+pip install pydantic-br
 
 ## Exemplos
 
@@ -100,7 +100,7 @@ class Pessoa(BaseModel):
     nome: str
     cpf: CPF  # aceita CPF válidos com ou sem máscara
     cpf_mask: CPFMask  # aceita CPF válido apenas com máscara
-    cpf_digits: CPFDigits  # aceita CPF válido apnas com dígitos
+    cpf_digits: CPFDigits  # aceita CPF válido apenas com dígitos
 
 
 p1 = Pessoa(

@@ -3,13 +3,13 @@ A instalação é simples:
 ## Utilizando pip
 
 ```
-pip install pydantic_br
+pip install pydantic-br
 ```
 
 ## Utilizando Poetry
 
 ```
-poetry add pydantic_br
+poetry add pydantic-br
 ```
 
 Para saber mais sobre o Poetry clique [aqui](https://python-poetry.org/)
