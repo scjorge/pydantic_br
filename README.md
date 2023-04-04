@@ -50,9 +50,10 @@ pip install pydantic-br
 
 Os exemplos de dados exemplificados foram tirados dos seguintes sites:
 
-
 - [geradordecpf](https://www.geradordecpf.org/)
 - [4devs](https://www.4devs.com.br/gerador_de_cnpj)
+
+A má utilização dos dados é de total responsabilidade do usuário.
 
 #### CPF válido 
 ```python
