@@ -128,3 +128,24 @@ def test_must_fail_when_use_digits_count_below_cpfs(person, cpf):
     with pytest.raises(ValidationError) as e:
         person(cpf=cpf[:5])
     assert FieldInvalidError.msg_template in str(e.value)
+
+
+@pytest.mark.parametrize(
+    "cpf",
+    [
+        "00000000000",
+        "11111111111",
+        "22222222222",
+        "33333333333",
+        "44444444444",
+        "55555555555",
+        "66666666666",
+        "77777777777",
+        "88888888888",
+        "99999999999",
+    ],
+)
+def test_must_fail_when_use_sequecial_digits(person, cpf):
+    with pytest.raises(ValidationError) as e:
+        person(cpf=cpf)
+    assert FieldInvalidError.msg_template in str(e.value)

@@ -6,7 +6,7 @@ from ..field_erros import (
     FieldMaskError,
     FieldTypeError,
 )
-from ..validators.cpf_validator import validate_cpf, validate_cpf_mask
+from ..validators.cpf_validator import CPFValidator
 
 __all__ = [
     "CPF",
@@ -36,7 +36,8 @@ class CPFBase(str):
 
     @classmethod
     def validate(cls, value: str) -> str:
-        if not validate_cpf(value):
+        cpf = CPFValidator(value)
+        if not cpf.validate():
             raise FieldInvalidError()
         return value
 
@@ -71,7 +72,8 @@ class CPFMask(CPFBase):
 
     @classmethod
     def validate_mask(cls, value: str) -> str:
-        if not validate_cpf_mask(value):
+        cpf = CPFValidator(value)
+        if not cpf.validate_mask():
             raise FieldMaskError()
         return value
 

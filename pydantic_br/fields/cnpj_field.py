@@ -6,7 +6,7 @@ from ..field_erros import (
     FieldMaskError,
     FieldTypeError,
 )
-from ..validators.cnpj_validator import validate_cnpj, validate_cnpj_mask
+from ..validators.cnpj_validator import CNPJValidator
 
 __all__ = [
     "CNPJ",
@@ -37,7 +37,8 @@ class CNPJBase(str):
 
     @classmethod
     def validate(cls, value: str) -> str:
-        if not validate_cnpj(value):
+        cnpj = CNPJValidator(value)
+        if not cnpj.validate():
             raise FieldInvalidError()
         return value
 
@@ -72,7 +73,8 @@ class CNPJMask(CNPJBase):
 
     @classmethod
     def validate_mask(cls, value: str) -> str:
-        if not validate_cnpj_mask(value):
+        cnpj = CNPJValidator(value)
+        if not cnpj.validate_mask():
             raise FieldMaskError()
         return value
 
