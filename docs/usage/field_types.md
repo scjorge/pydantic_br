@@ -1,4 +1,100 @@
-## CPF
+## Pessoa Jurídica
+
+
+### CNPJ
+
+Aceita o CNPJ com ou sem máscara
+
+```{.py3 linenums=1}
+from pydantic import BaseModel
+
+from pydantic_br import CNPJ
+
+
+class Empresa(BaseModel):
+    cnpj: CNPJ
+    nome: str
+
+
+e1 = Empresa(nome="Empresa 1", cnpj="42.809.023/0001-91")
+e2 = Empresa(nome="Empresa 2", cnpj="42809023000191")
+
+print(e1)
+# > cnpj='42.809.023/0001-91' nome='Empresa 1'
+
+print(e1.dict())
+# > {'cnpj': '42.809.023/0001-91', 'nome': 'Empresa 1'}
+
+print(e1.schema())
+# > {'title': 'Empresa', 'type': 'object', 'properties': {'cnpj': {'title': 'Cnpj', 'type': 'string', 'format': 'cpf'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cnpj', 'nome']}
+
+print(e2)
+# > cnpj='42809023000191' nome='Empresa 2'
+
+print(e2.dict())
+# > {'cnpj': '42809023000191', 'nome': 'Empresa 2'}
+
+print(e2.schema())
+# > {'title': 'Empresa', 'type': 'object', 'properties': {'cnpj': {'title': 'Cnpj', 'type': 'string', 'format': 'cpf'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cnpj', 'nome']}
+```
+
+### CNPJMask
+
+Aceita o CNPJ apenas com máscara
+
+```{.py3 linenums=1}
+from pydantic import BaseModel
+
+from pydantic_br import CNPJMask
+
+
+class Empresa(BaseModel):
+    cnpj: CNPJMask
+    nome: str
+
+
+e1 = Empresa(nome="Empresa 1", cnpj="42.809.023/0001-91")
+
+print(e1)
+# > cnpj='42.809.023/0001-91' nome='Empresa 1'
+
+print(e1.dict())
+# > {'cnpj': '42.809.023/0001-91', 'nome': 'Empresa 1'}
+
+print(e1.schema())
+# > {'title': 'Empresa', 'type': 'object', 'properties': {'cnpj': {'title': 'Cnpj', 'type': 'string', 'format': 'cpf'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cnpj', 'nome']}
+```
+
+### CNPJDigits
+
+Aceita o CNPJ apenas com dígitos
+
+```{.py3 linenums=1}
+from pydantic import BaseModel
+
+from pydantic_br import CNPJDigits
+
+
+class Empresa(BaseModel):
+    cnpj: CNPJDigits
+    nome: str
+
+
+e1 = Empresa(nome="Empresa 2", cnpj="42809023000191")
+
+
+print(e1)
+# > cnpj='42809023000191' nome='Empresa 2'
+
+print(e1.dict())
+# > {'cnpj': '42809023000191', 'nome': 'Empresa 2'}
+
+print(e1.schema())
+# > {'title': 'Empresa', 'type': 'object', 'properties': {'cnpj': {'title': 'Cnpj', 'type': 'string', 'format': 'cpf'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cnpj', 'nome']}
+```
+
+## Pessoa Física
+### CPF
 
 Aceita o CPF com ou sem máscara
 
@@ -38,7 +134,7 @@ print(p2.schema())
 
 
 
-## CPFMask
+### CPFMask
 
 Aceita o CPF apenas com máscara
 
@@ -66,7 +162,7 @@ print(p1.schema())
 ```
 
 
-## CPFDigits
+### CPFDigits
 
 Aceita o CPF apenas com dígitos
 
@@ -93,94 +189,34 @@ print(p1.schema())
 # > {'title': 'Pessoa', 'type': 'object', 'properties': {'cpf': {'title': 'Cpf', 'type': 'string', 'format': 'cpf'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cpf', 'nome']}
 ```
 
-## CNPJ
 
-Aceita o CNPJ com ou sem máscara
+### CNH
 
-```{.py3 linenums=1}
-from pydantic import BaseModel
-
-from pydantic_br import CNPJ
-
-
-class Empresa(BaseModel):
-    cnpj: CNPJ
-    nome: str
-
-
-e1 = Empresa(nome="Empresa 1", cnpj="42.809.023/0001-91")
-e2 = Empresa(nome="Empresa 2", cnpj="42809023000191")
-
-print(e1)
-# > cnpj='42.809.023/0001-91' nome='Empresa 1'
-
-print(e1.dict())
-# > {'cnpj': '42.809.023/0001-91', 'nome': 'Empresa 1'}
-
-print(e1.schema())
-# > {'title': 'Empresa', 'type': 'object', 'properties': {'cnpj': {'title': 'Cnpj', 'type': 'string', 'format': 'cpf'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cnpj', 'nome']}
-
-print(e2)
-# > cnpj='42809023000191' nome='Empresa 2'
-
-print(e2.dict())
-# > {'cnpj': '42809023000191', 'nome': 'Empresa 2'}
-
-print(e2.schema())
-# > {'title': 'Empresa', 'type': 'object', 'properties': {'cnpj': {'title': 'Cnpj', 'type': 'string', 'format': 'cpf'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cnpj', 'nome']}
-```
-
-## CNPJMask
-
-Aceita o CNPJ apenas com máscara
+Aceita o CNH apenas com dígitos
 
 ```{.py3 linenums=1}
 from pydantic import BaseModel
 
-from pydantic_br import CNPJMask
+from pydantic_br import CNH
 
 
-class Empresa(BaseModel):
-    cnpj: CNPJMask
+class Pessoa(BaseModel):
+    cnh: CNH
     nome: str
 
 
-e1 = Empresa(nome="Empresa 1", cnpj="42.809.023/0001-91")
+p1 = Pessoa(nome="João", cnh="18820839790")
 
-print(e1)
-# > cnpj='42.809.023/0001-91' nome='Empresa 1'
 
-print(e1.dict())
-# > {'cnpj': '42.809.023/0001-91', 'nome': 'Empresa 1'}
+print(p1)
+# > cnh='18820839790' nome='João'
 
-print(e1.schema())
-# > {'title': 'Empresa', 'type': 'object', 'properties': {'cnpj': {'title': 'Cnpj', 'type': 'string', 'format': 'cpf'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cnpj', 'nome']}
+print(p1.dict())
+# > {'cnh': '18820839790', 'nome': 'João'}
+
+print(p1.schema())
+# > {'title': 'Pessoa', 'type': 'object', 'properties': {'cnh': {'title': 'Cnh', 'type': 'string', 'format': 'cnh'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cnh', 'nome']}
+
 ```
 
-## CNPJDigits
 
-Aceita o CNPJ apenas com dígitos
-
-```{.py3 linenums=1}
-from pydantic import BaseModel
-
-from pydantic_br import CNPJDigits
-
-
-class Empresa(BaseModel):
-    cnpj: CNPJDigits
-    nome: str
-
-
-e1 = Empresa(nome="Empresa 2", cnpj="42809023000191")
-
-
-print(e1)
-# > cnpj='42809023000191' nome='Empresa 2'
-
-print(e1.dict())
-# > {'cnpj': '42809023000191', 'nome': 'Empresa 2'}
-
-print(e1.schema())
-# > {'title': 'Empresa', 'type': 'object', 'properties': {'cnpj': {'title': 'Cnpj', 'type': 'string', 'format': 'cpf'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cnpj', 'nome']}
-```

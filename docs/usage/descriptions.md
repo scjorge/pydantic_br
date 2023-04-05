@@ -30,6 +30,9 @@ Aceita apenas uma `string` CPF com máscara. Ex: 605.566.581-67
 
 Aceita apenas uma `string` CPF com digitos. Ex: 61650624409
 
+[`CNH`](../field_types/#cnh):
+
+Aceita apenas uma `string` CNH com digitos. Ex: 18820839790
 
 ---
 
