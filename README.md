@@ -5,6 +5,7 @@
 [![CI](https://github.com/scjorge/pydantic_br/workflows/CI/badge.svg?event=push)](https://github.com/scjorge/pydantic_br/actions)
 [![codecov](https://codecov.io/gh/scjorge/pydantic_br/branch/master/graph/badge.svg?token=1XVEXSBU69)](https://codecov.io/gh/scjorge/pydantic_br)
 [![pypi](https://img.shields.io/pypi/v/pydantic-br)](https://pypi.org/project/pydantic-br/)
+[![pypi](https://img.shields.io/pypi/pyversions/pydantic-br)](https://pypi.org/project/pydantic-br/)
 [![license](https://img.shields.io/pypi/l/pydantic-br)](https://github.com/scjorge/pydantic_br/blob/master/LICENSE)
 
 
@@ -13,7 +14,7 @@
 </p>
 
 
-Essa é uma biblioteca tem como objetivo disponibilizar campos com validações brasileiras para a biblioteca pydantic.
+Essa é uma biblioteca de extensão e visa disponibilizar campos com validações brasileiras para a biblioteca pydantic.
 
 
 ---
@@ -30,7 +31,7 @@ Documentação: https://pydantic-br.readthedocs.io
 |---|---|---|---|---|
 | CNPJ | Pessoa Jurídica | Carteira Nacional de Pessoas Jurídicas | Digito Verificador | Concluído
 | CPF | Pessoa física | Cadastro de Pessoa Física | Digito Verificador | Concluído
-| CNH | Pessoa física | Carteira Nacional de Habilitação | Digito Verificador | Em desenvolvimento
+| CNH | Pessoa física | Carteira Nacional de Habilitação | Digito Verificador | Concluído
 | TE | Pessoa física  | Título de Eleitor | Digito Verificador | Em desenvolvimento
 | PIS | Pessoa física  | Programa de Integração Social | Digito Verificador | Em desenvolvimento
 | CERT | Pessoa física  | Certidão (Nascimento/Casamento/Óbito) | Digito Verificador | Em desenvolvimento
@@ -44,9 +45,19 @@ Documentação: https://pydantic-br.readthedocs.io
 
 ## Instalação
 
-pip install pydantic-br
+### Utilizando pip
 
-## Exemplos
+```
+pip install pydantic-br
+```
+
+### Utilizando Poetry
+
+```
+poetry add pydantic-br
+```
+
+## Exemplos de Utilização
 
 Os exemplos de dados exemplificados foram tirados dos seguintes sites:
 
@@ -55,7 +66,7 @@ Os exemplos de dados exemplificados foram tirados dos seguintes sites:
 
 A má utilização dos dados é de total responsabilidade do usuário.
 
-#### CPF válido 
+### CPF válido 
 ```python
 from pprint import pprint
 

@@ -89,14 +89,14 @@ def test_must_accept_only_numbers(company_digits, cnpj):
 
 
 @pytest.mark.parametrize("cnpj", cnpj_digits())
-def test_must_fail_when_use_mask_in_digits_class(company_masks, cnpj):
+def test_must_fail_when_use_digits_in_mask_class(company_masks, cnpj):
     with pytest.raises(ValidationError) as e:
         company_masks(cnpj=cnpj)
     assert FieldMaskError.msg_template in str(e.value)
 
 
 @pytest.mark.parametrize("cnpj", cnpj_mask())
-def test_must_fail_when_use_digits_in_mask_class(company_digits, cnpj):
+def test_must_fail_when_use_mask_in_digits_class(company_digits, cnpj):
     with pytest.raises(ValidationError) as e:
         company_digits(cnpj=cnpj)
     assert FieldDigitError.msg_template in str(e.value)
