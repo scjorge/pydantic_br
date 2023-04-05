@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cpf" class="md-skip">
+        <a href="#pessoa-juridica" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -306,44 +306,77 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cpf" class="md-nav__link">
-    CPF
+  <a href="#pessoa-juridica" class="md-nav__link">
+    Pessoa Jurídica
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cpfmask" class="md-nav__link">
-    CPFMask
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cpfdigits" class="md-nav__link">
-    CPFDigits
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Pessoa Jurídica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#cnpj" class="md-nav__link">
     CNPJ
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#cnpjmask" class="md-nav__link">
     CNPJMask
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#cnpjdigits" class="md-nav__link">
     CNPJDigits
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pessoa-fisica" class="md-nav__link">
+    Pessoa Física
+  </a>
+  
+    <nav class="md-nav" aria-label="Pessoa Física">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cpf" class="md-nav__link">
+    CPF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpfmask" class="md-nav__link">
+    CPFMask
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpfdigits" class="md-nav__link">
+    CPFDigits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cnh" class="md-nav__link">
+    CNH
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -416,44 +449,77 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cpf" class="md-nav__link">
-    CPF
+  <a href="#pessoa-juridica" class="md-nav__link">
+    Pessoa Jurídica
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cpfmask" class="md-nav__link">
-    CPFMask
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cpfdigits" class="md-nav__link">
-    CPFDigits
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Pessoa Jurídica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#cnpj" class="md-nav__link">
     CNPJ
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#cnpjmask" class="md-nav__link">
     CNPJMask
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#cnpjdigits" class="md-nav__link">
     CNPJDigits
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pessoa-fisica" class="md-nav__link">
+    Pessoa Física
+  </a>
+  
+    <nav class="md-nav" aria-label="Pessoa Física">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cpf" class="md-nav__link">
+    CPF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpfmask" class="md-nav__link">
+    CPFMask
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpfdigits" class="md-nav__link">
+    CPFDigits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cnh" class="md-nav__link">
+    CNH
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -477,153 +543,8 @@
 
   <h1>Campos</h1>
 
-<h2 id="cpf">CPF</h2>
-<p>Aceita o CPF com ou sem máscara</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
-
-<span class="kn">from</span> <span class="nn">pydantic_br</span> <span class="kn">import</span> <span class="n">CPF</span>
-
-
-<span class="k">class</span> <span class="nc">Pessoa</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-    <span class="n">cpf</span><span class="p">:</span> <span class="n">CPF</span>
-    <span class="n">nome</span><span class="p">:</span> <span class="nb">str</span>
-
-
-<span class="n">p1</span> <span class="o">=</span> <span class="n">Pessoa</span><span class="p">(</span><span class="n">nome</span><span class="o">=</span><span class="s2">&quot;João&quot;</span><span class="p">,</span> <span class="n">cpf</span><span class="o">=</span><span class="s2">&quot;532.213.947-80&quot;</span><span class="p">)</span>
-<span class="n">p2</span> <span class="o">=</span> <span class="n">Pessoa</span><span class="p">(</span><span class="n">nome</span><span class="o">=</span><span class="s2">&quot;Maria&quot;</span><span class="p">,</span> <span class="n">cpf</span><span class="o">=</span><span class="s2">&quot;53221394780&quot;</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
-<span class="c1"># &gt; cpf=&#39;532.213.947-80&#39; nome=&#39;João&#39;</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
-<span class="c1"># &gt; {&#39;cpf&#39;: &#39;532.213.947-80&#39;, &#39;nome&#39;: &#39;João&#39;}</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">schema</span><span class="p">())</span>
-<span class="c1"># &gt; {&#39;title&#39;: &#39;Pessoa&#39;, &#39;type&#39;: &#39;object&#39;, &#39;properties&#39;: {&#39;cpf&#39;: {&#39;title&#39;: &#39;Cpf&#39;, &#39;type&#39;: &#39;string&#39;, &#39;format&#39;: &#39;cpf&#39;}, &#39;nome&#39;: {&#39;title&#39;: &#39;Nome&#39;, &#39;type&#39;: &#39;string&#39;}}, &#39;required&#39;: [&#39;cpf&#39;, &#39;nome&#39;]}</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
-<span class="c1"># &gt; cpf=&#39;53221394780&#39; nome=&#39;Maria&#39;</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">p2</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
-<span class="c1"># &gt; {&#39;cpf&#39;: &#39;53221394780&#39;, &#39;nome&#39;: &#39;Maria&#39;}</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">p2</span><span class="o">.</span><span class="n">schema</span><span class="p">())</span>
-<span class="c1"># &gt; {&#39;title&#39;: &#39;Pessoa&#39;, &#39;type&#39;: &#39;object&#39;, &#39;properties&#39;: {&#39;cpf&#39;: {&#39;title&#39;: &#39;Cpf&#39;, &#39;type&#39;: &#39;string&#39;, &#39;format&#39;: &#39;cpf&#39;}, &#39;nome&#39;: {&#39;title&#39;: &#39;Nome&#39;, &#39;type&#39;: &#39;string&#39;}}, &#39;required&#39;: [&#39;cpf&#39;, &#39;nome&#39;]}</span>
-</code></pre></div></td></tr></table></div>
-<h2 id="cpfmask">CPFMask</h2>
-<p>Aceita o CPF apenas com máscara</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
-
-<span class="kn">from</span> <span class="nn">pydantic_br</span> <span class="kn">import</span> <span class="n">CPFMask</span>
-
-
-<span class="k">class</span> <span class="nc">Pessoa</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-    <span class="n">cpf</span><span class="p">:</span> <span class="n">CPFMask</span>
-    <span class="n">nome</span><span class="p">:</span> <span class="nb">str</span>
-
-
-<span class="n">p1</span> <span class="o">=</span> <span class="n">Pessoa</span><span class="p">(</span><span class="n">nome</span><span class="o">=</span><span class="s2">&quot;João&quot;</span><span class="p">,</span> <span class="n">cpf</span><span class="o">=</span><span class="s2">&quot;532.213.947-80&quot;</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
-<span class="c1"># &gt; cpf=&#39;532.213.947-80&#39; nome=&#39;João&#39;</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
-<span class="c1"># &gt; {&#39;cpf&#39;: &#39;532.213.947-80&#39;, &#39;nome&#39;: &#39;João&#39;}</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">schema</span><span class="p">())</span>
-<span class="c1"># &gt; {&#39;title&#39;: &#39;Pessoa&#39;, &#39;type&#39;: &#39;object&#39;, &#39;properties&#39;: {&#39;cpf&#39;: {&#39;title&#39;: &#39;Cpf&#39;, &#39;type&#39;: &#39;string&#39;, &#39;format&#39;: &#39;cpf&#39;}, &#39;nome&#39;: {&#39;title&#39;: &#39;Nome&#39;, &#39;type&#39;: &#39;string&#39;}}, &#39;required&#39;: [&#39;cpf&#39;, &#39;nome&#39;]}</span>
-</code></pre></div></td></tr></table></div>
-<h2 id="cpfdigits">CPFDigits</h2>
-<p>Aceita o CPF apenas com dígitos</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
-
-<span class="kn">from</span> <span class="nn">pydantic_br</span> <span class="kn">import</span> <span class="n">CPFDigits</span>
-
-
-<span class="k">class</span> <span class="nc">Pessoa</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-    <span class="n">cpf</span><span class="p">:</span> <span class="n">CPFDigits</span>
-    <span class="n">nome</span><span class="p">:</span> <span class="nb">str</span>
-
-
-<span class="n">p1</span> <span class="o">=</span> <span class="n">Pessoa</span><span class="p">(</span><span class="n">nome</span><span class="o">=</span><span class="s2">&quot;João&quot;</span><span class="p">,</span> <span class="n">cpf</span><span class="o">=</span><span class="s2">&quot;53221394780&quot;</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
-<span class="c1"># &gt; cpf=&#39;53221394780&#39; nome=&#39;João&#39;</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
-<span class="c1"># &gt; {&#39;cpf&#39;: &#39;53221394780&#39;, &#39;nome&#39;: &#39;João&#39;}</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">schema</span><span class="p">())</span>
-<span class="c1"># &gt; {&#39;title&#39;: &#39;Pessoa&#39;, &#39;type&#39;: &#39;object&#39;, &#39;properties&#39;: {&#39;cpf&#39;: {&#39;title&#39;: &#39;Cpf&#39;, &#39;type&#39;: &#39;string&#39;, &#39;format&#39;: &#39;cpf&#39;}, &#39;nome&#39;: {&#39;title&#39;: &#39;Nome&#39;, &#39;type&#39;: &#39;string&#39;}}, &#39;required&#39;: [&#39;cpf&#39;, &#39;nome&#39;]}</span>
-</code></pre></div></td></tr></table></div>
-<h2 id="cnpj">CNPJ</h2>
+<h2 id="pessoa-juridica">Pessoa Jurídica</h2>
+<h3 id="cnpj">CNPJ</h3>
 <p>Aceita o CNPJ com ou sem máscara</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -685,7 +606,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">e2</span><span class="o">.</span><span class="n">schema</span><span class="p">())</span>
 <span class="c1"># &gt; {&#39;title&#39;: &#39;Empresa&#39;, &#39;type&#39;: &#39;object&#39;, &#39;properties&#39;: {&#39;cnpj&#39;: {&#39;title&#39;: &#39;Cnpj&#39;, &#39;type&#39;: &#39;string&#39;, &#39;format&#39;: &#39;cpf&#39;}, &#39;nome&#39;: {&#39;title&#39;: &#39;Nome&#39;, &#39;type&#39;: &#39;string&#39;}}, &#39;required&#39;: [&#39;cnpj&#39;, &#39;nome&#39;]}</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="cnpjmask">CNPJMask</h2>
+<h3 id="cnpjmask">CNPJMask</h3>
 <p>Aceita o CNPJ apenas com máscara</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -727,7 +648,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">e1</span><span class="o">.</span><span class="n">schema</span><span class="p">())</span>
 <span class="c1"># &gt; {&#39;title&#39;: &#39;Empresa&#39;, &#39;type&#39;: &#39;object&#39;, &#39;properties&#39;: {&#39;cnpj&#39;: {&#39;title&#39;: &#39;Cnpj&#39;, &#39;type&#39;: &#39;string&#39;, &#39;format&#39;: &#39;cpf&#39;}, &#39;nome&#39;: {&#39;title&#39;: &#39;Nome&#39;, &#39;type&#39;: &#39;string&#39;}}, &#39;required&#39;: [&#39;cnpj&#39;, &#39;nome&#39;]}</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="cnpjdigits">CNPJDigits</h2>
+<h3 id="cnpjdigits">CNPJDigits</h3>
 <p>Aceita o CNPJ apenas com dígitos</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -770,6 +691,197 @@
 
 <span class="nb">print</span><span class="p">(</span><span class="n">e1</span><span class="o">.</span><span class="n">schema</span><span class="p">())</span>
 <span class="c1"># &gt; {&#39;title&#39;: &#39;Empresa&#39;, &#39;type&#39;: &#39;object&#39;, &#39;properties&#39;: {&#39;cnpj&#39;: {&#39;title&#39;: &#39;Cnpj&#39;, &#39;type&#39;: &#39;string&#39;, &#39;format&#39;: &#39;cpf&#39;}, &#39;nome&#39;: {&#39;title&#39;: &#39;Nome&#39;, &#39;type&#39;: &#39;string&#39;}}, &#39;required&#39;: [&#39;cnpj&#39;, &#39;nome&#39;]}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="pessoa-fisica">Pessoa Física</h2>
+<h3 id="cpf">CPF</h3>
+<p>Aceita o CPF com ou sem máscara</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="kn">from</span> <span class="nn">pydantic_br</span> <span class="kn">import</span> <span class="n">CPF</span>
+
+
+<span class="k">class</span> <span class="nc">Pessoa</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">cpf</span><span class="p">:</span> <span class="n">CPF</span>
+    <span class="n">nome</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Pessoa</span><span class="p">(</span><span class="n">nome</span><span class="o">=</span><span class="s2">&quot;João&quot;</span><span class="p">,</span> <span class="n">cpf</span><span class="o">=</span><span class="s2">&quot;532.213.947-80&quot;</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">Pessoa</span><span class="p">(</span><span class="n">nome</span><span class="o">=</span><span class="s2">&quot;Maria&quot;</span><span class="p">,</span> <span class="n">cpf</span><span class="o">=</span><span class="s2">&quot;53221394780&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+<span class="c1"># &gt; cpf=&#39;532.213.947-80&#39; nome=&#39;João&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;cpf&#39;: &#39;532.213.947-80&#39;, &#39;nome&#39;: &#39;João&#39;}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">schema</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;title&#39;: &#39;Pessoa&#39;, &#39;type&#39;: &#39;object&#39;, &#39;properties&#39;: {&#39;cpf&#39;: {&#39;title&#39;: &#39;Cpf&#39;, &#39;type&#39;: &#39;string&#39;, &#39;format&#39;: &#39;cpf&#39;}, &#39;nome&#39;: {&#39;title&#39;: &#39;Nome&#39;, &#39;type&#39;: &#39;string&#39;}}, &#39;required&#39;: [&#39;cpf&#39;, &#39;nome&#39;]}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+<span class="c1"># &gt; cpf=&#39;53221394780&#39; nome=&#39;Maria&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p2</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;cpf&#39;: &#39;53221394780&#39;, &#39;nome&#39;: &#39;Maria&#39;}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p2</span><span class="o">.</span><span class="n">schema</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;title&#39;: &#39;Pessoa&#39;, &#39;type&#39;: &#39;object&#39;, &#39;properties&#39;: {&#39;cpf&#39;: {&#39;title&#39;: &#39;Cpf&#39;, &#39;type&#39;: &#39;string&#39;, &#39;format&#39;: &#39;cpf&#39;}, &#39;nome&#39;: {&#39;title&#39;: &#39;Nome&#39;, &#39;type&#39;: &#39;string&#39;}}, &#39;required&#39;: [&#39;cpf&#39;, &#39;nome&#39;]}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="cpfmask">CPFMask</h3>
+<p>Aceita o CPF apenas com máscara</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="kn">from</span> <span class="nn">pydantic_br</span> <span class="kn">import</span> <span class="n">CPFMask</span>
+
+
+<span class="k">class</span> <span class="nc">Pessoa</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">cpf</span><span class="p">:</span> <span class="n">CPFMask</span>
+    <span class="n">nome</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Pessoa</span><span class="p">(</span><span class="n">nome</span><span class="o">=</span><span class="s2">&quot;João&quot;</span><span class="p">,</span> <span class="n">cpf</span><span class="o">=</span><span class="s2">&quot;532.213.947-80&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+<span class="c1"># &gt; cpf=&#39;532.213.947-80&#39; nome=&#39;João&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;cpf&#39;: &#39;532.213.947-80&#39;, &#39;nome&#39;: &#39;João&#39;}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">schema</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;title&#39;: &#39;Pessoa&#39;, &#39;type&#39;: &#39;object&#39;, &#39;properties&#39;: {&#39;cpf&#39;: {&#39;title&#39;: &#39;Cpf&#39;, &#39;type&#39;: &#39;string&#39;, &#39;format&#39;: &#39;cpf&#39;}, &#39;nome&#39;: {&#39;title&#39;: &#39;Nome&#39;, &#39;type&#39;: &#39;string&#39;}}, &#39;required&#39;: [&#39;cpf&#39;, &#39;nome&#39;]}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="cpfdigits">CPFDigits</h3>
+<p>Aceita o CPF apenas com dígitos</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="kn">from</span> <span class="nn">pydantic_br</span> <span class="kn">import</span> <span class="n">CPFDigits</span>
+
+
+<span class="k">class</span> <span class="nc">Pessoa</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">cpf</span><span class="p">:</span> <span class="n">CPFDigits</span>
+    <span class="n">nome</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Pessoa</span><span class="p">(</span><span class="n">nome</span><span class="o">=</span><span class="s2">&quot;João&quot;</span><span class="p">,</span> <span class="n">cpf</span><span class="o">=</span><span class="s2">&quot;53221394780&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+<span class="c1"># &gt; cpf=&#39;53221394780&#39; nome=&#39;João&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;cpf&#39;: &#39;53221394780&#39;, &#39;nome&#39;: &#39;João&#39;}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">schema</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;title&#39;: &#39;Pessoa&#39;, &#39;type&#39;: &#39;object&#39;, &#39;properties&#39;: {&#39;cpf&#39;: {&#39;title&#39;: &#39;Cpf&#39;, &#39;type&#39;: &#39;string&#39;, &#39;format&#39;: &#39;cpf&#39;}, &#39;nome&#39;: {&#39;title&#39;: &#39;Nome&#39;, &#39;type&#39;: &#39;string&#39;}}, &#39;required&#39;: [&#39;cpf&#39;, &#39;nome&#39;]}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="cnh">CNH</h3>
+<p>Aceita o CNH apenas com dígitos</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="kn">from</span> <span class="nn">pydantic_br</span> <span class="kn">import</span> <span class="n">CNH</span>
+
+
+<span class="k">class</span> <span class="nc">Pessoa</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">cnh</span><span class="p">:</span> <span class="n">CNH</span>
+    <span class="n">nome</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Pessoa</span><span class="p">(</span><span class="n">nome</span><span class="o">=</span><span class="s2">&quot;João&quot;</span><span class="p">,</span> <span class="n">cnh</span><span class="o">=</span><span class="s2">&quot;18820839790&quot;</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+<span class="c1"># &gt; cnh=&#39;18820839790&#39; nome=&#39;João&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;cnh&#39;: &#39;18820839790&#39;, &#39;nome&#39;: &#39;João&#39;}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">schema</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;title&#39;: &#39;Pessoa&#39;, &#39;type&#39;: &#39;object&#39;, &#39;properties&#39;: {&#39;cnh&#39;: {&#39;title&#39;: &#39;Cnh&#39;, &#39;type&#39;: &#39;string&#39;, &#39;format&#39;: &#39;cnh&#39;}, &#39;nome&#39;: {&#39;title&#39;: &#39;Nome&#39;, &#39;type&#39;: &#39;string&#39;}}, &#39;required&#39;: [&#39;cnh&#39;, &#39;nome&#39;]}</span>
 </code></pre></div></td></tr></table></div>
 
 
