@@ -1,5 +1,8 @@
+## v0.1.5 (2023-04-05)
+- adicionado campo TE
+
 ## v0.1.4 (2023-04-04)
-- adicionado campo de CNH
+- adicionado campo CNH
 
 ## v0.1.3 (2023-04-03)
 - corrido insformações de instalação

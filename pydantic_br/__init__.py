@@ -10,7 +10,9 @@ if TYPE_CHECKING:
     CNPJ = str
     CNPJDigits = str
     CNPJMask = str
+    TE = str
 else:
     from .fields.cnh_field import *
     from .fields.cnpj_field import *
     from .fields.cpf_field import *
+    from .fields.te_field import *
