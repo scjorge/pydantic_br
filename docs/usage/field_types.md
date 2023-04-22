@@ -247,3 +247,94 @@ print(p1.schema())
 # > {'title': 'Pessoa', 'type': 'object', 'properties': {'te': {'title': 'Te', 'type': 'string', 'format': 'te'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['te', 'nome']}
 ```
 
+### PIS
+
+Aceita o PIS apenas com dígitos
+
+```{.py3 linenums=1}
+from pydantic import BaseModel
+
+from pydantic_br import PIS
+
+
+class Pessoa(BaseModel):
+    pis: PIS
+    nome: str
+
+
+p1 = Pessoa(nome="João", pis="848.76001.76-3")
+p2 = Pessoa(nome="Maria", pis="84876001763")
+
+print(p1)
+# > pis='848.76001.76-3' nome='João'
+
+print(p1.dict())
+# > {'pis': '848.76001.76-3', 'nome': 'João'}
+
+print(p1.schema())
+# > {'title': 'Pessoa', 'type': 'object', 'properties': {'pis': {'title': 'Pis', 'type': 'string', 'format': 'pis'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['pis', 'nome']}
+
+print(p2)
+# > '84876001763' nome='Maria'
+
+print(p2.dict())
+# > {'pis': '84876001763', 'nome': 'Maria'}
+
+print(p2.schema())
+# > {'title': 'Pessoa', 'type': 'object', 'properties': {'pis': {'title': 'Pis', 'type': 'string', 'format': 'pis'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['pis', 'nome']}
+
+```
+
+### PISMask
+
+Aceita o PIS apenas com máscara
+
+```{.py3 linenums=1}
+from pydantic import BaseModel
+
+from pydantic_br import PISMask
+
+
+class Pessoa(BaseModel):
+    pis: PISMask
+    nome: str
+
+
+p1 = Pessoa(nome="João", pis="848.76001.76-3")
+
+print(p1)
+# > '848.76001.76-3' nome='João'
+
+print(p1.dict())
+# > {'pis': '848.76001.76-3', 'nome': 'João'}
+
+print(p1.schema())
+# > {'title': 'Pessoa', 'type': 'object', 'properties': {'pis': {'title': 'Pis', 'type': 'string', 'format': 'pis'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['pis', 'nome']}
+```
+
+### PISDigits
+
+Aceita o PIS apenas com dígitos
+
+```{.py3 linenums=1}
+from pydantic import BaseModel
+
+from pydantic_br import PISDigits
+
+
+class Pessoa(BaseModel):
+    pis: PISDigits
+    nome: str
+
+
+p1 = Pessoa(nome="João", pis="84876001763")
+
+print(p1)
+# > pis='84876001763' nome='João'
+
+print(p1.dict())
+# > {'pis': '84876001763', 'nome': 'João'}
+
+print(p1.schema())
+# > {'title': 'Pessoa', 'type': 'object', 'properties': {'pis': {'title': 'Pis', 'type': 'string', 'format': 'pis'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['pis', 'nome']}
+```

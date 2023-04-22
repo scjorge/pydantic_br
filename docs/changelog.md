@@ -1,3 +1,6 @@
+## v0.3.0 (2023-04-21)
+- adicionado campo PIS
+
 ## v0.2.0 (2023-04-05)
 - adicionado campo TE
 

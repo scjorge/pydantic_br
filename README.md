@@ -33,7 +33,7 @@ Documentação: https://pydantic-br.readthedocs.io
 | CPF | Pessoa física | Cadastro de Pessoa Física | Digito Verificador | Concluído
 | CNH | Pessoa física | Carteira Nacional de Habilitação | Digito Verificador | Concluído
 | TE | Pessoa física  | Título de Eleitor | Digito Verificador | Concluído
-| PIS | Pessoa física  | Programa de Integração Social | Digito Verificador | Em desenvolvimento
+| PIS | Pessoa física  | Programa de Integração Social | Digito Verificador | Concluído
 | CERT | Pessoa física  | Certidão (Nascimento/Casamento/Óbito) | Digito Verificador | Em desenvolvimento
 | CNS | Pessoa física  | Cartão Nacional de Saúde | Digito Verificador | Em desenvolvimento
 | RNVAM | Veículos | Registro Nacional de Veículos Automotores | RegExr | Em desenvolvimento
