@@ -1,9 +1,11 @@
 import re
 
+from .base_validator import FieldMaskValidator
+
 __all__ = ["CPFValidator"]
 
 
-class CPFValidator:
+class CPFValidator(FieldMaskValidator):
     def __init__(self, cpf: str) -> None:
         self.cpf = cpf
 

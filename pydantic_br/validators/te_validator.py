@@ -1,10 +1,12 @@
 import re
 from typing import List
 
+from .base_validator import FieldValidator
+
 __all__ = ["TEValidator"]
 
 
-class TEValidator:
+class TEValidator(FieldValidator):
     def __init__(self, te: str) -> None:
         self.te = te
         self.first_check_digit_weights = list(range(2, 10))

@@ -1,9 +1,11 @@
 import re
 
+from .base_validator import FieldMaskValidator
+
 __all__ = ["CNPJValidator"]
 
 
-class CNPJValidator:
+class CNPJValidator(FieldMaskValidator):
     def __init__(self, cnpj) -> None:
         self.cnpj = cnpj
 

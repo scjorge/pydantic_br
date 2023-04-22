@@ -1,9 +1,11 @@
 import re
 
+from .base_validator import FieldValidator
+
 __all__ = ["CNHValidator"]
 
 
-class CNHValidator:
+class CNHValidator(FieldValidator):
     def __init__(self, cnh: str) -> None:
         self.cnh = cnh
 
