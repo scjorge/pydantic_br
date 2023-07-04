@@ -1,3 +1,6 @@
+## v0.4.0 (2023-07-03)
+- adicionado campo Certidao
+
 ## v0.3.0 (2023-04-21)
 - adicionado campo PIS
 

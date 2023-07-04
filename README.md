@@ -34,9 +34,9 @@ Documentação: https://pydantic-br.readthedocs.io
 | CNH | Pessoa física | Carteira Nacional de Habilitação | Digito Verificador | Concluído
 | TE | Pessoa física  | Título de Eleitor | Digito Verificador | Concluído
 | PIS | Pessoa física  | Programa de Integração Social | Digito Verificador | Concluído
-| CERT | Pessoa física  | Certidão (Nascimento/Casamento/Óbito) | Digito Verificador | Em desenvolvimento
+| CERT | Pessoa física  | Certidão (Nascimento/Casamento/Óbito) | Digito Verificador | Concluído
 | CNS | Pessoa física  | Cartão Nacional de Saúde | Digito Verificador | Em desenvolvimento
-| RNVAM | Veículos | Registro Nacional de Veículos Automotores | RegExr | Em desenvolvimento
+| RENAVAM | Veículos | Registro Nacional de Veículos Automotores | RegExr | Em desenvolvimento
 | PLACA | Veículos | Placa do Veículo | RegExr | Em desenvolvimento
 | ISBN | Livros | Padrão Internacional de Numeração de Livro | Digito Verificador | Em desenvolvimento
 

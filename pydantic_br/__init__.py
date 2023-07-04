@@ -14,9 +14,13 @@ if TYPE_CHECKING:
     PIS = str
     PISMask = str
     PISDigits = str
+    Certidao = str
+    CertidaoMask = str
+    CertidaoDigits = str
 else:
     from .fields.cnh_field import *
     from .fields.cnpj_field import *
     from .fields.cpf_field import *
     from .fields.pis_field import *
     from .fields.te_field import *
+    from .fields.certidao_field import *

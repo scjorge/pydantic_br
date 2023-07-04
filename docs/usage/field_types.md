@@ -249,7 +249,7 @@ print(p1.schema())
 
 ### PIS
 
-Aceita o PIS apenas com dígitos
+Aceita o PIS com ou sem máscara
 
 ```{.py3 linenums=1}
 from pydantic import BaseModel
@@ -337,4 +337,94 @@ print(p1.dict())
 
 print(p1.schema())
 # > {'title': 'Pessoa', 'type': 'object', 'properties': {'pis': {'title': 'Pis', 'type': 'string', 'format': 'pis'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['pis', 'nome']}
+```
+
+### Certidao
+
+Aceita o número da Certidão com ou sem máscara
+
+```{.py3 linenums=1}
+from pydantic import BaseModel
+
+from pydantic_br import Certidao
+
+
+class Pessoa(BaseModel):
+    certidao: Certidao
+
+
+e1 = Pessoa(certidao="203213.01.55.2019.4.03108.343.1021163-86")
+e2 = Pessoa(certidao="20321301552019403108343102116386")
+
+print(e1)
+# > certidao='203213.01.55.2019.4.03108.343.1021163-86'
+
+print(e1.dict())
+# > {'certidao': '203213.01.55.2019.4.03108.343.1021163-86'}
+
+print(e1.schema())
+# > {'title': 'Pessoa', 'type': 'object', 'properties': {'certidao': {'title': 'Certidao', 'type': 'string', 'format': 'certidao'}}, 'required': ['certidao']}
+print(e2)
+# > certidao='20321301552019403108343102116386'
+
+print(e2.dict())
+# > {'certidao': '20321301552019403108343102116386'}
+
+print(e2.schema())
+# > {'title': 'Pessoa', 'type': 'object', 'properties': {'certidao': {'title': 'Certidao', 'type': 'string', 'format': 'certidao'}}, 'required': ['certidao']}
+```
+
+### CertidaoMask
+
+Aceita o número da Certidão apenas com máscara
+
+```{.py3 linenums=1}
+from pydantic import BaseModel
+
+from pydantic_br import CertidaoMask
+
+
+class Empresa(BaseModel):
+    certidao: CertidaoMask
+    nome: str
+
+
+e1 = Empresa(nome="Maria", certidao="203213.01.55.2019.4.03108.343.1021163-86")
+
+print(e1)
+# > certidao='203213.01.55.2019.4.03108.343.1021163-86' nome='Maria'
+
+print(e1.dict())
+# > {'certidao': '203213.01.55.2019.4.03108.343.1021163-86', 'nome': 'Maria'}
+
+print(e1.schema())
+# > {'title': 'Empresa', 'type': 'object', 'properties': {'certidao': {'title': 'Certidao', 'type': 'string', 'format': 'certidao'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['certidao', 'nome']}
+```
+
+### CertidaoDigits
+
+Aceita o número da Certidão apenas com dígitos
+
+```{.py3 linenums=1}
+from pydantic import BaseModel
+
+from pydantic_br import CertidaoDigits
+
+
+class Empresa(BaseModel):
+    certidao: CertidaoDigits
+    nome: str
+
+
+e1 = Empresa(nome="maria", certidao="20321301552019403108343102116386")
+
+
+print(e1)
+# > certidao='20321301552019403108343102116386' nome='maria'
+
+print(e1.dict())
+# > {'certidao': '20321301552019403108343102116386', 'nome': 'maria'}
+
+print(e1.schema())
+# > {'title': 'Empresa', 'type': 'object', 'properties': {'certidao': {'title': 'Certidao', 'type': 'string', 'format': 'certidao'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['certidao', 'nome']}
 ```
