@@ -3,19 +3,19 @@ from pydantic import BaseModel
 from pydantic_br import CertidaoDigits
 
 
-class Empresa(BaseModel):
+class Pessoa(BaseModel):
     certidao: CertidaoDigits
     nome: str
 
 
-e1 = Empresa(nome="maria", certidao="20321301552019403108343102116386")
+p1 = Pessoa(nome="maria", certidao="20321301552019403108343102116386")
 
 
-print(e1)
+print(p1)
 # > certidao='20321301552019403108343102116386' nome='maria'
 
-print(e1.dict())
+print(p1.dict())
 # > {'certidao': '20321301552019403108343102116386', 'nome': 'maria'}
 
-print(e1.schema())
-# > {'title': 'Empresa', 'type': 'object', 'properties': {'certidao': {'title': 'Certidao', 'type': 'string', 'format': 'certidao'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['certidao', 'nome']}
+print(p1.schema())
+# > {'title': 'Pessoa', 'type': 'object', 'properties': {'certidao': {'title': 'Certidao', 'type': 'string', 'format': 'certidao'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['certidao', 'nome']}
