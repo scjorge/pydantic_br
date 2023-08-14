@@ -1,4 +1,4 @@
-## v1.0.0 (2023-07-03)
+## v1.0.0 (2023-08-13)
 - Cria compatibilidade com a versão v2 do Pydantic
 - Altera messagem de erro FieldTypeError
 
