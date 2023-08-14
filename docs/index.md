@@ -19,6 +19,8 @@
 
 Essa é uma biblioteca de extensão e visa disponibilizar campos com validações brasileiras para a biblioteca pydantic.
 
+Compatível com a versão v1 e v2 do Pydantic.
+
 
 
 ## Disponibilidades

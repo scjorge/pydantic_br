@@ -22,18 +22,3 @@ repos:
         language: system
         types: [python]
 
-
-    -   id: mypy
-        name: mypy
-        exclude: "docs*"
-        entry: poetry -C pydantic_br run mypy
-        language: system
-        types: [python]
-
-# -   repo: local
-#     hooks:
-#     -   id: requirements
-#         name: requirements
-#         entry: poetry -C pydantic_br export --only lint --output requirements/lint.txt
-#         language: system
-#         types: [python]

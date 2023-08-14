@@ -3,7 +3,13 @@ from string import ascii_letters
 import pytest
 from pydantic import BaseModel, ValidationError
 
-from pydantic_br import Certidao, CertidaoDigits, FieldDigitError, FieldInvalidError, FieldTypeError
+from pydantic_br import (
+    Certidao,
+    CertidaoDigits,
+    FieldDigitError,
+    FieldInvalidError,
+    FieldTypeError,
+)
 
 certidao_mock = [
     "28006901552010301333550237366334",

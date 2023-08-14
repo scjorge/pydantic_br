@@ -5,8 +5,6 @@ __all__ = ["TE"]
 
 
 class TE(BaseDigits):
-    format = "te"
-    Validator = TEValidator
     """
     Only Accepts string of TE with digits.
 
@@ -14,4 +12,5 @@ class TE(BaseDigits):
         number (str): TE number.
     """
 
-    ...
+    format = "te"
+    Validator = TEValidator

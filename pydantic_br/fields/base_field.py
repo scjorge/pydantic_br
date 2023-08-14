@@ -6,7 +6,9 @@ from ..field_erros import (
     FieldMaskError,
     FieldTypeError,
 )
+from ..get_versions import get_pydantic_version
 from ..validators.base_validator import FieldMaskValidator, FieldValidator
+from .base_field_v2 import BaseDigitsV2, BaseMaskV2, BasePydanticV2
 
 __all__ = [
     "Base",
@@ -17,8 +19,10 @@ __all__ = [
 AnyCallable = Callable[..., Any]
 CallableGenerator = Generator[AnyCallable, None, None]
 
+pydantic_version = get_pydantic_version()
 
-class Base:
+
+class Base(BasePydanticV2):
     format: str
     Validator: Callable[..., FieldValidator]
 
@@ -39,18 +43,24 @@ class Base:
     @classmethod
     def validate_type(cls, value: str) -> str:
         if not isinstance(value, str):
-            raise FieldTypeError()
+            if pydantic_version.value == 1:
+                raise FieldTypeError()
+            if pydantic_version.value == 2:
+                raise FieldTypeError(FieldTypeError.msg_template)
         return value
 
     @classmethod
     def validate(cls, value: str) -> str:
         doc = cls.Validator(value)
         if not doc.validate():
-            raise FieldInvalidError()
+            if pydantic_version.value == 1:
+                raise FieldInvalidError()
+            if pydantic_version.value == 2:
+                raise FieldInvalidError(FieldInvalidError.msg_template)
         return value
 
 
-class BaseMask(Base):
+class BaseMask(Base, BaseMaskV2):
     Validator: Callable[..., FieldMaskValidator]
 
     @classmethod
@@ -63,11 +73,14 @@ class BaseMask(Base):
     def validate_mask(cls, value: str) -> str:
         doc = cls.Validator(value)
         if not doc.validate_mask():
-            raise FieldMaskError()
+            if pydantic_version.value == 1:
+                raise FieldMaskError()
+            if pydantic_version.value == 2:
+                raise FieldMaskError(FieldMaskError.msg_template)
         return value
 
 
-class BaseDigits(Base):
+class BaseDigits(Base, BaseDigitsV2):
     @classmethod
     def __get_validators__(cls) -> CallableGenerator:
         yield cls.validate_type
@@ -77,5 +90,8 @@ class BaseDigits(Base):
     @classmethod
     def validate_numbers(cls, value: str) -> str:
         if not value.isdigit():
-            raise FieldDigitError()
+            if pydantic_version.value == 1:
+                raise FieldDigitError()
+            if pydantic_version.value == 2:
+                raise FieldDigitError(FieldDigitError.msg_template)
         return value

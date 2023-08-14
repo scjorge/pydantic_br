@@ -1,3 +1,12 @@
+## Versões do Pydantic 
+Os exemplos abaixo estão escritos na versão v1 do Pydantic. Entretanto, funciona perfeitamente com a versão v2.
+
+Então que mudará? Bem, os métodos de 'apresentação' das models foram alterados na v2. 
+
+- O método `dict()` foi alterado para `model_dump()`
+- O método `schema()` foi alterado para `model_json_schema()`
+
+
 ## Pessoa Jurídica
 
 
