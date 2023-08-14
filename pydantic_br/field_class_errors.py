@@ -1,4 +1,4 @@
-from typing import Any, Tuple, Union
+from typing import Any, Dict, Tuple, Union
 
 from .get_versions import get_pydantic_version
 
@@ -7,7 +7,7 @@ pydantic_version = get_pydantic_version()
 
 class PydanticCustomError(ValueError):
     @property
-    def context(self) -> Union[dict[str, Any], None]:
+    def context(self) -> Union[Dict[str, Any], None]:
         ...
 
     @property
