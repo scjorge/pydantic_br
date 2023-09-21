@@ -6,33 +6,14 @@ class PydanticVersion(Enum):
     v2 = 2
 
 
-def get_pydantic_module() -> None:
+def get_pydantic_version() -> PydanticVersion:
     try:
         import pydantic  # noqa
     except ModuleNotFoundError:
         raise ModuleNotFoundError("Are you sure you installed Pydantic")
 
-
-def check_pydantic_v1() -> bool:
-    try:
-        from pydantic import PydanticTypeError, PydanticValueError  # noqa
-    except ImportError:
-        return False
-    return True
-
-
-def check_pydantic_v2() -> bool:
-    try:
-        from pydantic_core import PydanticCustomError  # noqa
-    except ImportError:
-        return False
-    return True
-
-
-def get_pydantic_version() -> PydanticVersion:
-    get_pydantic_module()
-    if check_pydantic_v1():
+    if pydantic.__version__.startswith("1"):
         return PydanticVersion.v1
-    if check_pydantic_v2():
+    if pydantic.__version__.startswith("2"):
         return PydanticVersion.v2
     raise ModuleNotFoundError("Something went wrong withs Pydantic imports")
