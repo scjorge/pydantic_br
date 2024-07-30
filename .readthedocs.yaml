@@ -10,7 +10,7 @@ build:
 
   jobs:
     post_create_environment:
-      - pip install --user --requirement < (poetry export --format requirements.txt)
+      - pip install --user --requirement < poetry export --format requirements.txt
 
     post_install:
       - poetry install --only doc
