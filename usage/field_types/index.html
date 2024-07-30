@@ -15,7 +15,7 @@
         <link rel="next" href="../exceptions/">
       
       <link rel="icon" href="../../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.4">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.5">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.240905d7.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7a7fce14.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pessoa-juridica" class="md-skip">
+        <a href="#versoes-do-pydantic" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -306,6 +306,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#versoes-do-pydantic" class="md-nav__link">
+    Versões do Pydantic
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pessoa-juridica" class="md-nav__link">
     Pessoa Jurídica
   </a>
@@ -371,6 +378,55 @@
           <li class="md-nav__item">
   <a href="#cnh" class="md-nav__link">
     CNH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#te" class="md-nav__link">
+    TE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pis" class="md-nav__link">
+    PIS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pismask" class="md-nav__link">
+    PISMask
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pisdigits" class="md-nav__link">
+    PISDigits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#certidao" class="md-nav__link">
+    Certidao
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#certidaomask" class="md-nav__link">
+    CertidaoMask
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#certidaodigits" class="md-nav__link">
+    CertidaoDigits
   </a>
   
 </li>
@@ -449,6 +505,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#versoes-do-pydantic" class="md-nav__link">
+    Versões do Pydantic
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pessoa-juridica" class="md-nav__link">
     Pessoa Jurídica
   </a>
@@ -518,6 +581,55 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#te" class="md-nav__link">
+    TE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pis" class="md-nav__link">
+    PIS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pismask" class="md-nav__link">
+    PISMask
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pisdigits" class="md-nav__link">
+    PISDigits
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#certidao" class="md-nav__link">
+    Certidao
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#certidaomask" class="md-nav__link">
+    CertidaoMask
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#certidaodigits" class="md-nav__link">
+    CertidaoDigits
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -543,6 +655,13 @@
 
   <h1>Campos</h1>
 
+<h2 id="versoes-do-pydantic">Versões do Pydantic</h2>
+<p>Os exemplos abaixo estão escritos na versão v1 do Pydantic. Entretanto, funciona perfeitamente com a versão v2.</p>
+<p>Então que mudará? Bem, os métodos de 'apresentação' das models foram alterados na v2. </p>
+<ul>
+<li>O método <code>dict()</code> foi alterado para <code>model_dump()</code></li>
+<li>O método <code>schema()</code> foi alterado para <code>model_json_schema()</code></li>
+</ul>
 <h2 id="pessoa-juridica">Pessoa Jurídica</h2>
 <h3 id="cnpj">CNPJ</h3>
 <p>Aceita o CNPJ com ou sem máscara</p>
@@ -883,6 +1002,340 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">schema</span><span class="p">())</span>
 <span class="c1"># &gt; {&#39;title&#39;: &#39;Pessoa&#39;, &#39;type&#39;: &#39;object&#39;, &#39;properties&#39;: {&#39;cnh&#39;: {&#39;title&#39;: &#39;Cnh&#39;, &#39;type&#39;: &#39;string&#39;, &#39;format&#39;: &#39;cnh&#39;}, &#39;nome&#39;: {&#39;title&#39;: &#39;Nome&#39;, &#39;type&#39;: &#39;string&#39;}}, &#39;required&#39;: [&#39;cnh&#39;, &#39;nome&#39;]}</span>
 </code></pre></div></td></tr></table></div>
+<h3 id="te">TE</h3>
+<p>Aceita o TE apenas com dígitos</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="kn">from</span> <span class="nn">pydantic_br</span> <span class="kn">import</span> <span class="n">TE</span>
+
+
+<span class="k">class</span> <span class="nc">Pessoa</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">te</span><span class="p">:</span> <span class="n">TE</span>
+    <span class="n">nome</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Pessoa</span><span class="p">(</span><span class="n">nome</span><span class="o">=</span><span class="s2">&quot;João&quot;</span><span class="p">,</span> <span class="n">te</span><span class="o">=</span><span class="s2">&quot;867474330655&quot;</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+<span class="c1"># &gt; te=&#39;867474330655&#39; nome=&#39;João&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;te&#39;: &#39;867474330655&#39;, &#39;nome&#39;: &#39;João&#39;}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">schema</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;title&#39;: &#39;Pessoa&#39;, &#39;type&#39;: &#39;object&#39;, &#39;properties&#39;: {&#39;te&#39;: {&#39;title&#39;: &#39;Te&#39;, &#39;type&#39;: &#39;string&#39;, &#39;format&#39;: &#39;te&#39;}, &#39;nome&#39;: {&#39;title&#39;: &#39;Nome&#39;, &#39;type&#39;: &#39;string&#39;}}, &#39;required&#39;: [&#39;te&#39;, &#39;nome&#39;]}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="pis">PIS</h3>
+<p>Aceita o PIS com ou sem máscara</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="kn">from</span> <span class="nn">pydantic_br</span> <span class="kn">import</span> <span class="n">PIS</span>
+
+
+<span class="k">class</span> <span class="nc">Pessoa</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">pis</span><span class="p">:</span> <span class="n">PIS</span>
+    <span class="n">nome</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Pessoa</span><span class="p">(</span><span class="n">nome</span><span class="o">=</span><span class="s2">&quot;João&quot;</span><span class="p">,</span> <span class="n">pis</span><span class="o">=</span><span class="s2">&quot;848.76001.76-3&quot;</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">Pessoa</span><span class="p">(</span><span class="n">nome</span><span class="o">=</span><span class="s2">&quot;Maria&quot;</span><span class="p">,</span> <span class="n">pis</span><span class="o">=</span><span class="s2">&quot;84876001763&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+<span class="c1"># &gt; pis=&#39;848.76001.76-3&#39; nome=&#39;João&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;pis&#39;: &#39;848.76001.76-3&#39;, &#39;nome&#39;: &#39;João&#39;}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">schema</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;title&#39;: &#39;Pessoa&#39;, &#39;type&#39;: &#39;object&#39;, &#39;properties&#39;: {&#39;pis&#39;: {&#39;title&#39;: &#39;Pis&#39;, &#39;type&#39;: &#39;string&#39;, &#39;format&#39;: &#39;pis&#39;}, &#39;nome&#39;: {&#39;title&#39;: &#39;Nome&#39;, &#39;type&#39;: &#39;string&#39;}}, &#39;required&#39;: [&#39;pis&#39;, &#39;nome&#39;]}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+<span class="c1"># &gt; &#39;84876001763&#39; nome=&#39;Maria&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p2</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;pis&#39;: &#39;84876001763&#39;, &#39;nome&#39;: &#39;Maria&#39;}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p2</span><span class="o">.</span><span class="n">schema</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;title&#39;: &#39;Pessoa&#39;, &#39;type&#39;: &#39;object&#39;, &#39;properties&#39;: {&#39;pis&#39;: {&#39;title&#39;: &#39;Pis&#39;, &#39;type&#39;: &#39;string&#39;, &#39;format&#39;: &#39;pis&#39;}, &#39;nome&#39;: {&#39;title&#39;: &#39;Nome&#39;, &#39;type&#39;: &#39;string&#39;}}, &#39;required&#39;: [&#39;pis&#39;, &#39;nome&#39;]}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="pismask">PISMask</h3>
+<p>Aceita o PIS apenas com máscara</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="kn">from</span> <span class="nn">pydantic_br</span> <span class="kn">import</span> <span class="n">PISMask</span>
+
+
+<span class="k">class</span> <span class="nc">Pessoa</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">pis</span><span class="p">:</span> <span class="n">PISMask</span>
+    <span class="n">nome</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Pessoa</span><span class="p">(</span><span class="n">nome</span><span class="o">=</span><span class="s2">&quot;João&quot;</span><span class="p">,</span> <span class="n">pis</span><span class="o">=</span><span class="s2">&quot;848.76001.76-3&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+<span class="c1"># &gt; &#39;848.76001.76-3&#39; nome=&#39;João&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;pis&#39;: &#39;848.76001.76-3&#39;, &#39;nome&#39;: &#39;João&#39;}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">schema</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;title&#39;: &#39;Pessoa&#39;, &#39;type&#39;: &#39;object&#39;, &#39;properties&#39;: {&#39;pis&#39;: {&#39;title&#39;: &#39;Pis&#39;, &#39;type&#39;: &#39;string&#39;, &#39;format&#39;: &#39;pis&#39;}, &#39;nome&#39;: {&#39;title&#39;: &#39;Nome&#39;, &#39;type&#39;: &#39;string&#39;}}, &#39;required&#39;: [&#39;pis&#39;, &#39;nome&#39;]}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="pisdigits">PISDigits</h3>
+<p>Aceita o PIS apenas com dígitos</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="kn">from</span> <span class="nn">pydantic_br</span> <span class="kn">import</span> <span class="n">PISDigits</span>
+
+
+<span class="k">class</span> <span class="nc">Pessoa</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">pis</span><span class="p">:</span> <span class="n">PISDigits</span>
+    <span class="n">nome</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Pessoa</span><span class="p">(</span><span class="n">nome</span><span class="o">=</span><span class="s2">&quot;João&quot;</span><span class="p">,</span> <span class="n">pis</span><span class="o">=</span><span class="s2">&quot;84876001763&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+<span class="c1"># &gt; pis=&#39;84876001763&#39; nome=&#39;João&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;pis&#39;: &#39;84876001763&#39;, &#39;nome&#39;: &#39;João&#39;}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">schema</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;title&#39;: &#39;Pessoa&#39;, &#39;type&#39;: &#39;object&#39;, &#39;properties&#39;: {&#39;pis&#39;: {&#39;title&#39;: &#39;Pis&#39;, &#39;type&#39;: &#39;string&#39;, &#39;format&#39;: &#39;pis&#39;}, &#39;nome&#39;: {&#39;title&#39;: &#39;Nome&#39;, &#39;type&#39;: &#39;string&#39;}}, &#39;required&#39;: [&#39;pis&#39;, &#39;nome&#39;]}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="certidao">Certidao</h3>
+<p>Aceita o número da Certidão com ou sem máscara</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="kn">from</span> <span class="nn">pydantic_br</span> <span class="kn">import</span> <span class="n">Certidao</span>
+
+
+<span class="k">class</span> <span class="nc">Pessoa</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">certidao</span><span class="p">:</span> <span class="n">Certidao</span>
+
+
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Pessoa</span><span class="p">(</span><span class="n">certidao</span><span class="o">=</span><span class="s2">&quot;203213.01.55.2019.4.03108.343.1021163-86&quot;</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">Pessoa</span><span class="p">(</span><span class="n">certidao</span><span class="o">=</span><span class="s2">&quot;20321301552019403108343102116386&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+<span class="c1"># &gt; certidao=&#39;203213.01.55.2019.4.03108.343.1021163-86&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;certidao&#39;: &#39;203213.01.55.2019.4.03108.343.1021163-86&#39;}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">schema</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;title&#39;: &#39;Pessoa&#39;, &#39;type&#39;: &#39;object&#39;, &#39;properties&#39;: {&#39;certidao&#39;: {&#39;title&#39;: &#39;Certidao&#39;, &#39;type&#39;: &#39;string&#39;, &#39;format&#39;: &#39;certidao&#39;}}, &#39;required&#39;: [&#39;certidao&#39;]}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+<span class="c1"># &gt; certidao=&#39;20321301552019403108343102116386&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p2</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;certidao&#39;: &#39;20321301552019403108343102116386&#39;}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p2</span><span class="o">.</span><span class="n">schema</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;title&#39;: &#39;Pessoa&#39;, &#39;type&#39;: &#39;object&#39;, &#39;properties&#39;: {&#39;certidao&#39;: {&#39;title&#39;: &#39;Certidao&#39;, &#39;type&#39;: &#39;string&#39;, &#39;format&#39;: &#39;certidao&#39;}}, &#39;required&#39;: [&#39;certidao&#39;]}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="certidaomask">CertidaoMask</h3>
+<p>Aceita o número da Certidão apenas com máscara</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="kn">from</span> <span class="nn">pydantic_br</span> <span class="kn">import</span> <span class="n">CertidaoMask</span>
+
+
+<span class="k">class</span> <span class="nc">Pessoa</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">certidao</span><span class="p">:</span> <span class="n">CertidaoMask</span>
+    <span class="n">nome</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Pessoa</span><span class="p">(</span><span class="n">nome</span><span class="o">=</span><span class="s2">&quot;Maria&quot;</span><span class="p">,</span> <span class="n">certidao</span><span class="o">=</span><span class="s2">&quot;203213.01.55.2019.4.03108.343.1021163-86&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+<span class="c1"># &gt; certidao=&#39;203213.01.55.2019.4.03108.343.1021163-86&#39; nome=&#39;Maria&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;certidao&#39;: &#39;203213.01.55.2019.4.03108.343.1021163-86&#39;, &#39;nome&#39;: &#39;Maria&#39;}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">schema</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;title&#39;: &#39;Pessoa&#39;, &#39;type&#39;: &#39;object&#39;, &#39;properties&#39;: {&#39;certidao&#39;: {&#39;title&#39;: &#39;Certidao&#39;, &#39;type&#39;: &#39;string&#39;, &#39;format&#39;: &#39;certidao&#39;}, &#39;nome&#39;: {&#39;title&#39;: &#39;Nome&#39;, &#39;type&#39;: &#39;string&#39;}}, &#39;required&#39;: [&#39;certidao&#39;, &#39;nome&#39;]}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="certidaodigits">CertidaoDigits</h3>
+<p>Aceita o número da Certidão apenas com dígitos</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="kn">from</span> <span class="nn">pydantic_br</span> <span class="kn">import</span> <span class="n">CertidaoDigits</span>
+
+
+<span class="k">class</span> <span class="nc">Pessoa</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">certidao</span><span class="p">:</span> <span class="n">CertidaoDigits</span>
+    <span class="n">nome</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Pessoa</span><span class="p">(</span><span class="n">nome</span><span class="o">=</span><span class="s2">&quot;maria&quot;</span><span class="p">,</span> <span class="n">certidao</span><span class="o">=</span><span class="s2">&quot;20321301552019403108343102116386&quot;</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+<span class="c1"># &gt; certidao=&#39;20321301552019403108343102116386&#39; nome=&#39;maria&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">dict</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;certidao&#39;: &#39;20321301552019403108343102116386&#39;, &#39;nome&#39;: &#39;maria&#39;}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">schema</span><span class="p">())</span>
+<span class="c1"># &gt; {&#39;title&#39;: &#39;Pessoa&#39;, &#39;type&#39;: &#39;object&#39;, &#39;properties&#39;: {&#39;certidao&#39;: {&#39;title&#39;: &#39;Certidao&#39;, &#39;type&#39;: &#39;string&#39;, &#39;format&#39;: &#39;certidao&#39;}, &#39;nome&#39;: {&#39;title&#39;: &#39;Nome&#39;, &#39;type&#39;: &#39;string&#39;}}, &#39;required&#39;: [&#39;certidao&#39;, &#39;nome&#39;]}</span>
+</code></pre></div></td></tr></table></div>
 
 
 
@@ -923,7 +1376,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.19047be9.min.js"></script>
+      <script src="../../assets/javascripts/bundle.407015b8.min.js"></script>
       
     
   </body>

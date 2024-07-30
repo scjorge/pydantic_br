@@ -15,7 +15,7 @@
         <link rel="next" href="../field_types/">
       
       <link rel="icon" href="../../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.4">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.5">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.240905d7.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7a7fce14.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -431,24 +431,52 @@
 <p>A má utilização dos dados é de total responsabilidade do usuário.</p>
 <hr />
 <h2 id="pessoa-fisica">Pessoa Física</h2>
-<p>Para validação do CPF é utilizado o cálculo de digito verificador conforme a <a href="https://www.gov.br/receitafederal/pt-br">Receita Fereral</a></p>
+<p>CPF</p>
+<p>O Cadastro de Pessoa Física é o registro de contribuintes mantido pela Receita Federal do Brasil no qual podem se inscrever, uma única vez, quaisquer pessoas naturais, independentemente de idade ou nacionalidade, inclusive falecidas.</p>
 <p><a href="../field_types/#cpf"><code>CPF</code></a>:</p>
-<p>Aceita uma <code>string</code> CPF com ou sem máscara. Ex: 61650624409, 605.566.581-67</p>
+<p>Aceita uma <code>string</code> com ou sem máscara. Ex: 61650624409, 605.566.581-67</p>
 <p><a href="../field_types/#cpfmask"><code>CPFMask</code></a>:</p>
-<p>Aceita apenas uma <code>string</code> CPF com máscara. Ex: 605.566.581-67</p>
+<p>Aceita apenas uma <code>string</code> de CPF com máscara. Ex: 605.566.581-67</p>
 <p><a href="../field_types/#cpfdigits"><code>CPFDigits</code></a>:</p>
-<p>Aceita apenas uma <code>string</code> CPF com digitos. Ex: 61650624409</p>
+<p>Aceita apenas uma <code>string</code> de CPF com digitos. Ex: 61650624409</p>
+<hr />
+<p>CNH</p>
+<p>A Carteira Nacional de Habilitação, também conhecida como carteira de motorista, carta de motorista ou carteira de habilitação é o documento oficial que, no Brasil, atesta a aptidão de um cidadão para conduzir veículos automotores terrestres</p>
 <p><a href="../field_types/#cnh"><code>CNH</code></a>:</p>
-<p>Aceita apenas uma <code>string</code> CNH com digitos. Ex: 18820839790</p>
+<p>Aceita apenas uma <code>string</code> com digitos. Ex: 18820839790</p>
+<hr />
+<p>Título de eleitor</p>
+<p>O Título de eleitor é o documento que comprova que um determinado cidadão está inscrito na Justiça Eleitoral do Brasil e se encontra apto a exercer tanto o eleitorado ativo (votar num candidato)</p>
+<p><a href="../field_types/#te"><code>TE</code></a>:</p>
+<p>Aceita apenas uma <code>string</code> com digitos. Ex: 867474330655</p>
+<hr />
+<p>PIS</p>
+<p>O Programa de Integração Social (PIS) e o Programa de Formação do Patrimônio do Servidor Público (PASEP), mais conhecidos pela sigla PIS/PASEP, são contribuições sociais de natureza tributária, devidas pelas pessoas jurídicas, com objetivo de financiar o pagamento do seguro-desemprego, abono salarial e participação na receita dos órgãos e entidades para os trabalhadores públicos e privados</p>
+<p><a href="../field_types/#pis"><code>PIS</code></a>:</p>
+<p>Aceita apenas uma <code>string</code> com digitos. Ex: 848.76001.76-3, 84876001763</p>
+<p><a href="../field_types/#pismask"><code>PISMask</code></a>:</p>
+<p>Aceita apenas uma <code>string</code> com máscara. Ex: 848.76001.76-3</p>
+<p><a href="../field_types/#pisdigits"><code>PISDigits</code></a>:</p>
+<p>Aceita apenas uma <code>string</code> com digitos. Ex: 84876001763</p>
+<hr />
+<p>Certidão (Nascimento/Casamento/Óbito)</p>
+<p>A certidão de nascimento é um documento cujo conteúdo é extraído do assento de nascimento lavrado em um livro depositado aos cuidados de um cartório de registo civil.</p>
+<p>Certidão de casamento é um documento cujo conteúdo é extraído do assento de casamento lavrado em um livro depositado aos cuidados de um cartório de registro civil</p>
+<p>Certidão de óbito é um documento cujo conteúdo é extraído do assento de óbito lavrado em um livro depositado aos cuidados de um cartório de Registro Civil.</p>
+<p><a href="../field_types/#certidao"><code>Certidao</code></a>:</p>
+<p>Aceita apenas uma <code>string</code> com digitos. Ex: 297917.01.55.2022.3.89842.550.6771342-51, 29791701552022389842550677134251</p>
+<p><a href="../field_types/#certidaomask"><code>CertidaoMask</code></a>:</p>
+<p>Aceita apenas uma <code>string</code> com máscara. Ex: 297917.01.55.2022.3.89842.550.6771342-51</p>
+<p><a href="../field_types/#certidaodigits"><code>CertidaoDigits</code></a>:</p>
+<p>Aceita apenas uma <code>string</code> com máscara. Ex: 29791701552022389842550677134251</p>
 <hr />
 <h2 id="pessoa-juridica">Pessoa Jurídica</h2>
-<p>Para validação do CNPJ é utilizado o cálculo de digito verificador conforme o <a href="https://www.gov.br/receitafederal/pt-br/servicos/cadastro/cnpj">Gov</a></p>
 <p><a href="../field_types/#cnpj"><code>CNPJ</code></a>:</p>
-<p>Aceita uma <code>string</code> CNPJ com ou sem máscara. Ex: 42809023000191, 42.809.023/0001-91</p>
+<p>Aceita uma <code>string</code> com ou sem máscara. Ex: 42809023000191, 42.809.023/0001-91</p>
 <p><a href="../field_types/#cnpjmask"><code>CNPJMask</code></a>:</p>
-<p>Aceita apenas uma <code>string</code> CNPJ com máscara. Ex: 42.809.023/0001-91</p>
+<p>Aceita apenas uma <code>string</code> com máscara. Ex: 42.809.023/0001-91</p>
 <p><a href="../field_types/#cnpjdigits"><code>CNPJDigits</code></a>:</p>
-<p>Aceita apenas uma <code>string</code> CNPJ com digitos. Ex: 42809023000191</p>
+<p>Aceita apenas uma <code>string</code> com digitos. Ex: 42809023000191</p>
 
 
 
@@ -489,7 +517,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.19047be9.min.js"></script>
+      <script src="../../assets/javascripts/bundle.407015b8.min.js"></script>
       
     
   </body>

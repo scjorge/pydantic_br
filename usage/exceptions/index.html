@@ -15,7 +15,7 @@
         <link rel="next" href="../../changelog/">
       
       <link rel="icon" href="../../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.4">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.5">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.240905d7.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7a7fce14.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fieldtypeerror" class="md-skip">
+        <a href="#pydantic-v1" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -320,29 +320,49 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#pydantic-v1" class="md-nav__link">
+    Pydantic v1
+  </a>
+  
+    <nav class="md-nav" aria-label="Pydantic v1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#fieldtypeerror" class="md-nav__link">
     FieldTypeError
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#fieldmaskerror" class="md-nav__link">
     FieldMaskError
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#fielddigiterror" class="md-nav__link">
     FieldDigitError
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#fieldinvaliderror" class="md-nav__link">
     FieldInvalidError
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pydantic-v2" class="md-nav__link">
+    Pydantic V2
   </a>
   
 </li>
@@ -402,29 +422,49 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#pydantic-v1" class="md-nav__link">
+    Pydantic v1
+  </a>
+  
+    <nav class="md-nav" aria-label="Pydantic v1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#fieldtypeerror" class="md-nav__link">
     FieldTypeError
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#fieldmaskerror" class="md-nav__link">
     FieldMaskError
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#fielddigiterror" class="md-nav__link">
     FieldDigitError
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#fieldinvaliderror" class="md-nav__link">
     FieldInvalidError
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pydantic-v2" class="md-nav__link">
+    Pydantic V2
   </a>
   
 </li>
@@ -447,20 +487,15 @@
   
 
 
-  <h1>Exceções</h1>
-
-<p>As classes de validações foram construídas utilizando as classes nativas do pydantic.</p>
-<ul>
-<li>PydanticValueError</li>
-<li>ValidationError</li>
-</ul>
+<h2 id="pydantic-v1">Pydantic v1</h2>
+<p>As validações utilizam a classe nativa do pydantic <code>pydantic.PydanticTypeError</code>.</p>
 <p>Os detalhes podem ser conferidas <a href="https://docs.pydantic.dev/usage/models/#error-handling">aqui</a></p>
 <hr />
-<p>O pydantic_br utiliza 4 classes para as validações e segue os templetes e cógidos do pydantic.</p>
+<p>O pydantic_br utiliza 4 templetes e cógidos para enviar ao pydantic.</p>
 <ul>
 <li>FieldTypeError<ul>
 <li>code: "not_str"</li>
-<li>msg_template: "str type expected"</li>
+<li>msg_template: "Input should be a valid string"</li>
 </ul>
 </li>
 <li>FieldMaskError<ul>
@@ -480,7 +515,7 @@
 </li>
 </ul>
 <hr />
-<h2 id="fieldtypeerror">FieldTypeError</h2>
+<h3 id="fieldtypeerror">FieldTypeError</h3>
 <p>Essa execeção atende a <strong>todos</strong> os campos disponíveis no pydantic_br. </p>
 <p>Caso tente instanciar um objeto diferente de uma <code>string</code>. </p>
 <p>Exemplo:</p>
@@ -494,18 +529,18 @@
     <span class="n">cnpj</span><span class="p">:</span> <span class="n">CNPJ</span>
 
 
-<span class="n">p</span> <span class="o">=</span> <span class="n">Empresa</span><span class="p">(</span><span class="n">nome</span><span class="o">=</span><span class="s2">&quot;Empresa 1&quot;</span><span class="p">,</span> <span class="n">cpf</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;532.213.947-80&quot;</span><span class="p">],</span> <span class="n">cnpj</span><span class="o">=</span><span class="mi">42809023000191</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Empresa</span><span class="p">(</span><span class="n">cpf</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;532.213.947-80&quot;</span><span class="p">],</span> <span class="n">cnpj</span><span class="o">=</span><span class="mi">42809023000191</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>p = Empresa(nome=&quot;Empresa 1&quot;, cpf=[&quot;532.213.947-80&quot;], cnpj=42809023000191)
+<div class="highlight"><pre><span></span><code>p = Empresa(cpf=[&quot;532.213.947-80&quot;], cnpj=42809023000191)
   File &quot;pydantic\main.py&quot;, line 341, in pydantic.main.BaseModel.__init__
 pydantic.error_wrappers.ValidationError: 2 validation errors for Empresa
 cpf
-  str type expected (type=type_error.not_str)
+  Input should be a valid string (type=type_error.not_str)
 cnpj
-  str type expected (type=type_error.not_str)
+  Input should be a valid string (type=type_error.not_str)
 </code></pre></div>
 <hr />
-<h2 id="fieldmaskerror">FieldMaskError</h2>
+<h3 id="fieldmaskerror">FieldMaskError</h3>
 <p>Essa execeção atende a <strong>todos</strong> os campos disponíveis no pydantic_br que possuem máscara.</p>
 <p>Caso tente instanciar um objeto sem a máscara que o campo necessita de acordo com os <a href="../descriptions/">detalhes</a>. O Pydantic levantará uma execeção.</p>
 <p>Exemplo:</p>
@@ -519,9 +554,9 @@ cnpj
     <span class="n">cnpj</span><span class="p">:</span> <span class="n">CNPJMask</span>
 
 
-<span class="n">p</span> <span class="o">=</span> <span class="n">Empresa</span><span class="p">(</span><span class="n">nome</span><span class="o">=</span><span class="s2">&quot;Empresa 1&quot;</span><span class="p">,</span> <span class="n">cpf</span><span class="o">=</span><span class="s2">&quot;53221394780&quot;</span><span class="p">,</span> <span class="n">cnpj</span><span class="o">=</span><span class="s2">&quot;42809023000191&quot;</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Empresa</span><span class="p">(</span><span class="n">cpf</span><span class="o">=</span><span class="s2">&quot;53221394780&quot;</span><span class="p">,</span> <span class="n">cnpj</span><span class="o">=</span><span class="s2">&quot;42809023000191&quot;</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>p = Empresa(nome=&quot;Empresa 1&quot;, cpf=&quot;53221394780&quot;, cnpj=&quot;42809023000191&quot;)
+<div class="highlight"><pre><span></span><code>p = Empresa(cpf=&quot;53221394780&quot;, cnpj=&quot;42809023000191&quot;)
   File &quot;pydantic\main.py&quot;, line 341, in pydantic.main.BaseModel.__init__
 pydantic.error_wrappers.ValidationError: 2 validation errors for Empresa
 cpf
@@ -530,7 +565,7 @@ cnpj
   invalid mask format (type=value_error.invalid_mask)
 </code></pre></div>
 <hr />
-<h2 id="fielddigiterror">FieldDigitError</h2>
+<h3 id="fielddigiterror">FieldDigitError</h3>
 <p>Essa exceção é lenvantada quando um campo que aceita apenas dígitos, recebe máscara.
 Caso tente instanciar um objeto com a máscara que o campo necessita de acordo com os <a href="../descriptions/">detalhes</a>. O Pydantic levantará uma execeção.</p>
 <p>Exemplo:</p>
@@ -544,9 +579,9 @@ Caso tente instanciar um objeto com a máscara que o campo necessita de acordo c
     <span class="n">cnpj</span><span class="p">:</span> <span class="n">CNPJDigits</span>
 
 
-<span class="n">p</span> <span class="o">=</span> <span class="n">Empresa</span><span class="p">(</span><span class="n">nome</span><span class="o">=</span><span class="s2">&quot;Empresa 1&quot;</span><span class="p">,</span> <span class="n">cpf</span><span class="o">=</span><span class="s2">&quot;532.213.947-80&quot;</span><span class="p">,</span> <span class="n">cnpj</span><span class="o">=</span><span class="s2">&quot;42.809.023/0001-91&quot;</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Empresa</span><span class="p">(</span><span class="n">cpf</span><span class="o">=</span><span class="s2">&quot;532.213.947-80&quot;</span><span class="p">,</span> <span class="n">cnpj</span><span class="o">=</span><span class="s2">&quot;42.809.023/0001-91&quot;</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>p = Empresa(nome=&quot;Empresa 1&quot;, cpf=&quot;532.213.947-80&quot;, cnpj=&quot;42.809.023/0001-91&quot;)
+<div class="highlight"><pre><span></span><code>p = Empresa(cpf=&quot;532.213.947-80&quot;, cnpj=&quot;42.809.023/0001-91&quot;)
   File &quot;pydantic\main.py&quot;, line 341, in pydantic.main.BaseModel.__init__
 pydantic.error_wrappers.ValidationError: 2 validation errors for Empresa
 cpf
@@ -555,7 +590,7 @@ cnpj
   field only accept digits as string (type=value_error.not_digits)
 </code></pre></div>
 <hr />
-<h2 id="fieldinvaliderror">FieldInvalidError</h2>
+<h3 id="fieldinvaliderror">FieldInvalidError</h3>
 <p>Essa exceção é lenvantada quando um campo não atende ao requisitos do método utilizado para validação.</p>
 <p>Exemplo:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
@@ -567,13 +602,59 @@ cnpj
     <span class="n">cpf</span><span class="p">:</span> <span class="n">CPF</span>
 
 
-<span class="n">p</span> <span class="o">=</span> <span class="n">Pessoa</span><span class="p">(</span><span class="n">nome</span><span class="o">=</span><span class="s2">&quot;João&quot;</span><span class="p">,</span> <span class="n">cpf</span><span class="o">=</span><span class="s2">&quot;000.000.00-00&quot;</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Pessoa</span><span class="p">(</span><span class="n">cpf</span><span class="o">=</span><span class="s2">&quot;000.000.00-00&quot;</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>p = Pessoa(nome=&quot;João&quot;, cpf=&quot;000.000.00-00&quot;)
   File &quot;pydantic\main.py&quot;, line 341, in pydantic.main.BaseModel.__init__
 pydantic.error_wrappers.ValidationError: 1 validation error for Pessoa
 cpf
   invalid data (type=value_error.invalid_data)
+</code></pre></div>
+<h1 id="pydantic-v2">Pydantic V2</h1>
+<p>As validações utilizam a classe nativa do pydantic <code>pydantic_core.PydanticCustomError</code>.</p>
+<p>Funciona parecido com as exceções do pydantic v1 entretanto será considerado unicamente o atributo de <code>msg_template</code></p>
+<ul>
+<li>FieldTypeError<ul>
+<li>msg_template: "Input should be a valid string"</li>
+</ul>
+</li>
+<li>FieldMaskError<ul>
+<li>msg_template: "invalid mask format"</li>
+</ul>
+</li>
+<li>FieldDigitError<ul>
+<li>msg_template: "field only accept digits as string"</li>
+</ul>
+</li>
+<li>FieldInvalidError<ul>
+<li>msg_template: "invalid data"</li>
+</ul>
+</li>
+</ul>
+<p>Exemplo:</p>
+<div class="highlight"><pre><span></span><code>from pydantic import BaseModel
+
+from pydantic_br import CNPJ, CPF
+
+
+class Empresa(BaseModel):
+    cpf: CPF
+    cnpj: CNPJ
+
+
+p = Empresa(cpf=[&quot;532.213.947-80&quot;], cnpj=42809023000191)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Traceback (most recent call last):
+    p = Empresa(cpf=[&quot;532.213.947-80&quot;], cnpj=42809023000191)
+  File &quot;/mnt/c/DevNew/pydantic-br/pydantic-br/venv/lib/python3.10/site-packages/pydantic/main.py&quot;, line 159, in __init__
+    __pydantic_self__.__pydantic_validator__.validate_python(data, self_instance=__pydantic_self__)
+pydantic_core._pydantic_core.ValidationError: 2 validation errors for Empresa
+cpf
+  Input should be a valid string [type=string_type, input_value=[&#39;532.213.947-80&#39;], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.1/v/string_type
+cnpj
+  Input should be a valid string [type=string_type, input_value=42809023000191, input_type=int]
+    For further information visit https://errors.pydantic.dev/2.1/v/string_type
 </code></pre></div>
 
 
@@ -615,7 +696,7 @@ cpf
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.19047be9.min.js"></script>
+      <script src="../../assets/javascripts/bundle.407015b8.min.js"></script>
       
     
   </body>
