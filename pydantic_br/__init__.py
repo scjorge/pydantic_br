@@ -1,6 +1,8 @@
 from typing import TYPE_CHECKING
 
-from .field_erros import *
+from .field_errors import *
+
+__version__ = "1.0.0"
 
 if TYPE_CHECKING:
     CPF = str

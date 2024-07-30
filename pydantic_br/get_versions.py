@@ -12,8 +12,9 @@ def get_pydantic_version() -> PydanticVersion:
     except ModuleNotFoundError:
         raise ModuleNotFoundError("Are you sure you installed Pydantic")
 
-    if pydantic.__version__.startswith("1"):
-        return PydanticVersion.v1
-    if pydantic.__version__.startswith("2"):
-        return PydanticVersion.v2
-    raise ModuleNotFoundError("Something went wrong withs Pydantic imports")
+    if hasattr(pydantic, "__version__"):
+        if pydantic.__version__.startswith("1"):
+            return PydanticVersion.v1
+        if pydantic.__version__.startswith("2"):
+            return PydanticVersion.v2
+    return PydanticVersion.v1
