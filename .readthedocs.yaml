@@ -12,4 +12,5 @@ build:
     post_install:
       - pip install poetry
       - poetry config virtualenvs.create false
-      - pip install --requirement <(poetry export --only doc --format requirements.txt)
+      - poetry export --only doc --format requirements.txt --output requirements.txt
+      - pip install --requirement requirements.txt
