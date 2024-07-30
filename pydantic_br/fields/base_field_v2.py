@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, Dict, Mapping, TypeAlias
+from typing import Any, Dict, Mapping
 
 from ..get_versions import get_pydantic_version
 
@@ -13,7 +13,7 @@ if pydantic_version.value == 2:
     except ModuleNotFoundError:
         raise ModuleNotFoundError("Are you sure you installed pydantic_core")
 
-CoreSchema: TypeAlias = Mapping[str, Any]
+CoreSchema: Any = Mapping[str, Any]
 JsonSchemaValue = Dict[str, Any]
 
 
