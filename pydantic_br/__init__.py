@@ -2,7 +2,7 @@ from typing import TYPE_CHECKING
 
 from .field_errors import *
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
 if TYPE_CHECKING:
     CPF = str

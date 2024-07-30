@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pydantic-br"
-version = "1.0.0"
+version = "1.0.1"
 description = "Pydantic library extension with Brazilian fields"
 license = "MIT"
 authors = ["Jorge Silva <jorgesilva.ti@hotmail.com>"]
