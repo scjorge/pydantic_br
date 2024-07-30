@@ -1,3 +1,6 @@
+## v1.0.1 (2024-07-30)
+- Altera exceções internas para exceções nativas do pydantic
+
 ## v1.0.0 (2023-08-13)
 - Cria compatibilidade com a versão v2 do Pydantic
 - Altera messagem de erro FieldTypeError

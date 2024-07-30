@@ -1,15 +1,12 @@
 ## Pydantic v1
 
-As classes de validações foram construídas utilizando as classes nativas do pydantic.
-
-- PydanticValueError
-- ValidationError
+As validações utilizam a classe nativa do pydantic `pydantic.PydanticTypeError`.
 
 Os detalhes podem ser conferidas [aqui](https://docs.pydantic.dev/usage/models/#error-handling)
 
 ---
 
-O pydantic_br utiliza 4 classes para as validações e segue os templetes e cógidos do pydantic.
+O pydantic_br utiliza 4 templetes e cógidos para enviar ao pydantic.
 
 - FieldTypeError
     - code: "not_str"
@@ -155,6 +152,8 @@ cpf
 ```
 
 # Pydantic V2
+
+As validações utilizam a classe nativa do pydantic `pydantic_core.PydanticCustomError`.
 
 Funciona parecido com as exceções do pydantic v1 entretanto será considerado unicamente o atributo de `msg_template`
 
