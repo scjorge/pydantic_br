@@ -113,3 +113,23 @@ Aceita apenas uma `string` com máscara. Ex: 42.809.023/0001-91
 [`CNPJDigits`](../field_types/#cnpjdigits):
 
 Aceita apenas uma `string` com digitos. Ex: 42809023000191
+
+---
+
+## Endereços
+
+O CEP (Código de Endereçamento Postal) é um conjunto numérico constituído de oito algarismos, que orienta e acelera o encaminhamento, o tratamento e a distribuição de objetos de correspondência, por meio da sua atribuição a localidades, logradouros, unidades dos Correios, serviços, órgãos públicos, empresas e edifícios.
+
+[`CEP`](../field_types/#cep):
+
+Aceita uma `string` com ou sem máscara. Ex: 01310100, 01310-100
+
+
+[`CEPMask`](../field_types/#cepmask):
+
+Aceita apenas uma `string` com máscara. Ex: 01310-100
+
+
+[`CEPDigits`](../field_types/#cepdigits):
+
+Aceita apenas uma `string` com digitos. Ex: 01310100

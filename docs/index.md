@@ -36,8 +36,7 @@ Descrições detalhadas [aqui](usage/descriptions.md).
 | PIS | Pessoa física  | Programa de Integração Social | Digito Verificador | Concluído
 | CERT | Pessoa física  | Certidão (Nascimento/Casamento/Óbito) | Digito Verificador | Concluído
 | CNS | Pessoa física  | Cartão Nacional de Saúde | Digito Verificador | Em desenvolvimento
+| CEP | Endereços  | Código de Endereçamento Postal | RegExr | Concluído
 | RENAVAM | Veículos | Registro Nacional de Veículos Automotores | RegExr | Em desenvolvimento
 | PLACA | Veículos | Placa do Veículo | RegExr | Em desenvolvimento
 | ISBN | Livros | Padrão Internacional de Numeração de Livro | Digito Verificador | Em desenvolvimento
-
-
