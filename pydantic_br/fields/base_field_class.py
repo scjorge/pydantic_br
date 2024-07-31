@@ -1,6 +1,6 @@
 from typing import Any, Callable, Generator
 
-from ..field_errors import FieldTypes, raise_field
+from .base_field_errors import FieldTypes, raise_field
 
 __all__ = ["BaseFieldClass"]
 

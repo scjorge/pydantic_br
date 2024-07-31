@@ -2,11 +2,7 @@ from __future__ import annotations
 
 from typing import Any, Dict, Mapping
 
-from ..get_versions import get_pydantic_version
 from .base_field_class import BaseFieldClass
-
-pydantic_version = get_pydantic_version()
-
 
 try:
     from pydantic_core import core_schema  # type: ignore

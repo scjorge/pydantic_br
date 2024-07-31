@@ -1,17 +1,13 @@
 from enum import Enum
 
-from .get_versions import get_pydantic_version
+from ..tools.get_versions import get_pydantic_version
 
 __all__ = [
     "FieldTypeError",
     "FieldMaskError",
     "FieldDigitError",
     "FieldInvalidError",
-    "raise_field",
 ]
-
-
-pydantic_version = get_pydantic_version()
 
 
 class FieldTypes(Enum):
@@ -45,21 +41,20 @@ class FieldInvalidError:
     message_template = msg_template
 
 
-def raise_error(code: str, msg_template: str):  # type: ignore
+def raise_error(code: str, msg_template: str):
+    pydantic_version = get_pydantic_version()
+
     if pydantic_version.value == 1:
         from pydantic import PydanticTypeError
 
-        PydanticTypeError.code = code
-        PydanticTypeError.msg_template = msg_template
-        PydanticTypeError.message_template = msg_template
-        raise PydanticTypeError()
+        PydanticTypeError.code = code  # type: ignore
+        PydanticTypeError.msg_template = msg_template  # type: ignore
+        PydanticTypeError.message_template = msg_template  # type: ignore
+        raise PydanticTypeError()  # type: ignore
 
     if pydantic_version.value == 2:
         from pydantic_core import PydanticCustomError
 
-        PydanticCustomError.code = code
-        PydanticCustomError.msg_template = msg_template
-        PydanticCustomError.message_template = msg_template
         raise PydanticCustomError(code, msg_template)
 
 
@@ -71,4 +66,4 @@ def raise_field(context: FieldTypes):
         FieldTypes.invalid: (FieldInvalidError.code, FieldInvalidError.msg_template),
     }
 
-    raise_error(*field_types.get(context))
+    raise_error(*field_types[context])

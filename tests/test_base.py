@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, __version__
 import pytest
 
 from pydantic_br import (
@@ -17,8 +17,6 @@ from pydantic_br import (
     CertidaoMask,
     CertidaoDigits,
 )
-
-from pydantic_br.get_versions import get_pydantic_version, PydanticVersion
 
 
 @pytest.fixture(scope="session")
@@ -44,10 +42,10 @@ def model():
 
 
 def test_model_schemas(model: BaseModel):
-    if get_pydantic_version() == PydanticVersion.v2:
+    if __version__.startswith("1"):
         model.model_dump()
         model.model_dump_json()
         model.model_json_schema()
-    if get_pydantic_version() == PydanticVersion.v1:
+    if __version__.startswith("2"):
         model.dict()
         model.schema()
