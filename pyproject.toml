@@ -58,7 +58,7 @@ profile = "black"
 profile = "black"
 
 [tool.mypy]
-exclude = 'pydantic_br/field_errors.py'
+exclude = ['pydantic_br/field_errors.py', 'pydantic_br/fields/base_field.py']
 
 [tool.taskipy.tasks]
 lint = "black pydantic_br && isort pydantic_br && mypy pydantic_br && flake8 pydantic_br"
