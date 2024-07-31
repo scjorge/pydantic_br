@@ -437,3 +437,108 @@ print(p1.dict())
 print(p1.schema())
 # > {'title': 'Pessoa', 'type': 'object', 'properties': {'certidao': {'title': 'Certidao', 'type': 'string', 'format': 'certidao'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['certidao', 'nome']}
 ```
+
+## Endereços
+### CEP
+
+Aceita o CEP com ou sem máscara
+
+```{.py3 linenums=1}
+from pydantic import BaseModel
+
+from pydantic_br import CEP
+
+
+class Endereco(BaseModel):
+    rua: str
+    cep: CEP
+
+
+endereco1 = Endereco(rua="Avenida Paulista", cep="01310100")
+endereco2 = Endereco(rua="Avenida Paulista", cep="01310-100")
+
+
+print(endereco1)
+# > rua='Avenida Paulista' cep='01310100'
+
+print(endereco1.model_dump_json())
+# > {"rua":"Avenida Paulista","cep":"01310100"}
+
+print(endereco2.model_json_schema())
+# > {'properties': {'rua': {'title': 'Rua', 'type': 'string'}, 'cep': {'format': 'cep', 'title': 'Cep', 'type': 'string'}}, 'required': ['rua', 'cep'], 'title': 'Endereco', 'type': 'object'}
+
+print(endereco2)
+# > rua='Avenida Paulista' cep='01310-100'
+
+print(endereco2.model_dump_json())
+# > {"rua":"Avenida Paulista","cep":"01310-100"}
+
+print(endereco2.model_json_schema())
+# > {'properties': {'rua': {'title': 'Rua', 'type': 'string'}, 'cep': {'format': 'cep', 'title': 'Cep', 'type': 'string'}}, 'required': ['rua', 'cep'], 'title': 'Endereco', 'type': 'object'}
+```
+
+
+
+
+### CEPMask
+
+Aceita o CEP apenas com máscara
+
+```{.py3 linenums=1}
+from pydantic import BaseModel
+
+from pydantic_br import CEPMask
+
+
+class Endereco(BaseModel):
+    rua: str
+    cep: CEPMask
+
+
+endereco = Endereco(
+    rua="Avenida Paulista",
+    cep="01310-100",
+)
+
+
+print(endereco)
+# > rua='Avenida Paulista' cep='01310-100'
+
+print(endereco.model_dump_json())
+# > {"rua":"Avenida Paulista","cep":"01310-100"}
+
+print(endereco.model_json_schema())
+# > {'properties': {'rua': {'title': 'Rua', 'type': 'string'}, 'cep': {'format': 'cep', 'title': 'Cep', 'type': 'string'}}, 'required': ['rua', 'cep'], 'title': 'Endereco', 'type': 'object'}
+```
+
+
+### CPFDigits
+
+Aceita o CPF apenas com dígitos
+
+```{.py3 linenums=1}
+from pydantic import BaseModel
+
+from pydantic_br import CEPDigits
+
+
+class Endereco(BaseModel):
+    rua: str
+    cep: CEPDigits
+
+
+endereco = Endereco(
+    rua="Avenida Paulista",
+    cep="01310100",
+)
+
+
+print(endereco)
+# > rua='Avenida Paulista' cep='01310100'
+
+print(endereco.model_dump_json())
+# > {"rua":"Avenida Paulista","cep":"01310100"}
+
+print(endereco.model_json_schema())
+# > {'properties': {'rua': {'title': 'Rua', 'type': 'string'}, 'cep': {'format': 'cep', 'title': 'Cep', 'type': 'string'}}, 'required': ['rua', 'cep'], 'title': 'Endereco', 'type': 'object'}
+```
