@@ -10,6 +10,7 @@ class CEPValidator(FieldMaskValidator):
     def validate_mask(self) -> bool:
         if len(self.cep) == 9:
             return self.cep[5] == "-"
+        return False
 
     def validate(self) -> bool:
         cep = self.cep.replace("-", "")
