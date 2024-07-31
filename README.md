@@ -31,13 +31,14 @@ Documentação: https://pydantic-br.readthedocs.io
 
 | Campo | Grupo de Documentos | Nome do Documento | Método de validação | Situação
 |---|---|---|---|---|
-| CNPJ | Pessoa Jurídica | Carteira Nacional de Pessoas Jurídicas | Digito Verificador | Concluído
 | CPF | Pessoa física | Cadastro de Pessoa Física | Digito Verificador | Concluído
 | CNH | Pessoa física | Carteira Nacional de Habilitação | Digito Verificador | Concluído
 | TE | Pessoa física  | Título de Eleitor | Digito Verificador | Concluído
 | PIS | Pessoa física  | Programa de Integração Social | Digito Verificador | Concluído
 | CERT | Pessoa física  | Certidão (Nascimento/Casamento/Óbito) | Digito Verificador | Concluído
 | CNS | Pessoa física  | Cartão Nacional de Saúde | Digito Verificador | Em desenvolvimento
+| CNPJ | Pessoa Jurídica | Carteira Nacional de Pessoas Jurídicas | Digito Verificador | Concluído
+| CEP | Endereços  | Código de Endereçamento Postal | RegExr | Concluído
 | RENAVAM | Veículos | Registro Nacional de Veículos Automotores | RegExr | Em desenvolvimento
 | PLACA | Veículos | Placa do Veículo | RegExr | Em desenvolvimento
 | ISBN | Livros | Padrão Internacional de Numeração de Livro | Digito Verificador | Em desenvolvimento
