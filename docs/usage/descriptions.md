@@ -94,6 +94,12 @@ Aceita apenas uma `string` com máscara. Ex: 29791701552022389842550677134251
 
 ## Pessoa Jurídica
 
+CNPJ
+
+O Cadastro Nacional de Pessoas Jurídicas (CNPJ) é o número designado pela Receita Federal na abertura da empresa.
+
+Ele serve para identificar o negócio nos mais diversos tipos de atividades, como a emissão de notas fiscais ou o pagamento dos impostos. 
+
 [`CNPJ`](../field_types/#cnpj):
 
 Aceita uma `string` com ou sem máscara. Ex: 42809023000191, 42.809.023/0001-91
