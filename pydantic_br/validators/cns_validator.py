@@ -1,3 +1,5 @@
+import re
+
 from .base_validator import FieldValidator
 
 __all__ = ["CNSValidator"]
@@ -8,14 +10,44 @@ class CNSValidator(FieldValidator):
         self.cns = cns
 
     def validate(self) -> bool:
-        if int(self.cns[0]) not in [7, 8, 9]:
+        cns = re.sub("[^0-9]", "", str(self.cns))
+
+        if len(cns) != 15:
             return False
 
+        if len(set(cns)) == 1 or len(cns) == 0:
+            return False
+
+        if int(cns[0]) not in [1, 2, 7, 8, 9]:
+            return False
+
+        if cns[0] in ["1", "2"]:
+            return self._validate_first_case(cns)
+        elif cns[0] in ["7", "8", "9"]:
+            return self._validate_second_case(cns)
+
+    def _validate_first_case(self, doc: str) -> bool:
+        cns = [n for n in doc][:11]
         sum = 0
-        for i, digit in enumerate(self.cns[:11]):
-            sum += int(digit) * (15 - i)
+        for i in range(11):
+            sum += int(cns[i]) * (15 - i)
 
-        resto = sum % 11
-        verify_digit = 11 - resto if resto != 0 else 0
+        dv = 11 - (sum % 11)
 
-        return int(self.cns[-4:]) == verify_digit
+        if dv == 11:
+            dv = 0
+
+        if dv == 10:
+            sum += 2
+            dv = 11 - (sum % 11)
+            cns = cns + ["0", "0", "1", str(dv)]
+        else:
+            cns = cns + ["0", "0", "0", str(dv)]
+        return "".join(cns) == doc
+
+    def _validate_second_case(self, doc: str) -> bool:
+        cns = [n for n in doc]
+        sum = 0
+        for i in range(15):
+            sum += int(cns[i]) * (15 - i)
+        return sum % 11 == 0

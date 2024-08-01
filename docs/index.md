@@ -34,7 +34,7 @@ Descrições detalhadas [aqui](usage/descriptions.md).
 | TE | Pessoa física  | Título de Eleitor | Digito Verificador | Concluído
 | PIS | Pessoa física  | Programa de Integração Social | Digito Verificador | Concluído
 | CERT | Pessoa física  | Certidão (Nascimento/Casamento/Óbito) | Digito Verificador | Concluído
-| CNS | Pessoa física  | Cartão Nacional de Saúde | Digito Verificador | Em desenvolvimento
+| CNS | Pessoa física  | Cartão Nacional de Saúde | Digito Verificador | Concluído
 | CNPJ | Pessoa Jurídica | Carteira Nacional de Pessoas Jurídicas | Digito Verificador | Concluído
 | CEP | Endereços  | Código de Endereçamento Postal | RegExr | Concluído
 | RENAVAM | Veículos | Registro Nacional de Veículos Automotores | RegExr | Em desenvolvimento

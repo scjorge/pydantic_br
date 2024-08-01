@@ -438,6 +438,33 @@ print(p1.schema())
 # > {'title': 'Pessoa', 'type': 'object', 'properties': {'certidao': {'title': 'Certidao', 'type': 'string', 'format': 'certidao'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['certidao', 'nome']}
 ```
 
+### CNS
+
+Aceita o número da CNS apenas com dígitos
+
+```{.py3 linenums=1}
+from pydantic import BaseModel
+
+from pydantic_br import CNS
+
+
+class Pessoa(BaseModel):
+    cns: CNS
+    nome: str
+
+
+p1 = Pessoa(nome="João", cns="162184870250018")
+
+print(p1)
+# > cns='162184870250018' nome='João'
+
+print(p1.dict())
+# > {'cns': '162184870250018', 'nome': 'João'}
+
+print(p1.schema())
+# > {'properties': {'cns': {'format': 'cns', 'title': 'Cns', 'type': 'string'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cns', 'nome'], 'title': 'Pessoa', 'type': 'object'}
+```
+
 ## Endereços
 ### CEP
 
