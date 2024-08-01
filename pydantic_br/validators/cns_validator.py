@@ -23,7 +23,7 @@ class CNSValidator(FieldValidator):
 
         if cns[0] in ["1", "2"]:
             return self._validate_first_case(cns)
-        elif cns[0] in ["7", "8", "9"]:
+        else:
             return self._validate_second_case(cns)
 
     def _validate_first_case(self, doc: str) -> bool:
