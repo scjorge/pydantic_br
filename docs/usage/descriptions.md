@@ -144,3 +144,14 @@ Aceita apenas uma `string` com máscara. Ex: 01310-100
 [`CEPDigits`](../field_types/#cepdigits):
 
 Aceita apenas uma `string` com digitos. Ex: 01310100
+
+
+---
+
+Sigla do Estado
+
+Cada uma das 27 unidades federativas do Brasil é representada por uma sigla de duas letras, escrita em letras maiúsculas.
+
+[`SiglaEstado`](../field_types/#siglaestado):
+
+Aceita uma `string` de dois digitos do estado. Ex: AC, DF
