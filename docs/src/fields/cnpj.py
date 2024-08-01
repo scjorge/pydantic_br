@@ -18,7 +18,7 @@ print(e1.dict())
 # > {'cnpj': '42.809.023/0001-91', 'nome': 'Empresa 1'}
 
 print(e1.schema())
-# > {'title': 'Empresa', 'type': 'object', 'properties': {'cnpj': {'title': 'Cnpj', 'type': 'string', 'format': 'cpf'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cnpj', 'nome']}
+# > {'properties': {'cnpj': {'format': 'cnpj', 'title': 'Cnpj', 'type': 'string'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cnpj', 'nome'], 'title': 'Empresa', 'type': 'object'}
 
 print(e2)
 # > cnpj='42809023000191' nome='Empresa 2'
@@ -27,4 +27,4 @@ print(e2.dict())
 # > {'cnpj': '42809023000191', 'nome': 'Empresa 2'}
 
 print(e2.schema())
-# > {'title': 'Empresa', 'type': 'object', 'properties': {'cnpj': {'title': 'Cnpj', 'type': 'string', 'format': 'cpf'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cnpj', 'nome']}
+# > {'properties': {'cnpj': {'format': 'cnpj', 'title': 'Cnpj', 'type': 'string'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cnpj', 'nome'], 'title': 'Empresa', 'type': 'object'}
