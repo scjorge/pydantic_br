@@ -129,6 +129,8 @@ Aceita apenas uma `string` com digitos. Ex: 42809023000191
 
 ## Endereços
 
+CEP
+
 O CEP (Código de Endereçamento Postal) é um conjunto numérico constituído de oito algarismos, que orienta e acelera o encaminhamento, o tratamento e a distribuição de objetos de correspondência, por meio da sua atribuição a localidades, logradouros, unidades dos Correios, serviços, órgãos públicos, empresas e edifícios.
 
 [`CEP`](../field_types/#cep):
