@@ -38,10 +38,7 @@ class CertidaoValidator(FieldMaskValidator):
 
         expected_dv = self._verifying_digit(num)
 
-        if dv == expected_dv:
-            return True
-
-        return False
+        return dv == expected_dv
 
     def _verifying_digit(self, doc: list) -> str:
         dv1 = self._weighted_sum(doc) % 11

@@ -1,84 +1,139 @@
-from string import ascii_letters
+import re
 
 import pytest
 from pydantic import BaseModel, ValidationError
 
 from pydantic_br import (
     Certidao,
-    CertidaoDigits,
     FieldDigitError,
     FieldInvalidError,
+    FieldMaskError,
     FieldTypeError,
+    CertidaoDigits,
+    CertidaoMask,
 )
 
-certidao_mock = [
-    "28006901552010301333550237366334",
-    "16011901552012304302554893602083",
-    "22356301552015348816989150809713",
-    "27186901552010396524431903279729",
-    "10677301552018365431589899395352",
-    "27987501552022352985333151886610",
-    "21013801552014317034411432531218",
-    "29791701552022389842550677134251",
-    "25606201552015310967279760931598",
-    "22766101552016375666358876101178",
+cert_mock = [
+    "280069.01.55.2010.3.01333.550.2373663-34",
+    "160119.01.55.2012.3.04302.554.8936020-83",
+    "223563.01.55.2015.3.48816.989.1508097-13",
+    "271869.01.55.2010.3.96524.431.9032797-29",
+    "106773.01.55.2018.3.65431.589.8993953-52",
+    "279875.01.55.2022.3.52985.333.1518866-10",
+    "210138.01.55.2014.3.17034.411.4325312-18",
+    "297917.01.55.2022.3.89842.550.6771342-51",
+    "256062.01.55.2015.3.10967.279.7609315-98",
+    "227661.01.55.2016.3.75666.358.8761011-78",
 ]
+
+
+def cert_digits():
+    cert_numbers = [re.sub("[^0-9]", "", str(cert)) for cert in cert_mock]
+    return cert_numbers
+
+
+def cert_mask():
+    cert_numbers = cert_mock
+    return cert_numbers
+
+
+def cert_mixed():
+    return cert_digits() + cert_mask()
 
 
 @pytest.fixture
 def person():
     class Person(BaseModel):
-        certidao: Certidao
+        cert: Certidao
 
     yield Person
 
 
 @pytest.fixture
-def person_only_digits():
+def person_masks():
     class Person(BaseModel):
-        certidao: CertidaoDigits
+        cert: CertidaoMask
 
     yield Person
 
 
-@pytest.mark.parametrize("certidao", certidao_mock)
-def test_must_be_string(person, certidao):
-    p1 = person(certidao=certidao)
-    assert isinstance(p1.certidao, str)
+@pytest.fixture
+def person_digits():
+    class Person(BaseModel):
+        cert: CertidaoDigits
+
+    yield Person
 
 
-@pytest.mark.parametrize("certidao", certidao_mock)
-def test_must_accept_only_numbers(person, certidao):
-    p1 = person(certidao=certidao)
-    assert p1.certidao == certidao
+@pytest.mark.parametrize("cert", cert_mixed())
+def test_must_be_string(person, cert):
+    p1 = person(cert=cert)
+    assert isinstance(p1.cert, str)
 
 
-@pytest.mark.parametrize("certidao", certidao_mock)
-def test_must_fail_when_use_another_type(person, certidao):
+@pytest.mark.parametrize("cert", cert_mask())
+def test_mask_must_be_string(person_masks, cert):
+    p1 = person_masks(cert=cert)
+    assert isinstance(p1.cert, str)
+
+
+@pytest.mark.parametrize("cert", cert_digits())
+def test_digits_must_be_string(person_digits, cert):
+    p1 = person_digits(cert=cert)
+    assert isinstance(p1.cert, str)
+
+
+@pytest.mark.parametrize("cert", cert_mask())
+def test_must_accept_with_mask(person_masks, cert):
+    p1 = person_masks(cert=cert)
+    assert p1.cert == cert
+
+
+@pytest.mark.parametrize("cert", cert_digits())
+def test_must_accept_only_numbers(person_digits, cert):
+    p1 = person_digits(cert=cert)
+    assert p1.cert == cert
+
+
+@pytest.mark.parametrize("cert", cert_digits())
+def test_must_fail_when_use_digits_in_mask_class(person_masks, cert):
     with pytest.raises(ValidationError) as e:
-        person(certidao=int(certidao))
+        person_masks(cert=cert)
+    assert FieldMaskError.msg_template in str(e.value)
+
+
+@pytest.mark.parametrize("cert", cert_mask())
+def test_must_fail_when_use_mask_in_digits_class(person_digits, cert):
+    with pytest.raises(ValidationError) as e:
+        person_digits(cert=cert)
+    assert FieldDigitError.msg_template in str(e.value)
+
+
+@pytest.mark.parametrize("cert", cert_digits())
+def test_must_fail_when_use_another_type(person_digits, cert):
+    with pytest.raises(ValidationError) as e:
+        person_digits(cert=int(cert))
     assert FieldTypeError.msg_template in str(e.value)
 
 
-@pytest.mark.parametrize("certidao", certidao_mock)
-def test_must_fail_when_use_invalid_certidao(person, certidao):
+@pytest.mark.parametrize("cert", cert_digits())
+def test_must_fail_when_use_invalid_certs(person, cert):
     with pytest.raises(ValidationError) as e:
-        invalid_certidao = certidao[:5] + certidao[6:]
-        person(certidao=invalid_certidao)
+        person(cert=cert[-1])
     assert FieldInvalidError.msg_template in str(e.value)
 
 
-@pytest.mark.parametrize("certidao", certidao_mock)
-def test_must_fail_when_use_digits_count_above_certidao(person, certidao):
+@pytest.mark.parametrize("cert", cert_mixed())
+def test_must_fail_when_use_digits_count_above_certs(person, cert):
     with pytest.raises(ValidationError) as e:
-        person(certidao=certidao * 2)
+        person(cert=cert * 2)
     assert FieldInvalidError.msg_template in str(e.value)
 
 
-@pytest.mark.parametrize("certidao", certidao_mock)
-def test_must_fail_when_use_digits_count_below_certidao(person, certidao):
+@pytest.mark.parametrize("cert", cert_mixed())
+def test_must_fail_when_use_digits_count_below_certs(person, cert):
     with pytest.raises(ValidationError) as e:
-        person(certidao=certidao[:5])
+        person(cert=cert[:5])
     assert FieldInvalidError.msg_template in str(e.value)
 
 
@@ -99,12 +154,5 @@ def test_must_fail_when_use_digits_count_below_certidao(person, certidao):
 )
 def test_must_fail_when_use_sequecial_digits(person, certidao):
     with pytest.raises(ValidationError) as e:
-        person(certidao=certidao)
+        person(cert=certidao)
     assert FieldInvalidError.msg_template in str(e.value)
-
-
-def test_must_fail_when_not_use_only_digits(person_only_digits):
-    with pytest.raises(ValidationError) as e:
-        letters = ascii_letters[:32]
-        person_only_digits(certidao=letters)
-    assert FieldDigitError.msg_template in str(e.value)
