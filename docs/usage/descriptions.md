@@ -92,6 +92,17 @@ Aceita apenas uma `string` com máscara. Ex: 29791701552022389842550677134251
 
 ---
 
+
+CNS
+
+O Cartão Nacional de Saúde - CNS é o documento de identificação do usuário do SUS. Este registro contém as informações dos indivíduos, como: dados pessoais (nome, nome da mãe, data de nascimento, etc), contatos (telefones, endereço, e-mails) e documentos (CPF, RG, Certidões, etc). Atualmente, o número do CNS está inserido nos sistemas informatizados de saúde que demandam a identificação dos indivíduos, sejam usuários, operadores ou profissionais de saúde
+
+[`CNS`](../field_types/#cns):
+
+Aceita apenas uma `string` com digitos. Ex: 873304753530004, 176736924900003
+
+---
+
 ## Pessoa Jurídica
 
 CNPJ

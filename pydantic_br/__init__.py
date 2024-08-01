@@ -5,6 +5,7 @@ from .fields.cep_field import *
 from .fields.certidao_field import *
 from .fields.cnh_field import *
 from .fields.cnpj_field import *
+from .fields.cns_field import *
 from .fields.cpf_field import *
 from .fields.pis_field import *
 from .fields.te_field import *
