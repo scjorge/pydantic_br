@@ -10,41 +10,33 @@ class CNHValidator(FieldValidator):
         self.cnh = cnh
 
     def validate(self) -> bool:
-        cnh = re.sub("[^0-9]", "", str(self.cnh))
+        cnh = self.cnh
 
-        if len(set(cnh)) == 1:
+        if len(re.sub(r"\D", "", cnh)) != 11 or cnh == cnh[0] * 11:
             return False
 
-        if len(cnh) != 11:
-            return False
+        v = 0
+        j = 9
 
-        first_digit = self._validate_first_digit(cnh)
-        second_digit = self._validate_second_digit(cnh)
-        return cnh[9] == first_digit and cnh[10] == second_digit
+        for i in range(9):
+            v += int(cnh[i]) * j
+            j -= 1
 
-    def _validate_first_digit(self, cnh: str) -> str:
-        self.dsc = 0
-        sum = 0
+        dsc = 0
+        vl1 = v % 11
 
-        for i in range(9, 0, -1):
-            sum += int(cnh[9 - i]) * i
+        if vl1 >= 10:
+            vl1 = 0
+            dsc = 2
 
-        first_digit = sum % 11
-        if first_digit >= 10:
-            first_digit, self.dsc = 0, 2
-        return str(first_digit)
+        v = 0
+        j = 1
 
-    def _validate_second_digit(self, cnh: str) -> str:
-        sum = 0
+        for i in range(9):
+            v += int(cnh[i]) * j
+            j += 1
 
-        for i in range(1, 10):
-            sum += int(cnh[i - 1]) * i
+        x = v % 11
+        vl2 = 0 if x >= 10 else x - dsc
 
-        rest = sum % 11
-
-        second_digit = rest - self.dsc
-        if second_digit < 0:
-            second_digit += 11
-        if second_digit >= 10:
-            second_digit = 0
-        return str(second_digit)
+        return f"{vl1}{vl2}" == cnh[-2:]
