@@ -28,8 +28,8 @@ Compatível com a versão v1 e v2 do Pydantic.
 
 Descrições detalhadas [aqui](usage/descriptions.md).
 
-| Campo | Grupo de Documentos | Nome do Documento | Método de validação | Situação
-|---|---|---|---|---|
+| Campo | Grupo de Documentos | Nome do Documento | Método de validação
+|---|---|---|---|
 | CPF | Pessoa física | Cadastro de Pessoa Física | Digito Verificador
 | CNH | Pessoa física | Carteira Nacional de Habilitação | Digito Verificador
 | TE | Pessoa física  | Título de Eleitor | Digito Verificador

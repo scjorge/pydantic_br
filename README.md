@@ -30,8 +30,8 @@ Documentação: https://pydantic-br.readthedocs.io
 
 ## Disponibilidades
 
-| Campo | Grupo de Documentos | Nome do Documento | Método de validação | Situação
-|---|---|---|---|---|
+| Campo | Grupo de Documentos | Nome do Documento | Método de validação
+|---|---|---|---|
 | CPF | Pessoa física | Cadastro de Pessoa Física | Digito Verificador
 | CNH | Pessoa física | Carteira Nacional de Habilitação | Digito Verificador
 | TE | Pessoa física  | Título de Eleitor | Digito Verificador
@@ -89,7 +89,7 @@ p1 = Pessoa(
 )
 
 
-pprint(p1.dict())
+pprint(p1.model_dump())
 ```
 
 Saída
@@ -100,6 +100,8 @@ Saída
  'cpf_mask': '532.213.947-80',
  'nome': 'João'}
 ```
+
+
 ### CPF inválido 
 
 ```python
@@ -121,7 +123,7 @@ p1 = Pessoa(
     nome="João", cpf="00000000000", cpf_mask="53221394780", cpf_digits="532.213.947-80"
 )
 
-pprint(p1.dict())
+pprint(p1.model_dump())
 ```
 
 Saída
@@ -132,17 +134,18 @@ Traceback (most recent call last):
   File "pydantic\main.py", line 341, in pydantic.main.BaseModel.__init__
 pydantic.error_wrappers.ValidationError: 3 validation errors for Pessoa
 cpf
-  invalid data (type=value_error.invalid_data)
+  invalid data [type=invalid_data, input_value='00000000000', input_type=str]
 cpf_mask
-  invalid mask format (type=value_error.invalid_mask)
+  invalid mask format [type=invalid_mask, input_value='53221394780', input_type=str]
 cpf_digits
-  field only accept digits as string (type=value_error.not_digits)
+  field only accept digits as string [type=not_digits, input_value='532.213.947-80', input_type=str]
 ```
+
 
 ## Versões do Pydantic 
 Os exemplos acima estão escritos na versão v1 do Pydantic. Entretanto, funciona perfeitamente com a versão v2.
 
-Então que mudará? Bem, os métodos de 'apresentação' das models foram alterados na v2. 
+Então que mudará? Bem, uma das coisa é que os métodos de 'apresentação' das models foram alterados na v2. 
 
-- O método `dict()` foi alterado para `model_dump()`
+- O método `dict()` foi alterado para `model_dump()` e `model_dump_json()`
 - O método `schema()` foi alterado para `model_json_schema()`
