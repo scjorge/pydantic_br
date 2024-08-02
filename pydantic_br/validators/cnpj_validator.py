@@ -33,7 +33,6 @@ class CNPJValidator(FieldMaskValidator):
         sum = 0
         weight = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
 
-        """ Valida o primeiro digito """
         for n in range(12):
             value = int(cnpj[n]) * weight[n]
             sum = sum + value
