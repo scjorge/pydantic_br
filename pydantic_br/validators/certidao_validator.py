@@ -1,5 +1,3 @@
-import re
-
 from .base_validator import FieldMaskValidator
 
 __all__ = ["CertidaoValidator"]
@@ -7,34 +5,32 @@ __all__ = ["CertidaoValidator"]
 
 class CertidaoValidator(FieldMaskValidator):
     def __init__(self, certidao) -> None:
-        self.certidao = certidao
+        self.certidao = str(certidao)
+        self.certidao_digits = self._get_only_numbers(certidao)
 
     def validate_mask(self) -> bool:
-        if len(self.certidao) == 40:
-            if (
-                self.certidao[6:7] == "."
-                and self.certidao[9:10] == "."
-                and self.certidao[12:13] == "."
-                and self.certidao[17:18] == "."
-                and self.certidao[19:20] == "."
-                and self.certidao[25:26] == "."
-                and self.certidao[29:30] == "."
-                and self.certidao[37:38] == "-"
-            ):
-                return True
+        if len(self.certidao) != 40 or len(self.certidao_digits) != 32:
+            return False
+
+        if (
+            self.certidao[6:7] == "."
+            and self.certidao[9:10] == "."
+            and self.certidao[12:13] == "."
+            and self.certidao[17:18] == "."
+            and self.certidao[19:20] == "."
+            and self.certidao[25:26] == "."
+            and self.certidao[29:30] == "."
+            and self.certidao[37:38] == "-"
+        ):
+            return True
         return False
 
     def validate(self) -> bool:
-        certidao = re.sub("[^0-9]", "", self.certidao)
-
-        if len(set(certidao)) == 1:
+        if len(set(self.certidao_digits)) == 1 or len(self.certidao_digits) != 32:
             return False
 
-        if len(certidao) != 32:
-            return False
-
-        num = list(certidao[:-2])
-        dv = certidao[-2:]
+        num = list(self.certidao_digits[:-2])
+        dv = self.certidao_digits[-2:]
 
         expected_dv = self._verifying_digit(num)
 

@@ -4,8 +4,8 @@ __all__ = ["SiglaEstadoValidator"]
 
 
 class SiglaEstadoValidator(FieldValidator):
-    def __init__(self, sigla) -> None:
-        self.sigla = sigla
+    def __init__(self, sigla: str) -> None:
+        self.sigla = str(sigla)
 
     def validate(self) -> bool:
         siglas = [
@@ -40,6 +40,7 @@ class SiglaEstadoValidator(FieldValidator):
             "SP",
             "TO",
         ]
-        if len(self.sigla) != 2:
+
+        if len(self.sigla) != 2 or self.sigla.islower():
             return False
         return self.sigla in siglas

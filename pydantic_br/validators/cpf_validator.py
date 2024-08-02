@@ -1,5 +1,3 @@
-import re
-
 from .base_validator import FieldMaskValidator
 
 __all__ = ["CPFValidator"]
@@ -7,21 +5,21 @@ __all__ = ["CPFValidator"]
 
 class CPFValidator(FieldMaskValidator):
     def __init__(self, cpf: str) -> None:
-        self.cpf = cpf
+        self.cpf = str(cpf)
+        self.cpf_digits = self._get_only_numbers(cpf)
 
     def validate_mask(self) -> bool:
-        if len(self.cpf) == 14:
-            if self.cpf[3:4] == "." and self.cpf[7:8] == "." and self.cpf[11:12] == "-":
-                return True
+        if len(self.cpf) != 14 or len(self.cpf_digits) != 11:
+            return False
+
+        if self.cpf[3:4] == "." and self.cpf[7:8] == "." and self.cpf[11:12] == "-":
+            return True
         return False
 
     def validate(self) -> bool:
-        cpf = re.sub("[^0-9]", "", str(self.cpf))
+        cpf = self.cpf_digits
 
-        if len(set(cpf)) == 1:
-            return False
-
-        if len(cpf) != 11:
+        if len(cpf) != 11 or len(set(cpf)) == 1:
             return False
 
         first_digit = self._validate_first_digit(cpf)

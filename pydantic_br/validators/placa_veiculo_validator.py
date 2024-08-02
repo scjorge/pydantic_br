@@ -7,7 +7,7 @@ __all__ = ["PlacaVeiculoValidator"]
 
 class PlacaVeiculoValidator(FieldValidator):
     def __init__(self, placa: str) -> None:
-        self.placa = placa
+        self.placa = str(placa)
 
     def validate(self) -> bool:
         placa = self.placa

@@ -1,4 +1,3 @@
-import re
 from typing import List
 
 from .base_validator import FieldValidator
@@ -8,15 +7,15 @@ __all__ = ["TEValidator"]
 
 class TEValidator(FieldValidator):
     def __init__(self, te: str) -> None:
-        self.te = te
+        self.te = str(te)
+        self.te_digits = self._get_only_numbers(te)
         self.first_check_digit_weights = list(range(2, 10))
         self.second_check_digit_weights = list(range(7, 10))
         self.first_check_digit_doc_slice = slice(0, 8)
         self.second_check_digit_doc_slice = slice(8, 10)
 
     def validate(self) -> bool:
-        te_numbers = list(re.sub("[^0-9]", "", str(self.te)))
-        te = [int(n) for n in te_numbers]
+        te = [int(n) for n in list(self.te_digits)]
         if len(set(te)) == 1:
             return False
 

@@ -1,5 +1,3 @@
-import re
-
 from .base_validator import FieldValidator
 
 __all__ = ["CNHValidator"]
@@ -7,12 +5,13 @@ __all__ = ["CNHValidator"]
 
 class CNHValidator(FieldValidator):
     def __init__(self, cnh: str) -> None:
-        self.cnh = cnh
+        self.cnh = str(cnh)
+        self.cnh_digits = self._get_only_numbers(cnh)
 
     def validate(self) -> bool:
         cnh = self.cnh
 
-        if len(re.sub(r"\D", "", cnh)) != 11 or cnh == cnh[0] * 11:
+        if len(self.cnh_digits) != 11 or len(set(self.cnh_digits)) == 1:
             return False
 
         v = 0

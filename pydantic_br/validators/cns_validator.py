@@ -1,5 +1,3 @@
-import re
-
 from .base_validator import FieldValidator
 
 __all__ = ["CNSValidator"]
@@ -7,18 +5,16 @@ __all__ = ["CNSValidator"]
 
 class CNSValidator(FieldValidator):
     def __init__(self, cns: str) -> None:
-        self.cns = cns
+        self.cns = str(cns)
+        self.cns_digits = self._get_only_numbers(cns)
 
     def validate(self) -> bool:
-        cns = re.sub("[^0-9]", "", str(self.cns))
+        cns = self.cns_digits
 
-        if len(cns) != 15:
+        if len(cns) != 15 or len(set(cns)) == 1:
             return False
 
-        if len(set(cns)) == 1 or len(cns) == 0:
-            return False
-
-        if int(cns[0]) not in [1, 2, 7, 8, 9]:
+        if cns[0] not in ["1", "2", "7", "8", "9"]:
             return False
 
         if cns[0] in ["1", "2"]:

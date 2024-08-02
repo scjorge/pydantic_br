@@ -1,5 +1,3 @@
-import re
-
 from .base_validator import FieldMaskValidator
 
 __all__ = ["CNPJValidator"]
@@ -7,34 +5,38 @@ __all__ = ["CNPJValidator"]
 
 class CNPJValidator(FieldMaskValidator):
     def __init__(self, cnpj) -> None:
-        self.cnpj = cnpj
+        self.cnpj = str(cnpj)
+        self.cnpj_digits = self._get_only_numbers(cnpj)
 
     def validate_mask(self) -> bool:
-        if len(self.cnpj) == 18:
-            if (
-                self.cnpj[2:3] == "."
-                and self.cnpj[6:7] == "."
-                and self.cnpj[10:11] == "/"
-                and self.cnpj[15:16] == "-"
-            ):
-                return True
+        if len(self.cnpj) != 18 or len(self.cnpj_digits) != 14:
+            return False
+
+        if (
+            self.cnpj[2:3] == "."
+            and self.cnpj[6:7] == "."
+            and self.cnpj[10:11] == "/"
+            and self.cnpj[15:16] == "-"
+        ):
+            return True
         return False
 
     def validate(self) -> bool:
-        cnpj = re.sub("[^0-9]", "", self.cnpj)
-
-        if len(cnpj) != 14:
+        if len(self.cnpj_digits) != 14:
             return False
-        first_digit = self._validate_first_digit(cnpj)
-        second_digit = self._validate_second_digit(cnpj)
-        return cnpj[12] == first_digit and cnpj[13] == second_digit
 
-    def _validate_first_digit(self, cnpj) -> str:
+        first_digit = self._validate_first_digit()
+        second_digit = self._validate_second_digit()
+        return (
+            self.cnpj_digits[12] == first_digit and self.cnpj_digits[13] == second_digit
+        )
+
+    def _validate_first_digit(self) -> str:
         sum = 0
         weight = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
 
         for n in range(12):
-            value = int(cnpj[n]) * weight[n]
+            value = int(self.cnpj_digits[n]) * weight[n]
             sum = sum + value
 
         check_digit = sum % 11
@@ -45,11 +47,11 @@ class CNPJValidator(FieldMaskValidator):
             first_digit = 11 - check_digit
         return str(first_digit)
 
-    def _validate_second_digit(self, cnpj) -> str:
+    def _validate_second_digit(self) -> str:
         sum = 0
         weight = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
         for n in range(13):
-            sum = sum + int(cnpj[n]) * weight[n]
+            sum = sum + int(self.cnpj_digits[n]) * weight[n]
 
         check_digit = sum % 11
 

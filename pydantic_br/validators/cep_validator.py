@@ -1,5 +1,3 @@
-import re
-
 from .base_validator import FieldMaskValidator
 
 __all__ = ["CEPValidator"]
@@ -7,10 +5,11 @@ __all__ = ["CEPValidator"]
 
 class CEPValidator(FieldMaskValidator):
     def __init__(self, cep) -> None:
-        self.cep = cep
+        self.cep = str(cep)
+        self.cep_digits = self._get_only_numbers(cep)
 
     def validate_mask(self) -> bool:
-        if len(re.sub("[^0-9]", "", str(self.cep))) != 8:
+        if len(self.cep_digits) != 8:
             return False
 
         if len(self.cep) == 9:
@@ -51,10 +50,9 @@ class CEPValidator(FieldMaskValidator):
             ("TO", "77000-000", "77999-999"),
         ]
 
-        cep_num = int(self.cep.replace("-", ""))
         for _, start, end in cep_ranges:
             start_num = int(start.replace("-", ""))
             end_num = int(end.replace("-", ""))
-            if start_num <= cep_num <= end_num:
+            if start_num <= int(self.cep_digits) <= end_num:
                 return True
         return False

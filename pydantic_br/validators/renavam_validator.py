@@ -1,5 +1,3 @@
-import re
-
 from .base_validator import FieldValidator
 
 __all__ = ["RENAVAMValidator"]
@@ -7,10 +5,11 @@ __all__ = ["RENAVAMValidator"]
 
 class RENAVAMValidator(FieldValidator):
     def __init__(self, reavam: str) -> None:
-        self.renavam = reavam
+        self.renavam = str(reavam)
+        self.renavam_digits = self._get_only_numbers(reavam)
 
     def validate(self) -> bool:
-        renavam = re.sub(r"\D", "", self.renavam)
+        renavam = self.renavam_digits
 
         if len(renavam) == 9:
             renavam = "00{}".format(renavam)
@@ -18,21 +17,21 @@ class RENAVAMValidator(FieldValidator):
         if len(renavam) != 11 or len(set(renavam)) == 1:
             return False
 
-        renavam_sem_digito = renavam[:-1]
-        renavam_sem_digito = renavam_sem_digito[::-1]
+        renavam_with_no_digit = renavam[:-1]
+        renavam_with_no_digit = renavam_with_no_digit[::-1]
 
-        soma = 0
-        for i, digito in enumerate(renavam_sem_digito[:8]):
-            soma += int(digito) * (i + 2)
+        sum = 0
+        for i, digito in enumerate(renavam_with_no_digit[:8]):
+            sum += int(digito) * (i + 2)
 
-        soma += int(renavam_sem_digito[8]) * 2
-        soma += int(renavam_sem_digito[9]) * 3
+        sum += int(renavam_with_no_digit[8]) * 2
+        sum += int(renavam_with_no_digit[9]) * 3
 
-        mod11 = soma % 11
+        mod11 = sum % 11
 
-        ultimo_digito_calculado = 11 - mod11
+        last_computed_number = 11 - mod11
 
-        if ultimo_digito_calculado >= 10:
-            ultimo_digito_calculado = 0
+        if last_computed_number >= 10:
+            last_computed_number = 0
 
-        return ultimo_digito_calculado == int(renavam[-1])
+        return last_computed_number == int(renavam[-1])
