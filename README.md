@@ -32,19 +32,17 @@ Documentação: https://pydantic-br.readthedocs.io
 
 | Campo | Grupo de Documentos | Nome do Documento | Método de validação | Situação
 |---|---|---|---|---|
-| CPF | Pessoa física | Cadastro de Pessoa Física | Digito Verificador | Concluído
-| CNH | Pessoa física | Carteira Nacional de Habilitação | Digito Verificador | Concluído
-| TE | Pessoa física  | Título de Eleitor | Digito Verificador | Concluído
-| PIS | Pessoa física  | Programa de Integração Social | Digito Verificador | Concluído
-| CERT | Pessoa física  | Certidão (Nascimento/Casamento/Óbito) | Digito Verificador | Concluído
-| CNS | Pessoa física  | Cartão Nacional de Saúde | Digito Verificador | Concluído
-| CNPJ | Pessoa Jurídica | Carteira Nacional de Pessoas Jurídicas | Digito Verificador | Concluído
-| CEP | Endereços  | Código de Endereçamento Postal | RegExr | Concluído
-| SiglaEstado | Endereços  | Sigla oficial do Estado Brasileiro  | RegExr | Concluído
-| RENAVAM | Veículos | Registro Nacional de Veículos Automotores | Digito Verificador | Concluído
-| PlacaVeiculo | Veículos | Placa do Veículo | RegExr | Concluído
-| ISBN | Livros | Padrão Internacional de Numeração de Livro | Digito Verificador | Em desenvolvimento
-
+| CPF | Pessoa física | Cadastro de Pessoa Física | Digito Verificador
+| CNH | Pessoa física | Carteira Nacional de Habilitação | Digito Verificador
+| TE | Pessoa física  | Título de Eleitor | Digito Verificador
+| PIS | Pessoa física  | Programa de Integração Social | Digito Verificador
+| CERT | Pessoa física  | Certidão (Nascimento/Casamento/Óbito) | Digito Verificador
+| CNS | Pessoa física  | Cartão Nacional de Saúde | Digito Verificador
+| CNPJ | Pessoa Jurídica | Carteira Nacional de Pessoas Jurídicas | Digito Verificador
+| CEP | Endereços  | Código de Endereçamento Postal | RegExr
+| SiglaEstado | Endereços  | Sigla oficial do Estado Brasileiro  | RegExr
+| RENAVAM | Veículos | Registro Nacional de Veículos Automotores | Digito Verificador
+| PlacaVeiculo | Veículos | Placa do Veículo | RegExr
 
 
 ## Instalação
