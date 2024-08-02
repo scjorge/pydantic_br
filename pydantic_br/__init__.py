@@ -1,4 +1,4 @@
-__version__ = "1.0.1"
+__version__ = "v1.1.0"
 
 from .fields.base_field_errors import *
 from .fields.cep_field import *
