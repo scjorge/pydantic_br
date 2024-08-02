@@ -1,3 +1,5 @@
+from pprint import pprint
+
 from pydantic import BaseModel
 
 from pydantic_br import CEP
@@ -5,27 +7,31 @@ from pydantic_br import CEP
 
 class Endereco(BaseModel):
     rua: str
-    cep: CEP
+    cep1: CEP
+    cep2: CEP
 
 
-endereco1 = Endereco(rua="Avenida Paulista", cep="01310100")
-endereco2 = Endereco(rua="Avenida Paulista", cep="01310-100")
+endereco = Endereco(rua="Avenida Paulista", cep1="01310100", cep2="01310-100")
 
 
-print(endereco1)
-# > rua='Avenida Paulista' cep='01310100'
+print(endereco)
+# > rua='Avenida Paulista' cep1='01310100' cep2='01310-100'
 
-print(endereco1.model_dump_json())
-# > {"rua":"Avenida Paulista","cep":"01310100"}
+print(endereco.model_dump_json())
+# > {"rua":"Avenida Paulista","cep1":"01310100","cep2":"01310-100"}
 
-print(endereco2.model_json_schema())
-# > {'properties': {'rua': {'title': 'Rua', 'type': 'string'}, 'cep': {'format': 'cep', 'title': 'Cep', 'type': 'string'}}, 'required': ['rua', 'cep'], 'title': 'Endereco', 'type': 'object'}
-
-print(endereco2)
-# > rua='Avenida Paulista' cep='01310-100'
-
-print(endereco2.model_dump_json())
-# > {"rua":"Avenida Paulista","cep":"01310-100"}
-
-print(endereco2.model_json_schema())
-# > {'properties': {'rua': {'title': 'Rua', 'type': 'string'}, 'cep': {'format': 'cep', 'title': 'Cep', 'type': 'string'}}, 'required': ['rua', 'cep'], 'title': 'Endereco', 'type': 'object'}
+pprint(endereco.model_json_schema())
+# > {'properties': {'cep1': {'example': ['00000000', '00000-000'],
+#                          'format': 'cep',
+#                          'mask': {'format': 'XXXXX-XXX', 'required': False},
+#                          'title': 'Cep1',
+#                          'type': 'string'},
+#                 'cep2': {'example': ['00000000', '00000-000'],
+#                          'format': 'cep',
+#                          'mask': {'format': 'XXXXX-XXX', 'required': False},
+#                          'title': 'Cep2',
+#                          'type': 'string'},
+#                 'rua': {'title': 'Rua', 'type': 'string'}},
+#  'required': ['rua', 'cep1', 'cep2'],
+#  'title': 'Endereco',
+#  'type': 'object'}

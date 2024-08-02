@@ -1,3 +1,5 @@
+from pprint import pprint
+
 from pydantic import BaseModel
 
 from pydantic_br import TE
@@ -14,8 +16,16 @@ p1 = Pessoa(nome="João", te="867474330655")
 print(p1)
 # > te='867474330655' nome='João'
 
-print(p1.dict())
-# > {'te': '867474330655', 'nome': 'João'}
+print(p1.model_dump_json())
+# > {"te":"867474330655","nome":"João"}
 
-print(p1.schema())
-# > {'title': 'Pessoa', 'type': 'object', 'properties': {'te': {'title': 'Te', 'type': 'string', 'format': 'te'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['te', 'nome']}
+pprint(p1.model_json_schema())
+# > {'properties': {'nome': {'title': 'Nome', 'type': 'string'},
+#                 'te': {'example': ['000000000000'],
+#                        'format': 'te',
+#                        'mask': {'format': None, 'required': False},
+#                        'title': 'Te',
+#                        'type': 'string'}},
+#  'required': ['te', 'nome'],
+#  'title': 'Pessoa',
+#  'type': 'object'}

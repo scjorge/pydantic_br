@@ -1,3 +1,5 @@
+from pprint import pprint
+
 from pydantic import BaseModel
 
 from pydantic_br import CNH
@@ -14,8 +16,16 @@ p1 = Pessoa(nome="João", cnh="18820839790")
 print(p1)
 # > cnh='18820839790' nome='João'
 
-print(p1.dict())
-# > {'cnh': '18820839790', 'nome': 'João'}
+print(p1.model_dump_json())
+# > {"cnh":"18820839790","nome":"João"}
 
-print(p1.schema())
-# > {'title': 'Pessoa', 'type': 'object', 'properties': {'cnh': {'title': 'Cnh', 'type': 'string', 'format': 'cnh'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cnh', 'nome']}
+pprint(p1.model_json_schema())
+# > {'properties': {'cnh': {'example': ['00000000000'],
+#                         'format': 'cnh',
+#                         'mask': {'format': None, 'required': False},
+#                         'title': 'Cnh',
+#                         'type': 'string'},
+#                 'nome': {'title': 'Nome', 'type': 'string'}},
+#  'required': ['cnh', 'nome'],
+#  'title': 'Pessoa',
+#  'type': 'object'}

@@ -1,3 +1,5 @@
+from pprint import pprint
+
 from pydantic import BaseModel
 
 from pydantic_br import CPFMask
@@ -13,8 +15,16 @@ p1 = Pessoa(nome="João", cpf="532.213.947-80")
 print(p1)
 # > cpf='532.213.947-80' nome='João'
 
-print(p1.dict())
-# > {'cpf': '532.213.947-80', 'nome': 'João'}
+print(p1.model_dump_json())
+# > {"cpf":"532.213.947-80","nome":"João"}
 
-print(p1.schema())
-# > {'title': 'Pessoa', 'type': 'object', 'properties': {'cpf': {'title': 'Cpf', 'type': 'string', 'format': 'cpf'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cpf', 'nome']}
+pprint(p1.model_json_schema())
+# > {'properties': {'cpf': {'example': ['000.000.000-00'],
+#                         'format': 'cpf mask',
+#                         'mask': {'format': '000.000.000-00', 'required': True},
+#                         'title': 'Cpf',
+#                         'type': 'string'},
+#                 'nome': {'title': 'Nome', 'type': 'string'}},
+#  'required': ['cpf', 'nome'],
+#  'title': 'Pessoa',
+#  'type': 'object'}

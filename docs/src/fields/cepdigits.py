@@ -1,3 +1,5 @@
+from pprint import pprint
+
 from pydantic import BaseModel
 
 from pydantic_br import CEPDigits
@@ -20,5 +22,13 @@ print(endereco)
 print(endereco.model_dump_json())
 # > {"rua":"Avenida Paulista","cep":"01310100"}
 
-print(endereco.model_json_schema())
-# > {'properties': {'rua': {'title': 'Rua', 'type': 'string'}, 'cep': {'format': 'cep', 'title': 'Cep', 'type': 'string'}}, 'required': ['rua', 'cep'], 'title': 'Endereco', 'type': 'object'}
+pprint(endereco.model_json_schema())
+# > {'properties': {'cep': {'example': ['00000000'],
+#                         'format': 'cep',
+#                         'mask': {'format': None, 'required': False},
+#                         'title': 'Cep',
+#                         'type': 'string'},
+#                 'rua': {'title': 'Rua', 'type': 'string'}},
+#  'required': ['rua', 'cep'],
+#  'title': 'Endereco',
+#  'type': 'object'}

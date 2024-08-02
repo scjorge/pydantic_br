@@ -8,43 +8,49 @@ Então que mudará? Bem, os métodos de 'apresentação' das models foram altera
 
 
 ## Pessoa Jurídica
-
-
 ### CNPJ
 
 Aceita o CNPJ com ou sem máscara
 
 ```{.py3 linenums=1}
+from pprint import pprint
+
 from pydantic import BaseModel
 
 from pydantic_br import CNPJ
 
 
 class Empresa(BaseModel):
-    cnpj: CNPJ
+    cnpj1: CNPJ
+    cnpj2: CNPJ
     nome: str
 
 
-e1 = Empresa(nome="Empresa 1", cnpj="42.809.023/0001-91")
-e2 = Empresa(nome="Empresa 2", cnpj="42809023000191")
+e1 = Empresa(nome="Empresa 1", cnpj1="42.809.023/0001-91", cnpj2="42809023000191")
 
 print(e1)
 # > cnpj='42.809.023/0001-91' nome='Empresa 1'
 
-print(e1.dict())
-# > {'cnpj': '42.809.023/0001-91', 'nome': 'Empresa 1'}
+print(e1.model_dump_json())
+# > {"cnpj1":"42.809.023/0001-91","cnpj2":"42809023000191","nome":"Empresa 1"}
 
-print(e1.schema())
-# > {'properties': {'cnpj': {'format': 'cnpj', 'title': 'Cnpj', 'type': 'string'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cnpj', 'nome'], 'title': 'Empresa', 'type': 'object'}
-
-print(e2)
-# > cnpj='42809023000191' nome='Empresa 2'
-
-print(e2.dict())
-# > {'cnpj': '42809023000191', 'nome': 'Empresa 2'}
-
-print(e2.schema())
-# > {'properties': {'cnpj': {'format': 'cnpj', 'title': 'Cnpj', 'type': 'string'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cnpj', 'nome'], 'title': 'Empresa', 'type': 'object'}
+pprint(e1.model_json_schema())
+# > {'properties': {'cnpj1': {'example': ['00000000000000', '00.000.000/0000-00'],
+#                           'format': 'cnpj',
+#                           'mask': {'format': 'XX.XXX.XXX/XXXXX-XX',
+#                                    'required': False},
+#                           'title': 'Cnpj1',
+#                           'type': 'string'},
+#                 'cnpj2': {'example': ['00000000000000', '00.000.000/0000-00'],
+#                           'format': 'cnpj',
+#                           'mask': {'format': 'XX.XXX.XXX/XXXXX-XX',
+#                                    'required': False},
+#                           'title': 'Cnpj2',
+#                           'type': 'string'},
+#                 'nome': {'title': 'Nome', 'type': 'string'}},
+#  'required': ['cnpj1', 'cnpj2', 'nome'],
+#  'title': 'Empresa',
+#  'type': 'object'}
 ```
 
 ### CNPJMask
@@ -52,6 +58,8 @@ print(e2.schema())
 Aceita o CNPJ apenas com máscara
 
 ```{.py3 linenums=1}
+from pprint import pprint
+
 from pydantic import BaseModel
 
 from pydantic_br import CNPJMask
@@ -67,11 +75,20 @@ e1 = Empresa(nome="Empresa 1", cnpj="42.809.023/0001-91")
 print(e1)
 # > cnpj='42.809.023/0001-91' nome='Empresa 1'
 
-print(e1.dict())
-# > {'cnpj': '42.809.023/0001-91', 'nome': 'Empresa 1'}
+print(e1.model_dump_json())
+# > {"cnpj":"42.809.023/0001-91","nome":"Empresa 1"}
 
-print(e1.schema())
-# > {'properties': {'cnpj': {'format': 'cnpj', 'title': 'Cnpj', 'type': 'string'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cnpj', 'nome'], 'title': 'Empresa', 'type': 'object'}
+pprint(e1.model_json_schema())
+# > {'properties': {'cnpj': {'example': ['00.000.000/0000-00'],
+#                          'format': 'cnpj',
+#                          'mask': {'format': 'XX.XXX.XXX/XXXXX-XX',
+#                                   'required': True},
+#                          'title': 'Cnpj',
+#                          'type': 'string'},
+#                 'nome': {'title': 'Nome', 'type': 'string'}},
+#  'required': ['cnpj', 'nome'],
+#  'title': 'Empresa',
+#  'type': 'object'}
 ```
 
 ### CNPJDigits
@@ -79,6 +96,8 @@ print(e1.schema())
 Aceita o CNPJ apenas com dígitos
 
 ```{.py3 linenums=1}
+from pprint import pprint
+
 from pydantic import BaseModel
 
 from pydantic_br import CNPJDigits
@@ -95,12 +114,22 @@ e1 = Empresa(nome="Empresa 2", cnpj="42809023000191")
 print(e1)
 # > cnpj='42809023000191' nome='Empresa 2'
 
-print(e1.dict())
-# > {'cnpj': '42809023000191', 'nome': 'Empresa 2'}
+print(e1.model_dump_json())
+# > {"cnpj":"42809023000191","nome":"Empresa 2"}
 
-print(e1.schema())
-# > {'properties': {'cnpj': {'format': 'cnpj', 'title': 'Cnpj', 'type': 'string'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cnpj', 'nome'], 'title': 'Empresa', 'type': 'object'}
+pprint(e1.model_json_schema())
+# > {'properties': {'cnpj': {'example': ['00000000000000'],
+#                          'format': 'cnpj',
+#                          'mask': {'format': None, 'required': False},
+#                          'title': 'Cnpj',
+#                          'type': 'string'},
+#                 'nome': {'title': 'Nome', 'type': 'string'}},
+#  'required': ['cnpj', 'nome'],
+#  'title': 'Empresa',
+#  'type': 'object'}
 ```
+
+
 
 ## Pessoa Física
 ### CPF
@@ -108,36 +137,44 @@ print(e1.schema())
 Aceita o CPF com ou sem máscara
 
 ```{.py3 linenums=1}
+from pprint import pprint
+
 from pydantic import BaseModel
 
 from pydantic_br import CPF
 
 
 class Pessoa(BaseModel):
-    cpf: CPF
+    cpf1: CPF
+    cpf2: CPF
     nome: str
 
 
-p1 = Pessoa(nome="João", cpf="532.213.947-80")
-p2 = Pessoa(nome="Maria", cpf="53221394780")
+p1 = Pessoa(nome="João", cpf1="532.213.947-80", cpf2="53221394780")
 
 print(p1)
 # > cpf='532.213.947-80' nome='João'
 
-print(p1.dict())
-# > {'cpf': '532.213.947-80', 'nome': 'João'}
+print(p1.model_dump_json())
+# > {"cpf1":"532.213.947-80","cpf2":"53221394780","nome":"João"}
 
-print(p1.schema())
-# > {'title': 'Pessoa', 'type': 'object', 'properties': {'cpf': {'title': 'Cpf', 'type': 'string', 'format': 'cpf'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cpf', 'nome']}
-
-print(p2)
-# > cpf='53221394780' nome='Maria'
-
-print(p2.dict())
-# > {'cpf': '53221394780', 'nome': 'Maria'}
-
-print(p2.schema())
-# > {'title': 'Pessoa', 'type': 'object', 'properties': {'cpf': {'title': 'Cpf', 'type': 'string', 'format': 'cpf'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cpf', 'nome']}
+pprint(p1.model_json_schema())
+# > {'properties': {'cpf1': {'example': ['00000000000', '000.000.000-00'],
+#                          'format': 'cpf',
+#                          'mask': {'format': '000.000.000-00',
+#                                   'required': False},
+#                          'title': 'Cpf1',
+#                          'type': 'string'},
+#                 'cpf2': {'example': ['00000000000', '000.000.000-00'],
+#                          'format': 'cpf',
+#                          'mask': {'format': '000.000.000-00',
+#                                   'required': False},
+#                          'title': 'Cpf2',
+#                          'type': 'string'},
+#                 'nome': {'title': 'Nome', 'type': 'string'}},
+#  'required': ['cpf1', 'cpf2', 'nome'],
+#  'title': 'Pessoa',
+#  'type': 'object'}
 ```
 
 
@@ -148,6 +185,8 @@ print(p2.schema())
 Aceita o CPF apenas com máscara
 
 ```{.py3 linenums=1}
+from pprint import pprint
+
 from pydantic import BaseModel
 
 from pydantic_br import CPFMask
@@ -163,11 +202,19 @@ p1 = Pessoa(nome="João", cpf="532.213.947-80")
 print(p1)
 # > cpf='532.213.947-80' nome='João'
 
-print(p1.dict())
-# > {'cpf': '532.213.947-80', 'nome': 'João'}
+print(p1.model_dump_json())
+# > {"cpf":"532.213.947-80","nome":"João"}
 
-print(p1.schema())
-# > {'title': 'Pessoa', 'type': 'object', 'properties': {'cpf': {'title': 'Cpf', 'type': 'string', 'format': 'cpf'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cpf', 'nome']}
+pprint(p1.model_json_schema())
+# > {'properties': {'cpf': {'example': ['000.000.000-00'],
+#                         'format': 'cpf mask',
+#                         'mask': {'format': '000.000.000-00', 'required': True},
+#                         'title': 'Cpf',
+#                         'type': 'string'},
+#                 'nome': {'title': 'Nome', 'type': 'string'}},
+#  'required': ['cpf', 'nome'],
+#  'title': 'Pessoa',
+#  'type': 'object'}
 ```
 
 
@@ -176,6 +223,8 @@ print(p1.schema())
 Aceita o CPF apenas com dígitos
 
 ```{.py3 linenums=1}
+from pprint import pprint
+
 from pydantic import BaseModel
 
 from pydantic_br import CPFDigits
@@ -191,11 +240,19 @@ p1 = Pessoa(nome="João", cpf="53221394780")
 print(p1)
 # > cpf='53221394780' nome='João'
 
-print(p1.dict())
-# > {'cpf': '53221394780', 'nome': 'João'}
+print(p1.model_dump_json())
+# > {"cpf":"53221394780","nome":"João"}
 
-print(p1.schema())
-# > {'title': 'Pessoa', 'type': 'object', 'properties': {'cpf': {'title': 'Cpf', 'type': 'string', 'format': 'cpf'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cpf', 'nome']}
+pprint(p1.model_json_schema())
+# > {'properties': {'cpf': {'example': ['00000000000'],
+#                         'format': 'cpf digits',
+#                         'mask': {'format': None, 'required': False},
+#                         'title': 'Cpf',
+#                         'type': 'string'},
+#                 'nome': {'title': 'Nome', 'type': 'string'}},
+#  'required': ['cpf', 'nome'],
+#  'title': 'Pessoa',
+#  'type': 'object'}
 ```
 
 
@@ -204,6 +261,8 @@ print(p1.schema())
 Aceita o CNH apenas com dígitos
 
 ```{.py3 linenums=1}
+from pprint import pprint
+
 from pydantic import BaseModel
 
 from pydantic_br import CNH
@@ -220,12 +279,19 @@ p1 = Pessoa(nome="João", cnh="18820839790")
 print(p1)
 # > cnh='18820839790' nome='João'
 
-print(p1.dict())
-# > {'cnh': '18820839790', 'nome': 'João'}
+print(p1.model_dump_json())
+# > {"cnh":"18820839790","nome":"João"}
 
-print(p1.schema())
-# > {'title': 'Pessoa', 'type': 'object', 'properties': {'cnh': {'title': 'Cnh', 'type': 'string', 'format': 'cnh'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cnh', 'nome']}
-
+pprint(p1.model_json_schema())
+# > {'properties': {'cnh': {'example': ['00000000000'],
+#                         'format': 'cnh',
+#                         'mask': {'format': None, 'required': False},
+#                         'title': 'Cnh',
+#                         'type': 'string'},
+#                 'nome': {'title': 'Nome', 'type': 'string'}},
+#  'required': ['cnh', 'nome'],
+#  'title': 'Pessoa',
+#  'type': 'object'}
 ```
 
 ### TE
@@ -233,6 +299,8 @@ print(p1.schema())
 Aceita o TE apenas com dígitos
 
 ```{.py3 linenums=1}
+from pprint import pprint
+
 from pydantic import BaseModel
 
 from pydantic_br import TE
@@ -249,11 +317,19 @@ p1 = Pessoa(nome="João", te="867474330655")
 print(p1)
 # > te='867474330655' nome='João'
 
-print(p1.dict())
-# > {'te': '867474330655', 'nome': 'João'}
+print(p1.model_dump_json())
+# > {"te":"867474330655","nome":"João"}
 
-print(p1.schema())
-# > {'title': 'Pessoa', 'type': 'object', 'properties': {'te': {'title': 'Te', 'type': 'string', 'format': 'te'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['te', 'nome']}
+pprint(p1.model_json_schema())
+# > {'properties': {'nome': {'title': 'Nome', 'type': 'string'},
+#                 'te': {'example': ['000000000000'],
+#                        'format': 'te',
+#                        'mask': {'format': None, 'required': False},
+#                        'title': 'Te',
+#                        'type': 'string'}},
+#  'required': ['te', 'nome'],
+#  'title': 'Pessoa',
+#  'type': 'object'}
 ```
 
 ### PIS
@@ -261,37 +337,44 @@ print(p1.schema())
 Aceita o PIS com ou sem máscara
 
 ```{.py3 linenums=1}
+from pprint import pprint
+
 from pydantic import BaseModel
 
 from pydantic_br import PIS
 
 
 class Pessoa(BaseModel):
-    pis: PIS
+    pis1: PIS
+    pis2: PIS
     nome: str
 
 
-p1 = Pessoa(nome="João", pis="848.76001.76-3")
-p2 = Pessoa(nome="Maria", pis="84876001763")
+p1 = Pessoa(nome="João", pis1="848.76001.76-3", pis2="84876001763")
 
 print(p1)
 # > pis='848.76001.76-3' nome='João'
 
-print(p1.dict())
-# > {'pis': '848.76001.76-3', 'nome': 'João'}
+print(p1.model_dump_json())
+# > {"pis1":"848.76001.76-3","pis2":"84876001763","nome":"João"}
 
-print(p1.schema())
-# > {'title': 'Pessoa', 'type': 'object', 'properties': {'pis': {'title': 'Pis', 'type': 'string', 'format': 'pis'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['pis', 'nome']}
-
-print(p2)
-# > '84876001763' nome='Maria'
-
-print(p2.dict())
-# > {'pis': '84876001763', 'nome': 'Maria'}
-
-print(p2.schema())
-# > {'title': 'Pessoa', 'type': 'object', 'properties': {'pis': {'title': 'Pis', 'type': 'string', 'format': 'pis'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['pis', 'nome']}
-
+pprint(p1.model_json_schema())
+# > {'properties': {'nome': {'title': 'Nome', 'type': 'string'},
+#                 'pis1': {'example': ['00000000000', '000.00000.00-0'],
+#                          'format': 'pis',
+#                          'mask': {'format': 'XXX.XXXXX.XX-X',
+#                                   'required': False},
+#                          'title': 'Pis1',
+#                          'type': 'string'},
+#                 'pis2': {'example': ['00000000000', '000.00000.00-0'],
+#                          'format': 'pis',
+#                          'mask': {'format': 'XXX.XXXXX.XX-X',
+#                                   'required': False},
+#                          'title': 'Pis2',
+#                          'type': 'string'}},
+#  'required': ['pis1', 'pis2', 'nome'],
+#  'title': 'Pessoa',
+#  'type': 'object'}
 ```
 
 ### PISMask
@@ -299,6 +382,8 @@ print(p2.schema())
 Aceita o PIS apenas com máscara
 
 ```{.py3 linenums=1}
+from pprint import pprint
+
 from pydantic import BaseModel
 
 from pydantic_br import PISMask
@@ -314,11 +399,19 @@ p1 = Pessoa(nome="João", pis="848.76001.76-3")
 print(p1)
 # > '848.76001.76-3' nome='João'
 
-print(p1.dict())
-# > {'pis': '848.76001.76-3', 'nome': 'João'}
+print(p1.model_dump_json())
+# > {"pis":"848.76001.76-3","nome":"João"}
 
-print(p1.schema())
-# > {'title': 'Pessoa', 'type': 'object', 'properties': {'pis': {'title': 'Pis', 'type': 'string', 'format': 'pis'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['pis', 'nome']}
+pprint(p1.model_json_schema())
+# > {'properties': {'nome': {'title': 'Nome', 'type': 'string'},
+#                 'pis': {'example': ['000.00000.00-0'],
+#                         'format': 'pis mask',
+#                         'mask': {'format': 'XXX.XXXXX.XX-X', 'required': True},
+#                         'title': 'Pis',
+#                         'type': 'string'}},
+#  'required': ['pis', 'nome'],
+#  'title': 'Pessoa',
+#  'type': 'object'}
 ```
 
 ### PISDigits
@@ -326,6 +419,8 @@ print(p1.schema())
 Aceita o PIS apenas com dígitos
 
 ```{.py3 linenums=1}
+from pprint import pprint
+
 from pydantic import BaseModel
 
 from pydantic_br import PISDigits
@@ -341,11 +436,19 @@ p1 = Pessoa(nome="João", pis="84876001763")
 print(p1)
 # > pis='84876001763' nome='João'
 
-print(p1.dict())
-# > {'pis': '84876001763', 'nome': 'João'}
+print(p1.model_dump_json())
+# > {"pis":"84876001763","nome":"João"}
 
-print(p1.schema())
-# > {'title': 'Pessoa', 'type': 'object', 'properties': {'pis': {'title': 'Pis', 'type': 'string', 'format': 'pis'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['pis', 'nome']}
+pprint(p1.model_json_schema())
+# > {'properties': {'nome': {'title': 'Nome', 'type': 'string'},
+#                 'pis': {'example': ['00000000000'],
+#                         'format': 'pis digits',
+#                         'mask': {'format': None, 'required': False},
+#                         'title': 'Pis',
+#                         'type': 'string'}},
+#  'required': ['pis', 'nome'],
+#  'title': 'Pessoa',
+#  'type': 'object'}
 ```
 
 ### Certidao
@@ -353,34 +456,48 @@ print(p1.schema())
 Aceita o número da Certidão com ou sem máscara
 
 ```{.py3 linenums=1}
+from pprint import pprint
+
 from pydantic import BaseModel
 
 from pydantic_br import Certidao
 
 
 class Pessoa(BaseModel):
-    certidao: Certidao
+    certidao1: Certidao
+    certidao2: Certidao
 
 
-p1 = Pessoa(certidao="203213.01.55.2019.4.03108.343.1021163-86")
-p2 = Pessoa(certidao="20321301552019403108343102116386")
+p = Pessoa(
+    certidao1="203213.01.55.2019.4.03108.343.1021163-86",
+    certidao2="20321301552019403108343102116386",
+)
 
-print(p1)
+
+print(p)
 # > certidao='203213.01.55.2019.4.03108.343.1021163-86'
 
-print(p1.dict())
-# > {'certidao': '203213.01.55.2019.4.03108.343.1021163-86'}
+print(p.model_dump_json())
+# > {"certidao": "203213.01.55.2019.4.03108.343.1021163-86"}
 
-print(p1.schema())
-# > {'title': 'Pessoa', 'type': 'object', 'properties': {'certidao': {'title': 'Certidao', 'type': 'string', 'format': 'certidao'}}, 'required': ['certidao']}
-print(p2)
-# > certidao='20321301552019403108343102116386'
-
-print(p2.dict())
-# > {'certidao': '20321301552019403108343102116386'}
-
-print(p2.schema())
-# > {'title': 'Pessoa', 'type': 'object', 'properties': {'certidao': {'title': 'Certidao', 'type': 'string', 'format': 'certidao'}}, 'required': ['certidao']}
+pprint(p.model_json_schema())
+# > {'properties': {'certidao1': {'example': ['00000000000000000000000000000000',
+#                                           '000000.00.00.0000.0.00000.000.0000000-00'],
+#                               'format': 'certidao',
+#                               'mask': {'format': 'XXXXXX.XX.XX.XXXX.X.XXXXX.XXX.XXXXXXX-XX',
+#                                        'required': False},
+#                               'title': 'Certidao1',
+#                               'type': 'string'},
+#                 'certidao2': {'example': ['00000000000000000000000000000000',
+#                                           '000000.00.00.0000.0.00000.000.0000000-00'],
+#                               'format': 'certidao',
+#                               'mask': {'format': 'XXXXXX.XX.XX.XXXX.X.XXXXX.XXX.XXXXXXX-XX',
+#                                        'required': False},
+#                               'title': 'Certidao2',
+#                               'type': 'string'}},
+#  'required': ['certidao1', 'certidao2'],
+#  'title': 'Pessoa',
+#  'type': 'object'}
 ```
 
 ### CertidaoMask
@@ -388,6 +505,8 @@ print(p2.schema())
 Aceita o número da Certidão apenas com máscara
 
 ```{.py3 linenums=1}
+from pprint import pprint
+
 from pydantic import BaseModel
 
 from pydantic_br import CertidaoMask
@@ -403,11 +522,20 @@ p1 = Pessoa(nome="Maria", certidao="203213.01.55.2019.4.03108.343.1021163-86")
 print(p1)
 # > certidao='203213.01.55.2019.4.03108.343.1021163-86' nome='Maria'
 
-print(p1.dict())
-# > {'certidao': '203213.01.55.2019.4.03108.343.1021163-86', 'nome': 'Maria'}
+print(p1.model_dump_json())
+# > {"certidao":"203213.01.55.2019.4.03108.343.1021163-86","nome":"Maria"}
 
-print(p1.schema())
-# > {'title': 'Pessoa', 'type': 'object', 'properties': {'certidao': {'title': 'Certidao', 'type': 'string', 'format': 'certidao'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['certidao', 'nome']}
+pprint(p1.model_json_schema())
+# > {'properties': {'certidao': {'example': ['000000.00.00.0000.0.00000.000.0000000-00'],
+#                              'format': 'certidao',
+#                              'mask': {'format': 'XXXXXX.XX.XX.XXXX.X.XXXXX.XXX.XXXXXXX-XX',
+#                                       'required': True},
+#                              'title': 'Certidao',
+#                              'type': 'string'},
+#                 'nome': {'title': 'Nome', 'type': 'string'}},
+#  'required': ['certidao', 'nome'],
+#  'title': 'Pessoa',
+#  'type': 'object'}
 ```
 
 ### CertidaoDigits
@@ -415,6 +543,8 @@ print(p1.schema())
 Aceita o número da Certidão apenas com dígitos
 
 ```{.py3 linenums=1}
+from pprint import pprint
+
 from pydantic import BaseModel
 
 from pydantic_br import CertidaoDigits
@@ -431,11 +561,19 @@ p1 = Pessoa(nome="maria", certidao="20321301552019403108343102116386")
 print(p1)
 # > certidao='20321301552019403108343102116386' nome='maria'
 
-print(p1.dict())
-# > {'certidao': '20321301552019403108343102116386', 'nome': 'maria'}
+print(p1.model_dump_json())
+# > {"certidao":"20321301552019403108343102116386","nome":"maria"}
 
-print(p1.schema())
-# > {'title': 'Pessoa', 'type': 'object', 'properties': {'certidao': {'title': 'Certidao', 'type': 'string', 'format': 'certidao'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['certidao', 'nome']}
+pprint(p1.model_json_schema())
+# > {'properties': {'certidao': {'example': ['00000000000000000000000000000000'],
+#                              'format': 'certidao',
+#                              'mask': {'format': None, 'required': False},
+#                              'title': 'Certidao',
+#                              'type': 'string'},
+#                 'nome': {'title': 'Nome', 'type': 'string'}},
+#  'required': ['certidao', 'nome'],
+#  'title': 'Pessoa',
+#  'type': 'object'}
 ```
 
 ### CNS
@@ -443,6 +581,8 @@ print(p1.schema())
 Aceita o número da CNS apenas com dígitos
 
 ```{.py3 linenums=1}
+from pprint import pprint
+
 from pydantic import BaseModel
 
 from pydantic_br import CNS
@@ -458,12 +598,21 @@ p1 = Pessoa(nome="João", cns="162184870250018")
 print(p1)
 # > cns='162184870250018' nome='João'
 
-print(p1.dict())
-# > {'cns': '162184870250018', 'nome': 'João'}
+print(p1.model_dump_json())
+# > {"cns":"162184870250018","nome":"João"}
 
-print(p1.schema())
-# > {'properties': {'cns': {'format': 'cns', 'title': 'Cns', 'type': 'string'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cns', 'nome'], 'title': 'Pessoa', 'type': 'object'}
+pprint(p1.model_json_schema())
+# > {'properties': {'cns': {'example': ['000000000000000'],
+#                         'format': 'cns',
+#                         'mask': {'format': None, 'required': True},
+#                         'title': 'Cns',
+#                         'type': 'string'},
+#                 'nome': {'title': 'Nome', 'type': 'string'}},
+#  'required': ['cns', 'nome'],
+#  'title': 'Pessoa',
+#  'type': 'object'}
 ```
+
 
 ## Endereços
 ### CEP
@@ -471,6 +620,8 @@ print(p1.schema())
 Aceita o CEP com ou sem máscara
 
 ```{.py3 linenums=1}
+from pprint import pprint
+
 from pydantic import BaseModel
 
 from pydantic_br import CEP
@@ -478,30 +629,34 @@ from pydantic_br import CEP
 
 class Endereco(BaseModel):
     rua: str
-    cep: CEP
+    cep1: CEP
+    cep2: CEP
 
 
-endereco1 = Endereco(rua="Avenida Paulista", cep="01310100")
-endereco2 = Endereco(rua="Avenida Paulista", cep="01310-100")
+endereco = Endereco(rua="Avenida Paulista", cep1="01310100", cep2="01310-100")
 
 
-print(endereco1)
-# > rua='Avenida Paulista' cep='01310100'
+print(endereco)
+# > rua='Avenida Paulista' cep1='01310100' cep2='01310-100'
 
-print(endereco1.model_dump_json())
-# > {"rua":"Avenida Paulista","cep":"01310100"}
+print(endereco.model_dump_json())
+# > {"rua":"Avenida Paulista","cep1":"01310100","cep2":"01310-100"}
 
-print(endereco2.model_json_schema())
-# > {'properties': {'rua': {'title': 'Rua', 'type': 'string'}, 'cep': {'format': 'cep', 'title': 'Cep', 'type': 'string'}}, 'required': ['rua', 'cep'], 'title': 'Endereco', 'type': 'object'}
-
-print(endereco2)
-# > rua='Avenida Paulista' cep='01310-100'
-
-print(endereco2.model_dump_json())
-# > {"rua":"Avenida Paulista","cep":"01310-100"}
-
-print(endereco2.model_json_schema())
-# > {'properties': {'rua': {'title': 'Rua', 'type': 'string'}, 'cep': {'format': 'cep', 'title': 'Cep', 'type': 'string'}}, 'required': ['rua', 'cep'], 'title': 'Endereco', 'type': 'object'}
+pprint(endereco.model_json_schema())
+# > {'properties': {'cep1': {'example': ['00000000', '00000-000'],
+#                          'format': 'cep',
+#                          'mask': {'format': 'XXXXX-XXX', 'required': False},
+#                          'title': 'Cep1',
+#                          'type': 'string'},
+#                 'cep2': {'example': ['00000000', '00000-000'],
+#                          'format': 'cep',
+#                          'mask': {'format': 'XXXXX-XXX', 'required': False},
+#                          'title': 'Cep2',
+#                          'type': 'string'},
+#                 'rua': {'title': 'Rua', 'type': 'string'}},
+#  'required': ['rua', 'cep1', 'cep2'],
+#  'title': 'Endereco',
+#  'type': 'object'}
 ```
 
 
@@ -512,6 +667,8 @@ print(endereco2.model_json_schema())
 Aceita o CEP apenas com máscara
 
 ```{.py3 linenums=1}
+from pprint import pprint
+
 from pydantic import BaseModel
 
 from pydantic_br import CEPMask
@@ -534,8 +691,16 @@ print(endereco)
 print(endereco.model_dump_json())
 # > {"rua":"Avenida Paulista","cep":"01310-100"}
 
-print(endereco.model_json_schema())
-# > {'properties': {'rua': {'title': 'Rua', 'type': 'string'}, 'cep': {'format': 'cep', 'title': 'Cep', 'type': 'string'}}, 'required': ['rua', 'cep'], 'title': 'Endereco', 'type': 'object'}
+pprint(endereco.model_json_schema())
+# > {'properties': {'cep': {'example': ['00000000'],
+#                         'format': 'cep',
+#                         'mask': {'format': None, 'required': False},
+#                         'title': 'Cep',
+#                         'type': 'string'},
+#                 'rua': {'title': 'Rua', 'type': 'string'}},
+#  'required': ['rua', 'cep'],
+#  'title': 'Endereco',
+#  'type': 'object'}
 ```
 
 
@@ -544,6 +709,8 @@ print(endereco.model_json_schema())
 Aceita o CPF apenas com dígitos
 
 ```{.py3 linenums=1}
+from pprint import pprint
+
 from pydantic import BaseModel
 
 from pydantic_br import CEPDigits
@@ -566,8 +733,16 @@ print(endereco)
 print(endereco.model_dump_json())
 # > {"rua":"Avenida Paulista","cep":"01310100"}
 
-print(endereco.model_json_schema())
-# > {'properties': {'rua': {'title': 'Rua', 'type': 'string'}, 'cep': {'format': 'cep', 'title': 'Cep', 'type': 'string'}}, 'required': ['rua', 'cep'], 'title': 'Endereco', 'type': 'object'}
+pprint(endereco.model_json_schema())
+# > {'properties': {'cep': {'example': ['00000000'],
+#                         'format': 'cep',
+#                         'mask': {'format': None, 'required': False},
+#                         'title': 'Cep',
+#                         'type': 'string'},
+#                 'rua': {'title': 'Rua', 'type': 'string'}},
+#  'required': ['rua', 'cep'],
+#  'title': 'Endereco',
+#  'type': 'object'}
 ```
 
 
@@ -576,6 +751,8 @@ print(endereco.model_json_schema())
 Aceita a Sigla do estado com dois dígitos
 
 ```{.py3 linenums=1}
+from pprint import pprint
+
 from pydantic import BaseModel
 
 from pydantic_br import SiglaEstado, CEP
@@ -592,11 +769,23 @@ endereco = Endereco(cep="70040010", estado="DF")
 print(endereco)
 # > cep='70040010' estado='DF'
 
-print(endereco.dict())
-# > {'cep': '70040010', 'estado': 'DF'}
+print(endereco.model_dump_json())
+# > {"cep":"70040010","estado":"DF"}
 
-print(endereco.schema())
-# > {'properties': {'cep': {'format': 'cep', 'title': 'Cep', 'type': 'string'}, 'estado': {'format': 'sigla_estado', 'title': 'Estado', 'type': 'string'}}, 'required': ['cep', 'estado'], 'title': 'Endereco', 'type': 'object'}
+pprint(endereco.model_json_schema())
+# > {'properties': {'cep': {'example': ['00000000', '00000-000'],
+#                         'format': 'cep',
+#                         'mask': {'format': 'XXXXX-XXX', 'required': False},
+#                         'title': 'Cep',
+#                         'type': 'string'},
+#                 'estado': {'example': ['SP', 'DF'],
+#                            'format': 'sigla_estado',
+#                            'mask': {'format': None, 'required': False},
+#                            'title': 'Estado',
+#                            'type': 'string'}},
+#  'required': ['cep', 'estado'],
+#  'title': 'Endereco',
+#  'type': 'object'}
 ```
 
 
@@ -606,6 +795,8 @@ print(endereco.schema())
 Aceita apenas o número do RENAVAM
 
 ```{.py3 linenums=1}
+from pprint import pprint
+
 from pydantic import BaseModel
 
 from pydantic_br import RENAVAM
@@ -621,11 +812,19 @@ c1 = Carro(ano="2024", renavam="97926526793")
 print(c1)
 # > ano='2024' renavam='97926526793'
 
-print(c1.dict())
-# > {'ano': '2024', 'renavam': '97926526793'}
+print(c1.model_dump_json())
+# > {"ano":"2024","renavam":"97926526793"}
 
-print(c1.schema())
-# > {'properties': {'ano': {'title': 'Ano', 'type': 'string'}, 'renavam': {'format': 'renavam', 'title': 'Renavam', 'type': 'string'}}, 'required': ['ano', 'renavam'], 'title': 'Carro', 'type': 'object'}
+pprint(c1.model_json_schema())
+# > {'properties': {'ano': {'title': 'Ano', 'type': 'string'},
+#                 'renavam': {'example': ['00000000000'],
+#                             'format': 'renavam',
+#                             'mask': {'format': None, 'required': False},
+#                             'title': 'Renavam',
+#                             'type': 'string'}},
+#  'required': ['ano', 'renavam'],
+#  'title': 'Carro',
+#  'type': 'object'}
 ```
 
 ### PlacaVeiculo
@@ -633,6 +832,8 @@ print(c1.schema())
 Aceita a Placa do Carro no padrão antigo ou no padrão Mercosul.
 
 ```{.py3 linenums=1}
+from pprint import pprint
+
 from pydantic import BaseModel
 
 from pydantic_br import PlacaVeiculo
@@ -648,9 +849,17 @@ c1 = Carro(ano="2024", placa="OTM2X22")
 print(c1)
 # > ano='2024' placa='OTM2X22'
 
-print(c1.dict())
-# > {'ano': '2024', 'placa': 'OTM2X22'}
+print(c1.model_dump_json())
+# > {"ano":"2024","placa":"OTM2X22"}
 
-print(c1.schema())
-# > {'properties': {'ano': {'title': 'Ano', 'type': 'string'}, 'placa': {'format': 'placa_veiculo', 'title': 'Placa', 'type': 'string'}}, 'required': ['ano', 'placa'], 'title': 'Carro', 'type': 'object'}
+pprint(c1.model_json_schema())
+# > {'properties': {'ano': {'title': 'Ano', 'type': 'string'},
+#                 'placa': {'example': ['ABC0000', 'ABC0D00'],
+#                           'format': 'placa_veiculo',
+#                           'mask': {'format': None, 'required': False},
+#                           'title': 'Placa',
+#                           'type': 'string'}},
+#  'required': ['ano', 'placa'],
+#  'title': 'Carro',
+#  'type': 'object'}
 ```

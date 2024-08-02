@@ -1,3 +1,5 @@
+from pprint import pprint
+
 from pydantic import BaseModel
 
 from pydantic_br import CPFDigits
@@ -13,8 +15,16 @@ p1 = Pessoa(nome="João", cpf="53221394780")
 print(p1)
 # > cpf='53221394780' nome='João'
 
-print(p1.dict())
-# > {'cpf': '53221394780', 'nome': 'João'}
+print(p1.model_dump_json())
+# > {"cpf":"53221394780","nome":"João"}
 
-print(p1.schema())
-# > {'title': 'Pessoa', 'type': 'object', 'properties': {'cpf': {'title': 'Cpf', 'type': 'string', 'format': 'cpf'}, 'nome': {'title': 'Nome', 'type': 'string'}}, 'required': ['cpf', 'nome']}
+pprint(p1.model_json_schema())
+# > {'properties': {'cpf': {'example': ['00000000000'],
+#                         'format': 'cpf digits',
+#                         'mask': {'format': None, 'required': False},
+#                         'title': 'Cpf',
+#                         'type': 'string'},
+#                 'nome': {'title': 'Nome', 'type': 'string'}},
+#  'required': ['cpf', 'nome'],
+#  'title': 'Pessoa',
+#  'type': 'object'}
