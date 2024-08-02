@@ -14,5 +14,4 @@ class PlacaVeiculo(Base):
 
     format = "placa_veiculo"
     Validator = PlacaVeiculoValidator
-    mask = {"required": False, "format": None}
     examples = ["ABC0000", "ABC0D00"]

@@ -1,4 +1,4 @@
-from typing import Any, Callable, Generator
+from typing import Any, Callable, Dict, Generator, List
 
 from .base_field_errors import FieldTypes, raise_field
 
@@ -12,6 +12,8 @@ CallableGenerator = Generator[AnyCallable, None, None]
 class BaseFieldClass:
     format: str
     Validator: Callable[..., Any]
+    mask: Dict = {"required": False, "format": None}
+    examples: List[str] = []
 
     __slots__ = ["number"]
 

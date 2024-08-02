@@ -14,5 +14,4 @@ class TE(BaseDigits):
 
     format = "te"
     Validator = TEValidator
-    mask = {"required": False, "format": None}
     examples = ["000000000000"]

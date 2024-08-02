@@ -14,5 +14,4 @@ class RENAVAM(BaseDigits):
 
     format = "renavam"
     Validator = RENAVAMValidator
-    mask = {"required": False, "format": None}
     examples = ["00000000000"]

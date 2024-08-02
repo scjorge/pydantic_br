@@ -46,5 +46,4 @@ class CPFDigits(BaseDigits):
 
     format = "cpf digits"
     Validator = CPFValidator
-    mask = {"required": False, "format": None}
     examples = ["00000000000"]

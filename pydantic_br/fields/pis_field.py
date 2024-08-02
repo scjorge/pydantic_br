@@ -46,5 +46,4 @@ class PISDigits(BaseDigits):
 
     format = "pis digits"
     Validator = PISValidator
-    mask = {"required": False, "format": None}
     examples = ["00000000000"]

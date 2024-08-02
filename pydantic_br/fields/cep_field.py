@@ -46,5 +46,4 @@ class CEPDigits(BaseDigits):
 
     format = "cep"
     Validator = CEPValidator
-    mask = {"required": False, "format": None}
     examples = ["00000000"]

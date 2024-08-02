@@ -46,5 +46,4 @@ class CNPJDigits(BaseDigits):
 
     format = "cnpj"
     Validator = CNPJValidator
-    mask = {"required": False, "format": None}
     examples = ["00000000000000"]

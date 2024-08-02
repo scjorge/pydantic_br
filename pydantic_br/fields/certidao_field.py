@@ -49,5 +49,4 @@ class CertidaoDigits(BaseDigits):
 
     format = "certidao"
     Validator = CertidaoValidator
-    mask = {"required": False, "format": None}
     examples = ["00000000000000000000000000000000"]
