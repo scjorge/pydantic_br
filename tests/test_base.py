@@ -42,10 +42,10 @@ def model():
 
 
 def test_model_schemas(model: BaseModel):
-    if __version__.startswith("1"):
+    if __version__.startswith("2"):
         model.model_dump()
         model.model_dump_json()
         model.model_json_schema()
-    if __version__.startswith("2"):
+    if __version__.startswith("1"):
         model.dict()
         model.schema()
