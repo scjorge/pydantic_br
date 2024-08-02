@@ -7,6 +7,7 @@
 [![pypi](https://img.shields.io/pypi/v/pydantic-br)](https://pypi.org/project/pydantic-br/)
 [![pypi](https://img.shields.io/pypi/pyversions/pydantic-br)](https://pypi.org/project/pydantic-br/)
 [![license](https://img.shields.io/pypi/l/pydantic-br)](https://github.com/scjorge/pydantic_br/blob/master/LICENSE)
+[![downloads](https://img.shields.io/pypi/dm/pydantic-br)](https://pypi.org/project/pydantic-br/)
 
 
 <p align="center">
