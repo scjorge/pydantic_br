@@ -14,11 +14,12 @@ class CNPJ(Base):
 
     Attributes:
         number (str): CNPJ number.
-
     """
 
     format = "cnpj"
     Validator = CNPJValidator
+    mask = {"required": False, "format": "XX.XXX.XXX/XXXXX-XX"}
+    examples = ["00000000000000", "00.000.000/0000-00"]
 
 
 class CNPJMask(BaseMask):
@@ -31,6 +32,8 @@ class CNPJMask(BaseMask):
 
     format = "cnpj"
     Validator = CNPJValidator
+    mask = {"required": True, "format": "XX.XXX.XXX/XXXXX-XX"}
+    examples = ["00.000.000/0000-00"]
 
 
 class CNPJDigits(BaseDigits):
@@ -43,3 +46,5 @@ class CNPJDigits(BaseDigits):
 
     format = "cnpj"
     Validator = CNPJValidator
+    mask = {"required": False, "format": None}
+    examples = ["00000000000000"]

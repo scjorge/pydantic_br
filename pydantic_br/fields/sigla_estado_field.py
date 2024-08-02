@@ -14,3 +14,5 @@ class SiglaEstado(Base):
 
     format = "sigla_estado"
     Validator = SiglaEstadoValidator
+    mask = {"required": False, "format": None}
+    examples = ["SP", "DF"]

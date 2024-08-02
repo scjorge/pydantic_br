@@ -14,3 +14,5 @@ class CNS(BaseDigits):
 
     format = "cns"
     Validator = CNSValidator
+    mask = {"required": True, "format": None}
+    examples = ["000000000000000"]

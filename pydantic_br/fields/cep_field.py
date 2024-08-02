@@ -14,11 +14,12 @@ class CEP(Base):
 
     Attributes:
         number (str): CEP number.
-
     """
 
     format = "cep"
     Validator = CEPValidator
+    mask = {"required": False, "format": "XXXXX-XXX"}
+    examples = ["00000000", "00000-000"]
 
 
 class CEPMask(BaseMask):
@@ -31,6 +32,8 @@ class CEPMask(BaseMask):
 
     format = "cep"
     Validator = CEPValidator
+    mask = {"required": True, "format": "XXXXX-XXX"}
+    examples = ["00000-000"]
 
 
 class CEPDigits(BaseDigits):
@@ -43,3 +46,5 @@ class CEPDigits(BaseDigits):
 
     format = "cep"
     Validator = CEPValidator
+    mask = {"required": False, "format": None}
+    examples = ["00000000"]

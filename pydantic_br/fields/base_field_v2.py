@@ -40,7 +40,9 @@ class BaseV2(BaseFieldClass):
         **kwargs,
     ) -> JsonSchemaValue:
         field_schema = handler(core_schema)
-        field_schema.update(type="string", format=cls.format)
+        field_schema.update(
+            type="string", format=cls.format, mask=cls.mask, example=cls.examples
+        )
         return field_schema
 
     @classmethod

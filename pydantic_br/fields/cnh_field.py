@@ -14,3 +14,5 @@ class CNH(BaseDigits):
 
     format = "cnh"
     Validator = CNHValidator
+    mask = {"required": False, "format": None}
+    examples = ["00000000000"]

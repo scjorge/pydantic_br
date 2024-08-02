@@ -18,7 +18,9 @@ class Basev1(BaseFieldClass):
 
     @classmethod
     def __modify_schema__(cls, field_schema: Dict[str, Any]) -> None:
-        field_schema.update(type="string", format=cls.format)
+        field_schema.update(
+            type="string", format=cls.format, mask=cls.mask, example=cls.examples
+        )
 
     @classmethod
     def __get_validators__(cls) -> CallableGenerator:

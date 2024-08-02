@@ -14,11 +14,15 @@ class Certidao(Base):
 
     Attributes:
         number (str): Certidao number.
-
     """
 
     format = "certidao"
     Validator = CertidaoValidator
+    mask = {"required": False, "format": "XXXXXX.XX.XX.XXXX.X.XXXXX.XXX.XXXXXXX-XX"}
+    examples = [
+        "00000000000000000000000000000000",
+        "000000.00.00.0000.0.00000.000.0000000-00",
+    ]
 
 
 class CertidaoMask(BaseMask):
@@ -31,6 +35,8 @@ class CertidaoMask(BaseMask):
 
     format = "certidao"
     Validator = CertidaoValidator
+    mask = {"required": True, "format": "XXXXXX.XX.XX.XXXX.X.XXXXX.XXX.XXXXXXX-XX"}
+    examples = ["000000.00.00.0000.0.00000.000.0000000-00"]
 
 
 class CertidaoDigits(BaseDigits):
@@ -43,3 +49,5 @@ class CertidaoDigits(BaseDigits):
 
     format = "certidao"
     Validator = CertidaoValidator
+    mask = {"required": False, "format": None}
+    examples = ["00000000000000000000000000000000"]

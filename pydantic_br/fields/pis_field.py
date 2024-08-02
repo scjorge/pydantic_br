@@ -14,11 +14,12 @@ class PIS(Base):
 
     Attributes:
         number (str): PIS number.
-
     """
 
     format = "pis"
     Validator = PISValidator
+    mask = {"required": False, "format": "XXX.XXXXX.XX-X"}
+    examples = ["00000000000", "000.00000.00-0"]
 
 
 class PISMask(BaseMask):
@@ -31,6 +32,8 @@ class PISMask(BaseMask):
 
     format = "pis mask"
     Validator = PISValidator
+    mask = {"required": True, "format": "XXX.XXXXX.XX-X"}
+    examples = ["000.00000.00-0"]
 
 
 class PISDigits(BaseDigits):
@@ -43,3 +46,5 @@ class PISDigits(BaseDigits):
 
     format = "pis digits"
     Validator = PISValidator
+    mask = {"required": False, "format": None}
+    examples = ["00000000000"]
