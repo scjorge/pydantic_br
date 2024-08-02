@@ -6,10 +6,9 @@ __all__ = ["PlacaVeiculo"]
 
 class PlacaVeiculo(Base):
     """
-    Accepts string of PlacaVeiculo
+    Placa veicular
 
-    Attributes:
-        number (str): PlacaVeiculo number.
+    Exemplos: 'ABC0000' ou 'ABC0D00'
     """
 
     format = "placa_veiculo"

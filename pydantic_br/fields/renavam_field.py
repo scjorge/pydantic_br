@@ -6,10 +6,9 @@ __all__ = ["RENAVAM"]
 
 class RENAVAM(BaseDigits):
     """
-    Only Accepts string of RENAVAM with digits.
+    Registro Nacional de Veículos Automotores
 
-    Attributes:
-        number (str): RENAVAM number.
+    Exemplos: '00000000000'
     """
 
     format = "renavam"

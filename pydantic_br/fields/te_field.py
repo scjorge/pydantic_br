@@ -6,10 +6,9 @@ __all__ = ["TE"]
 
 class TE(BaseDigits):
     """
-    Only Accepts string of TE with digits.
+    Título Eleitoral
 
-    Attributes:
-        number (str): TE number.
+    Exemplos: '000000000000'
     """
 
     format = "te"

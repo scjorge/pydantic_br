@@ -10,10 +10,9 @@ __all__ = [
 
 class CNPJ(Base):
     """
-    Accepts string of CNPJ with or without mask.
+    Cadastro Nacional de Pessoas Jurídicas
 
-    Attributes:
-        number (str): CNPJ number.
+    Exemplos: '00000000000000' ou '00.000.000/0000-00'
     """
 
     format = "cnpj"
@@ -24,10 +23,9 @@ class CNPJ(Base):
 
 class CNPJMask(BaseMask):
     """
-    Only Accepts string of CNPJ with mask.
+    Cadastro Nacional de Pessoas Jurídicas
 
-    Attributes:
-        number (str): CNPJ number.
+    Exemplos: '00.000.000/0000-00'
     """
 
     format = "cnpj"
@@ -38,10 +36,9 @@ class CNPJMask(BaseMask):
 
 class CNPJDigits(BaseDigits):
     """
-    Only Accepts string of CNPJ with digits.
+    Cadastro Nacional de Pessoas Jurídicas
 
-    Attributes:
-        number (str): CNPJ number.
+    Exemplos: '00000000000000'
     """
 
     format = "cnpj"

@@ -6,10 +6,9 @@ __all__ = ["CNH"]
 
 class CNH(BaseDigits):
     """
-    Only Accepts string of CNH with digits.
+    Carteira Nacional de Habilitação
 
-    Attributes:
-        number (str): CNH number.
+    Exemplos: '00000000000'
     """
 
     format = "cnh"

@@ -6,10 +6,9 @@ __all__ = ["CNS"]
 
 class CNS(BaseDigits):
     """
-    Only Accepts string of CNS with digits.
+    Cartão Nacional de Saúde
 
-    Attributes:
-        number (str): CNS number.
+    Exemplos: '000000000000000'
     """
 
     format = "cns"

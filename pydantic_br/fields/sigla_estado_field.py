@@ -6,10 +6,9 @@ __all__ = ["SiglaEstado"]
 
 class SiglaEstado(Base):
     """
-    Only Accepts string of SiglaEstado with digits.
+    Sigla do Estado
 
-    Attributes:
-        number (str): SiglaEstado number.
+    Exemplos: 'SP'
     """
 
     format = "sigla_estado"

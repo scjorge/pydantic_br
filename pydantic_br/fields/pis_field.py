@@ -10,10 +10,9 @@ __all__ = [
 
 class PIS(Base):
     """
-    Accepts string of PIS with or without mask.
+    Programa de Integração Social
 
-    Attributes:
-        number (str): PIS number.
+    Exemplos: '00000000000' ou '000.00000.00-0'
     """
 
     format = "pis"
@@ -24,10 +23,9 @@ class PIS(Base):
 
 class PISMask(BaseMask):
     """
-    Only Accepts string of PIS with mask.
+    Programa de Integração Social
 
-    Attributes:
-        number (str): PIS number.
+    Exemplos: '000.00000.00-0'
     """
 
     format = "pis mask"
@@ -38,10 +36,9 @@ class PISMask(BaseMask):
 
 class PISDigits(BaseDigits):
     """
-    Only Accepts string of PIS with digits.
+    Programa de Integração Social
 
-    Attributes:
-        number (str): PIS number.
+    Exemplos: '00000000000'
     """
 
     format = "pis digits"

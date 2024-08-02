@@ -10,10 +10,9 @@ __all__ = [
 
 class CPF(Base):
     """
-    Accepts string of CPF with or without mask.
+    Cadastro de Pessoa Física
 
-    Attributes:
-        number (str): CPF number.
+    Exemplos: '00000000000' ou '000.000.000-00'
     """
 
     format = "cpf"
@@ -24,10 +23,9 @@ class CPF(Base):
 
 class CPFMask(BaseMask):
     """
-    Only Accepts string of CPF with mask.
+    Cadastro de Pessoa Física
 
-    Attributes:
-        number (str): CPF number.
+    Exemplos: '000.000.000-00'
     """
 
     format = "cpf mask"
@@ -38,10 +36,9 @@ class CPFMask(BaseMask):
 
 class CPFDigits(BaseDigits):
     """
-    Only Accepts string of CPF with digits.
+    Cadastro de Pessoa Física
 
-    Attributes:
-        number (str): CPF number.
+    Exemplos: '00000000000'
     """
 
     format = "cpf digits"

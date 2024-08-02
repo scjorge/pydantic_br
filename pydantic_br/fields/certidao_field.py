@@ -10,10 +10,9 @@ __all__ = [
 
 class Certidao(Base):
     """
-    Accepts string of Certidao with or without mask.
+    Certidão
 
-    Attributes:
-        number (str): Certidao number.
+    Exemplos: '00000000000000000000000000000000' ou '000000.00.00.0000.0.00000.000.0000000-00'
     """
 
     format = "certidao"
@@ -27,10 +26,9 @@ class Certidao(Base):
 
 class CertidaoMask(BaseMask):
     """
-    Only Accepts string of Certidao with mask.
+    Certidão
 
-    Attributes:
-        number (str): Certidao number.
+    Exemplos: '000000.00.00.0000.0.00000.000.0000000-00'
     """
 
     format = "certidao"
@@ -41,10 +39,9 @@ class CertidaoMask(BaseMask):
 
 class CertidaoDigits(BaseDigits):
     """
-    Only Accepts string of Certidao with digits.
+    Certidão
 
-    Attributes:
-        number (str): Certidao number.
+    Exemplos: '00000000000000000000000000000000'
     """
 
     format = "certidao"

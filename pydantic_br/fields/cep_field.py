@@ -10,10 +10,9 @@ __all__ = [
 
 class CEP(Base):
     """
-    Only Accepts string of CEP.
+    Código de Endereçamento Postal
 
-    Attributes:
-        number (str): CEP number.
+    Exemplos: '00000000' ou '00000-000'
     """
 
     format = "cep"
@@ -24,10 +23,9 @@ class CEP(Base):
 
 class CEPMask(BaseMask):
     """
-    Only Accepts string of CEP with mask.
+    Código de Endereçamento Postal
 
-    Attributes:
-        number (str): CEP number.
+    Exemplos: '00000-000'
     """
 
     format = "cep"
@@ -38,10 +36,9 @@ class CEPMask(BaseMask):
 
 class CEPDigits(BaseDigits):
     """
-    Only Accepts string of CEP without mask.
+    Código de Endereçamento Postal
 
-    Attributes:
-        number (str): CEP number.
+    Exemplos: '00000000'
     """
 
     format = "cep"
