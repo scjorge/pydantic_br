@@ -39,5 +39,5 @@ Descrições detalhadas [aqui](usage/descriptions.md).
 | CEP | Endereços  | Código de Endereçamento Postal | RegExr | Concluído
 | SiglaEstado | Endereços  | Sigla oficial do Estado Brasileiro  | RegExr | Concluído
 | RENAVAM | Veículos | Registro Nacional de Veículos Automotores | Digito Verificador | Concluído
-| PLACA | Veículos | Placa do Veículo | RegExr | Em desenvolvimento
+| PlacaVeiculo | Veículos | Placa do Veículo | RegExr | Concluído
 | ISBN | Livros | Padrão Internacional de Numeração de Livro | Digito Verificador | Em desenvolvimento

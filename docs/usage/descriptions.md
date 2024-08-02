@@ -170,3 +170,12 @@ O Registro Nacional de Veículos Automotores (RENAVAM) é um sistema desenvolvid
 [`RENAVAM`](../field_types/#renavam):
 
 Aceita uma `string` com o número do RENAVAM Ex: 97926526793, 62533119251
+
+
+PlacaVeiculo
+
+Uma placa de identificação (português brasileiro) ou matrícula (português europeu) de veículos é uma chapa de metal ou plástico afixada a um automóvel ou atrelado com o fim da sua identificação oficial. Cada uma destas placas é chamada oficialmente no Brasil placa de identificação de veículos e em Portugal chapa de matrícula de veículos automóveis.
+
+[`PlacaVeiculo`](../field_types/#placaveiculo):
+
+Aceita uma `string`  a Placa do Carro no padrão antigo ou no padrão Mercosul Ex: 97926526793, 62533119251
