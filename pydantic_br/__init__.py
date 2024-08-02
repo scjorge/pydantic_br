@@ -10,3 +10,4 @@ from .fields.cpf_field import *
 from .fields.pis_field import *
 from .fields.te_field import *
 from .fields.sigla_estado_field import *
+from .fields.renavam_field import *

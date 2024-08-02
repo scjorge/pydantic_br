@@ -38,6 +38,6 @@ Descrições detalhadas [aqui](usage/descriptions.md).
 | CNPJ | Pessoa Jurídica | Carteira Nacional de Pessoas Jurídicas | Digito Verificador | Concluído
 | CEP | Endereços  | Código de Endereçamento Postal | RegExr | Concluído
 | SiglaEstado | Endereços  | Sigla oficial do Estado Brasileiro  | RegExr | Concluído
-| RENAVAM | Veículos | Registro Nacional de Veículos Automotores | RegExr | Em desenvolvimento
+| RENAVAM | Veículos | Registro Nacional de Veículos Automotores | Digito Verificador | Concluído
 | PLACA | Veículos | Placa do Veículo | RegExr | Em desenvolvimento
 | ISBN | Livros | Padrão Internacional de Numeração de Livro | Digito Verificador | Em desenvolvimento

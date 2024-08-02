@@ -598,3 +598,31 @@ print(endereco.dict())
 print(endereco.schema())
 # > {'properties': {'cep': {'format': 'cep', 'title': 'Cep', 'type': 'string'}, 'estado': {'format': 'sigla_estado', 'title': 'Estado', 'type': 'string'}}, 'required': ['cep', 'estado'], 'title': 'Endereco', 'type': 'object'}
 ```
+
+
+## Veículos
+### RENAVAM
+
+Aceita apenas o número do RENAVAM
+```{.py3 linenums=1}
+from pydantic import BaseModel
+
+from pydantic_br import RENAVAM
+
+
+class Carro(BaseModel):
+    ano: str
+    renavam: RENAVAM
+
+
+c1 = Carro(ano="2024", renavam="97926526793")
+
+print(c1)
+# > ano='2024' renavam='97926526793'
+
+print(c1.dict())
+# > {'ano': '2024', 'renavam': '97926526793'}
+
+print(c1.schema())
+# > {'properties': {'ano': {'title': 'Ano', 'type': 'string'}, 'renavam': {'format': 'renavam', 'title': 'Renavam', 'type': 'string'}}, 'required': ['ano', 'renavam'], 'title': 'Carro', 'type': 'object'}
+```

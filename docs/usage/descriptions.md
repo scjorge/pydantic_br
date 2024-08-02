@@ -157,3 +157,16 @@ Cada uma das 27 unidades federativas do Brasil é representada por uma sigla de 
 [`SiglaEstado`](../field_types/#siglaestado):
 
 Aceita uma `string` de dois digitos do estado. Ex: AC, DF
+
+
+---
+
+## Veículos
+
+RENAVAM
+
+O Registro Nacional de Veículos Automotores (RENAVAM) é um sistema desenvolvido pelo Serpro que cobre todo o Brasil, tendo como principal finalidade o registro de todos os veículos do país, efetuados pelas unidades do Detran em cada estado, e centralizados pela unidade central, o Denatran.
+
+[`RENAVAM`](../field_types/#renavam):
+
+Aceita uma `string` com o número do RENAVAM Ex: 97926526793, 62533119251
