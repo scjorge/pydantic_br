@@ -35,7 +35,8 @@ class CNPJValidator(FieldMaskValidator):
         second_digit = self._validate_second_digit()
 
         return (
-            self.cnpj_alphanumeric[12] == first_digit and self.cnpj_alphanumeric[13] == second_digit
+            self.cnpj_alphanumeric[12] == first_digit
+            and self.cnpj_alphanumeric[13] == second_digit
         )
 
     def generate_cnpj(self, mask: bool = True, alphanumeric: bool = True) -> str:

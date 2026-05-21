@@ -13,6 +13,7 @@ class FieldValidator(ABC):
     def _get_alphanumeric(self, value: str) -> str:
         return "".join(filter(str.isalnum, str(value).upper()))
 
+
 class FieldMaskValidator(FieldValidator):
     @abstractmethod
     def validate_mask(self):
