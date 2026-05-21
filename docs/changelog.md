@@ -1,3 +1,8 @@
+## v1.2.0 (2026-05-21)
+- adicionado validação para CNPJ de acordo com a nova regra (RFB Nota Técnica Conjunta COCAD/SUARA/RFB nº 49/2024)
+- corrige validação com máscaras em posições erradas ou faltantes
+- normaliza mensagens de erro
+
 ## v1.1.0 (2024-08-02)
 - adicionado campo CEP
 - adicionado campo SiglaEstado
