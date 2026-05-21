@@ -4,16 +4,33 @@
     <img src="https://raw.githubusercontent.com/scjorge/pydantic_br/master/docs/assets/logo.png" width='200'/>
 </p>
 
-<div align="center">
+<center>
+    <p>
+        <a href="https://github.com/scjorge/pydantic_br/actions">
+            <img src="https://github.com/scjorge/pydantic_br/workflows/CI/badge.svg?event=push"/>
+        </a>
 
-[![CI](https://github.com/scjorge/pydantic_br/workflows/CI/badge.svg?event=push)](https://github.com/scjorge/pydantic_br/actions)
-[![codecov](https://codecov.io/gh/scjorge/pydantic_br/branch/master/graph/badge.svg?token=1XVEXSBU69)](https://codecov.io/gh/scjorge/pydantic_br)
-[![pypi](https://img.shields.io/pypi/v/pydantic-br)](https://pypi.org/project/pydantic-br/)
-[![pypi](https://img.shields.io/pypi/pyversions/pydantic-br)](https://pypi.org/project/pydantic-br/)
-[![license](https://img.shields.io/pypi/l/pydantic-br)](https://github.com/scjorge/pydantic_br/blob/master/LICENSE)
-[![downloads](https://img.shields.io/pypi/dm/pydantic-br)](https://pypi.org/project/pydantic-br/)
+        <a href="https://codecov.io/gh/scjorge/pydantic_br">
+            <img src="https://codecov.io/gh/scjorge/pydantic_br/branch/master/graph/badge.svg?token=1XVEXSBU69"/>
+        </a>
 
-</div>
+        <a href="https://pypi.org/project/pydantic-br/">
+            <img src="https://img.shields.io/pypi/v/pydantic-br"/>
+        </a>
+
+        <a href="https://pypi.org/project/pydantic-br/">
+            <img src="https://img.shields.io/pypi/pyversions/pydantic-br"/>
+        </a>
+
+        <a href="https://github.com/scjorge/pydantic_br/blob/master/LICENSE">
+            <img src="https://img.shields.io/pypi/l/pydantic-br"/>
+        </a>
+
+        <a href="https://pepy.tech/project/pydantic-br">
+            <img src="https://pepy.tech/badge/pydantic-br/month"/>
+        </a>
+    </p>
+</center>
 
 ---
 

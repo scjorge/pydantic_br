@@ -30,12 +30,12 @@ pydantic = "^2.8.2"
 
 
 [tool.poetry.group.doc.dependencies]
-mkdocs = "^1.6.0"
-mkdocs-material = "^9.5.30"
-mkdocs-git-revision-date-plugin = "^0.3.2"
-pymdown-extensions = "^10.9"
-mkdocstrings = { version = "^0.29.0", python = ">=3.9" }
-mkdocstrings-python = { version = "^1.10.0", python = ">=3.9" }
+mkdocs = "^1.5.3"
+mkdocs-material = "^9.5.18"
+mkdocstrings = "^0.24.0"
+mkdocstrings-python = "^1.7.5"
+mkdocs-autorefs = "^0.5.0"
+pymdown-extensions = "^10.7"
 
 
 [tool.poetry.group.lint.dependencies]
