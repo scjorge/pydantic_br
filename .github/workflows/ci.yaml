@@ -25,7 +25,10 @@ jobs:
           python-version: '3.11'
 
       - name: Install Poetry
-        uses: Gr1N/setup-poetry@v8
+        uses: snok/install-poetry@v1
+        with:
+            version: 1.8.5
+            virtualenvs-create: false
       
       - name: Deactivate virtal env Poetry
         run: poetry config virtualenvs.create false
