@@ -26,6 +26,13 @@ cert_mock = [
     "227661.01.55.2016.3.75666.358.8761011-78",
 ]
 
+cert_wrong_mask_mock = [
+    "280069,01.55.2010.3.01333.550.2373663-34",
+    "160119.01552012.3.04302.554.893602083",
+    "223563.01:55.2015.3.48816.989.1508097-13",
+    "2718690155.2010.3.96524.4319032797A29",
+]
+
 
 def cert_digits():
     cert_numbers = [re.sub("[^0-9]", "", str(cert)) for cert in cert_mock]
@@ -39,6 +46,9 @@ def cert_mask():
 
 def cert_mixed():
     return cert_digits() + cert_mask()
+
+def cert_wrong_mask():
+    return cert_wrong_mask_mock
 
 
 @pytest.fixture
@@ -155,4 +165,11 @@ def test_must_fail_when_use_digits_count_below_certs(person, cert):
 def test_must_fail_when_use_sequecial_digits(person, certidao):
     with pytest.raises(ValidationError) as e:
         person(cert=certidao)
+    assert FieldInvalidError.msg_template in str(e.value)
+
+
+@pytest.mark.parametrize("cert", cert_wrong_mask_mock)
+def test_must_fail_when_use_incomplete_mask(person, cert):
+    with pytest.raises(ValidationError) as e:
+        person(cert=cert)
     assert FieldInvalidError.msg_template in str(e.value)

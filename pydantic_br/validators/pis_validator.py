@@ -19,6 +19,9 @@ class PISValidator(FieldMaskValidator):
         return False
 
     def validate(self) -> bool:
+        if any(not c.isdigit() for c in self.pis) and not self.validate_mask():
+            return False
+
         pis = [int(n) for n in list(self.pis_digits)]
 
         if len(set(pis)) == 1:

@@ -22,6 +22,9 @@ class CPFValidator(FieldMaskValidator):
         if len(cpf) != 11 or len(set(cpf)) == 1:
             return False
 
+        if any(not c.isdigit() for c in self.cpf) and not self.validate_mask():
+            return False
+
         first_digit = self._validate_first_digit(cpf)
         second_digit = self._validate_second_digit(cpf)
         return cpf[9] == first_digit and cpf[10] == second_digit

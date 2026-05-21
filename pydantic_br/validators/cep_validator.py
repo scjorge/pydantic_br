@@ -17,6 +17,9 @@ class CEPValidator(FieldMaskValidator):
         return False
 
     def validate(self) -> bool:
+        if any(not c.isdigit() for c in self.cep) and not self.validate_mask():
+            return False
+
         cep_ranges = [
             ("AC", "69900-000", "69999-999"),
             ("AL", "57000-000", "57999-999"),

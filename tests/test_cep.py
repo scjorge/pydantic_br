@@ -31,14 +31,15 @@ def cep_digits():
     cep_numbers = [re.sub("[^0-9]", "", str(cep)) for cep in cep_mock]
     return cep_numbers
 
-
 def cep_mask():
     cep_numbers = cep_mock
     return cep_numbers
 
-
 def cep_mixed():
     return cep_digits() + cep_mask()
+
+def cep_wrong_mask():
+    return [cep.replace("-", ",") for cep in cep_mask()]
 
 
 @pytest.fixture
@@ -134,4 +135,11 @@ def test_must_fail_when_use_digits_count_above_ceps(person, cep):
 def test_must_fail_when_use_digits_count_below_ceps(person, cep):
     with pytest.raises(ValidationError) as e:
         person(cep=cep[:5])
+    assert FieldInvalidError.msg_template in str(e.value)
+
+
+@pytest.mark.parametrize("cep", cep_wrong_mask())
+def test_must_fail_when_use_incomplete_mask(person, cep):
+    with pytest.raises(ValidationError) as e:
+        person(cep=cep)
     assert FieldInvalidError.msg_template in str(e.value)

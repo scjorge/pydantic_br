@@ -26,6 +26,13 @@ pis_mock = [
     "780.39614.96-0",
 ]
 
+pis_wrong_mask_mock = [
+    "375.98347-21-5",
+    "754.35011,66-0",
+    "603.48898.332",
+    "6964214152-2",
+]
+
 
 def pis_digits():
     pis_numbers = [re.sub("[^0-9]", "", str(pis)) for pis in pis_mock]
@@ -153,6 +160,13 @@ def test_must_fail_when_use_digits_count_below_piss(person, pis):
     ],
 )
 def test_must_fail_when_use_sequecial_digits(person, pis):
+    with pytest.raises(ValidationError) as e:
+        person(pis=pis)
+    assert FieldInvalidError.msg_template in str(e.value)
+
+
+@pytest.mark.parametrize("pis", pis_wrong_mask_mock)
+def test_must_fail_when_use_incomplete_mask(person, pis):
     with pytest.raises(ValidationError) as e:
         person(pis=pis)
     assert FieldInvalidError.msg_template in str(e.value)

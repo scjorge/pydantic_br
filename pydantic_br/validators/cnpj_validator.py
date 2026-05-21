@@ -28,9 +28,8 @@ class CNPJValidator(FieldMaskValidator):
         if len(self.cnpj_alphanumeric) != 14:
             return False
 
-        if any(not c.isalnum() for c in self.cnpj):
-            if not self.validate_mask():
-                return False
+        if any(not c.isalnum() for c in self.cnpj) and not self.validate_mask():
+            return False
 
         first_digit = self._validate_first_digit()
         second_digit = self._validate_second_digit()

@@ -29,6 +29,9 @@ class CertidaoValidator(FieldMaskValidator):
         if len(set(self.certidao_digits)) == 1 or len(self.certidao_digits) != 32:
             return False
 
+        if any(not c.isdigit() for c in self.certidao) and not self.validate_mask():
+            return False
+
         num = list(self.certidao_digits[:-2])
         dv = self.certidao_digits[-2:]
 

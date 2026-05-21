@@ -37,7 +37,7 @@ def cnpj_mask():
 def cnpj_mixed():
     return cnpj_alpha() + cnpj_alpha_mask() + cnpj_digits() + cnpj_mask()
 
-def cnpj_mixed_incomplete():
+def cnpj_wrong_mask():
     cnpjs = cnpj_alpha_mask() + cnpj_mask()
     return [cnpj.replace("/", "-") for cnpj in cnpjs]
 
@@ -132,7 +132,7 @@ def test_must_fail_when_use_digits_cont_below_cnpjs(company, cnpj):
     assert FieldInvalidError.msg_template in str(e.value)
 
 
-@pytest.mark.parametrize("cnpj", cnpj_mixed_incomplete())
+@pytest.mark.parametrize("cnpj", cnpj_wrong_mask())
 def test_must_fail_when_use_incomplete_mask(company, cnpj):
     with pytest.raises(ValidationError) as e:
         company(cnpj=cnpj)

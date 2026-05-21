@@ -22,16 +22,17 @@ def cpf_digits():
     cpfs = [re.sub("[^0-9]", "", fake.cpf()) for _ in range(TOTAL_CPF)]
     return cpfs
 
-
 def cpf_mask():
     cpfs = [fake.cpf() for _ in range(TOTAL_CPF)]
     return cpfs
 
-
 def cpf_mixed():
-    cpfs = [fake.cpf() for _ in range(int(TOTAL_CPF / 2))]
-    cpfs += [re.sub("[^0-9]", "", fake.cpf()) for _ in range(int(TOTAL_CPF / 2))]
-    return cpfs
+    return cpf_digits() + cpf_mask()
+
+def cpf_wrong_mask():
+    return [cpf.replace(".", "-") for cpf in cpf_mask()]
+
+
 
 
 @pytest.fixture
@@ -146,6 +147,13 @@ def test_must_fail_when_use_digits_count_below_cpfs(person, cpf):
     ],
 )
 def test_must_fail_when_use_sequecial_digits(person, cpf):
+    with pytest.raises(ValidationError) as e:
+        person(cpf=cpf)
+    assert FieldInvalidError.msg_template in str(e.value)
+
+
+@pytest.mark.parametrize("cpf", cpf_wrong_mask())
+def test_must_fail_when_use_incomplete_mask(person, cpf):
     with pytest.raises(ValidationError) as e:
         person(cpf=cpf)
     assert FieldInvalidError.msg_template in str(e.value)
