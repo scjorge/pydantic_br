@@ -25,19 +25,19 @@ class FieldTypeError:
 
 class FieldMaskError:
     code = "invalid_mask"
-    msg_template = "invalid mask format"
+    msg_template = "Invalid mask format"
     message_template = msg_template
 
 
 class FieldDigitError:
     code = "not_digits"
-    msg_template = "field only accept digits as string"
+    msg_template = "Field only accept digits as string"
     message_template = msg_template
 
 
 class FieldInvalidError:
     code = "invalid_data"
-    msg_template = "invalid data"
+    msg_template = "Invalid data"
     message_template = msg_template
 
 
