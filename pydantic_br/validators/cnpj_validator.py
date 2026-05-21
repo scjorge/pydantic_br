@@ -1,5 +1,6 @@
 import random
 import string
+from typing import List
 
 from .base_validator import FieldMaskValidator
 
@@ -40,7 +41,7 @@ class CNPJValidator(FieldMaskValidator):
         )
 
     def generate_cnpj(self, mask: bool = True, alphanumeric: bool = True) -> str:
-        def calculate_digit(base: str, weights: list[int]) -> str:
+        def calculate_digit(base: str, weights: List[int]) -> str:
             total = 0
 
             for i in range(len(weights)):
