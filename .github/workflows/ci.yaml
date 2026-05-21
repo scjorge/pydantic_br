@@ -25,11 +25,10 @@ jobs:
           python-version: '3.11'
 
       - name: Install Poetry
-        uses: snok/install-poetry@v1
-        with:
-            version: 1.8.5
-            virtualenvs-create: false
-      
+        run: |
+            python -m pip install --upgrade pip
+            pip install poetry==1.8.5
+
       - name: Deactivate virtal env Poetry
         run: poetry config virtualenvs.create false
 
@@ -69,10 +68,12 @@ jobs:
         python-version: ${{ matrix.python-version }}
 
     - name: Install Poetry
-      uses: snok/install-poetry@v1
-      with:
-          version: 1.8.5
-          virtualenvs-create: false
+      run: |
+          python -m pip install --upgrade pip
+          pip install poetry==1.8.5
+
+    - name: Deactivate virtal env Poetry
+      run: poetry config virtualenvs.create false
 
     - name: Install dependencies
       run: poetry install --only test
