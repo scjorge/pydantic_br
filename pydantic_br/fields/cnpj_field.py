@@ -17,7 +17,7 @@ class CNPJ(Base):
 
     format = "cnpj"
     Validator = CNPJValidator
-    mask = {"required": False, "format": "XX.XXX.XXX/XXXXX-XX"}
+    mask = {"required": False, "format": "SS.SSS.SSS/SSSS-NN"}
     examples = ["00000000000000", "00.000.000/0000-00"]
 
 
@@ -30,7 +30,7 @@ class CNPJMask(BaseMask):
 
     format = "cnpj"
     Validator = CNPJValidator
-    mask = {"required": True, "format": "XX.XXX.XXX/XXXXX-XX"}
+    mask = {"required": True, "format": "SS.SSS.SSS/SSSS-NN"}
     examples = ["00.000.000/0000-00"]
 
 

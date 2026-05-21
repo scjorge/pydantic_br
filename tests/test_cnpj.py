@@ -16,22 +16,30 @@ from pydantic_br import (
 
 TOTAL_CNPJ = 10
 fake = Faker("pt-BR")
+validator = CNPJ.Validator("")
 
+def cnpj_alpha():
+    cnpjs_alpha = [validator.generate_cnpj(mask=False, alphanumeric=True) for _ in range(TOTAL_CNPJ)]
+    return cnpjs_alpha
+
+def cnpj_alpha_mask():
+    cnpjs_alpha = [validator.generate_cnpj(mask=True, alphanumeric=True) for _ in range(TOTAL_CNPJ)]
+    return cnpjs_alpha
 
 def cnpj_digits():
     cnpjs = [re.sub("[^0-9]", "", fake.cnpj()) for _ in range(TOTAL_CNPJ)]
     return cnpjs
 
-
 def cnpj_mask():
     cnpjs = [fake.cnpj() for _ in range(TOTAL_CNPJ)]
-    return cnpjs
-
+    return cnpj_alpha_mask() + cnpjs
 
 def cnpj_mixed():
-    cnpjs = [fake.cnpj() for _ in range(int(TOTAL_CNPJ / 2))]
-    cnpjs += [re.sub("[^0-9]", "", fake.cnpj()) for _ in range(int(TOTAL_CNPJ / 2))]
-    return cnpjs
+    return cnpj_alpha() + cnpj_alpha_mask() + cnpj_digits() + cnpj_mask()
+
+def cnpj_mixed_incomplete():
+    cnpjs = cnpj_alpha_mask() + cnpj_mask()
+    return [cnpj.replace("/", "-") for cnpj in cnpjs]
 
 
 @pytest.fixture
@@ -61,12 +69,6 @@ def company_digits():
 @pytest.mark.parametrize("cnpj", cnpj_mixed())
 def test_must_be_string(company, cnpj):
     c1 = company(cnpj=cnpj)
-    assert isinstance(c1.cnpj, str)
-
-
-@pytest.mark.parametrize("cnpj", cnpj_mask())
-def test_mascara_must_be_string(company_masks, cnpj):
-    c1 = company_masks(cnpj=cnpj)
     assert isinstance(c1.cnpj, str)
 
 
@@ -105,7 +107,7 @@ def test_must_fail_when_use_mask_in_digits_class(company_digits, cnpj):
 @pytest.mark.parametrize("cnpj", cnpj_digits())
 def test_must_fail_when_use_another_type(company_digits, cnpj):
     with pytest.raises(ValidationError) as e:
-        company_digits(cnpj=int(cnpj))
+        company_digits(cnpj=list(cnpj))
     assert FieldTypeError.msg_template in str(e.value)
 
 
@@ -127,4 +129,11 @@ def test_must_fail_when_use_digits_cont_above_cnpjs(company, cnpj):
 def test_must_fail_when_use_digits_cont_below_cnpjs(company, cnpj):
     with pytest.raises(ValidationError) as e:
         company(cnpj=cnpj[:5])
+    assert FieldInvalidError.msg_template in str(e.value)
+
+
+@pytest.mark.parametrize("cnpj", cnpj_mixed_incomplete())
+def test_must_fail_when_use_incomplete_mask(company, cnpj):
+    with pytest.raises(ValidationError) as e:
+        company(cnpj=cnpj)
     assert FieldInvalidError.msg_template in str(e.value)
