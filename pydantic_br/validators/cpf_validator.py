@@ -30,27 +30,27 @@ class CPFValidator(FieldMaskValidator):
         return cpf[9] == first_digit and cpf[10] == second_digit
 
     def _validate_first_digit(self, cpf: str) -> str:
-        sum = 0
+        total = 0
 
         for i in range(10, 1, -1):
-            sum += int(cpf[10 - i]) * i
+            total += int(cpf[10 - i]) * i
 
-        sum = (sum * 10) % 11
+        total = (total * 10) % 11
 
-        if sum == 10:
-            sum = 0
+        if total == 10:
+            total = 0
 
-        return str(sum)
+        return str(total)
 
     def _validate_second_digit(self, cpf: str) -> str:
-        sum = 0
+        total = 0
 
         for i in range(11, 1, -1):
-            sum += int(cpf[11 - i]) * i
+            total += int(cpf[11 - i]) * i
 
-        sum = (sum * 10) % 11
+        total = (total * 10) % 11
 
-        if sum == 10:
-            sum = 0
+        if total == 10:
+            total = 0
 
-        return str(sum)
+        return str(total)
