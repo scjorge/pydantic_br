@@ -46,6 +46,39 @@ def test_must_fail_when_use_digits_count_above_sigla_estado(endereco, sigla_esta
         endereco(sigla_estado=sigla_estado * 2)
     assert FieldInvalidError.msg_template in str(e.value)
 
+
 def test_there_must_be_27_values_in_siglas():
     """We only have 26 states and 1 federal district"""
     assert len(SIGLAS) == 27
+
+
+def test_siglas_is_has_all_correct_states():
+    assert SIGLAS == {
+        "AC",
+        "AL",
+        "AM",
+        "AP",
+        "BA",
+        "CE",
+        "DF",
+        "ES",
+        "GO",
+        "MA",
+        "MG",
+        "MS",
+        "MT",
+        "PA",
+        "PB",
+        "PE",
+        "PI",
+        "PR",
+        "RJ",
+        "RN",
+        "RO",
+        "RR",
+        "RS",
+        "SC",
+        "SE",
+        "SP",
+        "TO",
+    }
