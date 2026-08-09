@@ -45,3 +45,7 @@ def test_must_fail_when_use_digits_count_above_sigla_estado(endereco, sigla_esta
     with pytest.raises(ValidationError) as e:
         endereco(sigla_estado=sigla_estado * 2)
     assert FieldInvalidError.msg_template in str(e.value)
+
+def test_there_must_be_27_values_in_siglas():
+    """We only have 26 states and 1 federal district"""
+    assert len(SIGLAS) == 27
